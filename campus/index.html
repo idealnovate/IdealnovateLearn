@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Idealnovate Africa | Campus — Free Scholarship Bootcamps</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Idealnovate Africa Campus — home of the free UI/UX Design and Data Analysis scholarship bootcamps. 2 weeks. Beginner friendly. Certificate included. Apply now." />
+  <meta name="keywords" content="free bootcamp, UI UX design, data analysis, Africa, scholarship, Figma, Excel, Power BI, SQL, Idealnovate Africa" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Idealnovate Africa" />
+  <meta name="theme-color" content="#068276" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="../Pictures/Site Icon.jpg" />
+  <link rel="apple-touch-icon" href="../Pictures/Site Icon.jpg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Idealnovate Africa" />
+  <meta property="og:title" content="Idealnovate Africa | Campus — Free Scholarship Bootcamps" />
+  <meta property="og:description" content="One campus. Two career-launching scholarships. Free UI/UX Design and Data Analysis bootcamps for Africans." />
+  <meta property="og:image" content="../Pictures/Hero2.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Idealnovate Africa Campus" />
+  <meta name="twitter:description" content="Free UI/UX Design + Data Analysis scholarships. 2 weeks. Beginner-friendly. Apply now." />
+  <meta name="twitter:image" content="../Pictures/Hero2.jpg" />
+
+  <!-- DNS prefetch -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link rel="dns-prefetch" href="https://unpkg.com" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css" />
+
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="../Pictures/Hero2.jpg" />
+
+  <style>
+    /* ============================================================
+       PART 2 — DESIGN SYSTEM: CSS VARIABLES
+    ============================================================ */
+    :root {
+      --primary:        #068276;
+      --primary-dark:   #022c28;
+      --primary-mid:    #045c53;
+      --primary-light:  #0a9e90;
+      --accent:         #f4a85e;
+      --accent-dark:    #e08930;
+      --bg-base:        #f0fdf9;
+      --bg-dark:        #022c28;
+      --text-dark:      #0a0a0a;
+      --text-mid:       #3a3a3a;
+      --text-muted:     #6b7280;
+      --border:         #d1faf4;
+      --uiux-accent:    #a259ff;
+      --data-accent:    #217346;
+      --shadow-sm:      0 2px 12px rgba(6,130,118,0.08);
+      --shadow-md:      0 8px 32px rgba(6,130,118,0.13);
+      --shadow-lg:      0 20px 60px rgba(6,130,118,0.15);
+      --radius-sm:      8px;
+      --radius-md:      16px;
+      --radius-lg:      24px;
+      --radius-xl:      40px;
+      --transition:     0.3s cubic-bezier(0.4,0,0.2,1);
+      --font-heading:   'Montserrat', sans-serif;
+      --font-body:      'Jost', sans-serif;
+      --max-width:      1200px;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      overflow-x: clip;
+    }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background: var(--bg-base);
+      line-height: 1.7;
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: var(--primary); transition: color var(--transition); }
+    a:hover { color: var(--primary-light); }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; font-family: var(--font-body); }
+
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; }
+    h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); font-weight: 600; }
+    p  { font-size: 1.05rem; color: var(--text-mid); }
+
+    /* ============================================================
+       UTILITIES
+    ============================================================ */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section {
+      padding: 96px 0;
+      overflow-x: clip;
+    }
+    .text-center { text-align: center; }
+    .tag {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: rgba(6,130,118,0.1);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .divider {
+      width: 56px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      border-radius: 4px;
+      margin: 16px 0 24px;
+    }
+    .divider.center { margin-left: auto; margin-right: auto; }
+    .section-header { margin-bottom: 56px; }
+    .section-header.center { text-align: center; }
+    .section-header h2 { margin-top: 8px; color: var(--primary-dark); }
+    .section-header p { max-width: 600px; }
+    .section-header.center p { margin: 0 auto; }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: var(--radius-xl);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all var(--transition);
+      line-height: 1;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(6,130,118,0.35);
+    }
+    .btn-primary:hover {
+      background: var(--primary-mid);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(6,130,118,0.45);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .btn-secondary:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn-accent {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(244,168,94,0.35);
+    }
+    .btn-accent:hover {
+      background: var(--accent-dark);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn-white {
+      background: #fff;
+      color: var(--primary);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .btn-white:hover {
+      background: var(--bg-base);
+      color: var(--primary-mid);
+      transform: translateY(-2px);
+    }
+    .btn-lg { padding: 18px 40px; font-size: 1.05rem; }
+    .btn-uiux {
+      background: var(--uiux-accent);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(162,89,255,0.35);
+    }
+    .btn-uiux:hover {
+      background: #8c3ef7;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn-data {
+      background: var(--data-accent);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(33,115,70,0.35);
+    }
+    .btn-data:hover {
+      background: #185c38;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       BACK TO TOP
+    ============================================================ */
+    #back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 900;
+      background: var(--primary);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition), transform var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+    #back-to-top.visible { opacity: 1; pointer-events: auto; }
+    #back-to-top:hover { transform: translateY(-3px); background: var(--primary-mid); }
+
+    /* ============================================================
+       SECTION 1 — NAVBAR
+    ============================================================ */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow var(--transition), background var(--transition);
+    }
+    #navbar.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+      gap: 24px;
+    }
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.93rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition);
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+      background: rgba(6,130,118,0.07);
+    }
+    .nav-cta { display: flex; align-items: center; gap: 10px; }
+    .nav-cta .btn { padding: 10px 22px; font-size: 0.88rem; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      padding: 6px;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-dark);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 76px;
+      left: 0; right: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px 28px;
+      box-shadow: var(--shadow-md);
+      z-index: 999;
+      max-height: calc(100vh - 76px);
+      overflow-y: auto;
+    }
+    .mobile-nav.open { display: block; }
+    .mobile-nav a {
+      display: block;
+      padding: 12px 0;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .mobile-nav a:hover { color: var(--primary); }
+    .mobile-nav .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 20px;
+      padding: 14px 22px;
+      font-size: 1rem;
+      color: #fff;
+      border-bottom: none;
+      border-radius: var(--radius-md);
+      box-sizing: border-box;
+    }
+    .mobile-nav .btn:hover { color: #fff; }
+
+    /* ============================================================
+       SECTION 2 — COUNTDOWN BANNER
+    ============================================================ */
+    #countdown-banner {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      padding: 14px 0;
+      margin-top: 76px;
+      position: relative;
+      z-index: 10;
+    }
+    .countdown-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .countdown-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heading);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .countdown-label i { color: var(--accent); font-size: 1.05rem; }
+    .countdown-timer {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cd-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 8px;
+      padding: 8px 14px;
+      min-width: 56px;
+    }
+    .cd-num {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      transition: all 0.2s;
+    }
+    .cd-lbl {
+      font-size: 0.6rem;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 3px;
+    }
+    .cd-sep {
+      color: rgba(255,255,255,0.35);
+      font-size: 1.3rem;
+      font-weight: 700;
+      padding-bottom: 10px;
+      line-height: 1;
+    }
+    .countdown-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all var(--transition);
+    }
+    .countdown-cta:hover { background: var(--accent-dark); color: #fff; transform: translateY(-2px); }
+    .cd-pulse { animation: cdPulse 0.3s ease; }
+    @keyframes cdPulse {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.15); color: var(--accent); }
+      100% { transform: scale(1); }
+    }
+
+    /* ============================================================
+       SECTION 3 — HERO
+    ============================================================ */
+    #hero {
+      padding: 80px 0 96px;
+      background: linear-gradient(135deg, #f0fdf9 0%, #e8faf7 50%, #f5fffd 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 560px; height: 560px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(6,130,118,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 380px; height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244,168,94,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 64px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(6,130,118,0.1);
+      border: 1px solid rgba(6,130,118,0.2);
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .hero-badge span {
+      font-size: 0.7rem;
+      background: var(--primary);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 100px;
+    }
+    .hero-title {
+      margin-bottom: 20px;
+      color: var(--primary-dark);
+      line-height: 1.1;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--primary);
+    }
+    .hero-sub {
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .hero-avatars { display: flex; }
+    .hero-avatars img {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      object-fit: cover;
+      object-position: top center;
+      margin-left: -9px;
+    }
+    .hero-avatars img:first-child { margin-left: 0; }
+    .hero-trust strong { color: var(--primary-dark); }
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      background: rgba(6,130,118,0.08);
+      border: 1px solid rgba(6,130,118,0.15);
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+    .hero-chip i { color: var(--primary); font-size: 0.75rem; }
+
+    /* Hero right column */
+    .hero-image-wrap { position: relative; }
+    .hero-img-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-float-card {
+      position: absolute;
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+    }
+    .hero-float-card.card-1 { bottom: 60px; left: -40px; }
+    .hero-float-card.card-2 { top: 40px; right: -30px; }
+    .float-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 4px;
+    }
+    .float-value {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+    .float-sub { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* Track preview cards inside hero */
+    .hero-track-pills {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .track-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 100px;
+      letter-spacing: 0.02em;
+    }
+    .track-pill-uiux {
+      background: rgba(162,89,255,0.1);
+      color: var(--uiux-accent);
+      border: 1px solid rgba(162,89,255,0.25);
+    }
+    .track-pill-data {
+      background: rgba(33,115,70,0.1);
+      color: var(--data-accent);
+      border: 1px solid rgba(33,115,70,0.25);
+    }
+
+    /* ============================================================
+       SECTION 4 — INFO STRIP
+    ============================================================ */
+    #info-strip {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+    }
+    .info-strip-grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .info-strip-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 40px;
+      flex: 1;
+      justify-content: center;
+    }
+    .info-strip-item i {
+      font-size: 1.3rem;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+    .info-strip-item strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      line-height: 1.3;
+    }
+    .info-strip-item span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .info-strip-divider {
+      width: 1px;
+      height: 44px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       RESPONSIVE — PHASE 1 SECTIONS
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .hero-float-card.card-1 { left: -20px; }
+      .hero-float-card.card-2 { right: -10px; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+      #hero { padding: 56px 0 72px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-image-wrap { order: -1; max-width: 400px; margin: 0 auto; }
+      .hero-float-card.card-1 { left: 0; bottom: 40px; }
+      .hero-float-card.card-2 { right: 0; top: 20px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .hero-buttons { flex-direction: column; }
+      .btn-lg { width: 100%; justify-content: center; }
+      .hero-sub { max-width: 100%; }
+      .countdown-label span { display: none; }
+      .cd-unit { min-width: 46px; padding: 6px 10px; }
+      .cd-num { font-size: 1.2rem; }
+      .countdown-cta { font-size: 0.8rem; padding: 9px 16px; }
+      .countdown-inner { gap: 14px; }
+    }
+    @media (max-width: 680px) {
+      .info-strip-grid { flex-direction: column; gap: 16px; padding: 0 24px; }
+      .info-strip-item { padding: 0; justify-content: flex-start; width: 100%; }
+      .info-strip-divider { width: 100%; height: 1px; }
+    }
+    @media (max-width: 600px) {
+      .hero-track-pills { flex-direction: column; }
+      .hero-buttons { gap: 10px; }
+    }
+    @media (max-width: 480px) {
+      #hero { padding: 48px 0 64px; }
+      .hero-float-card { display: none; }
+    }
+    @media (max-width: 360px) {
+      .section { padding: 52px 0; }
+      #hero { padding: 40px 0 56px; }
+      .hero-buttons { gap: 8px; }
+      .btn-lg { padding: 14px 20px; font-size: 0.9rem; }
+      .cd-unit { min-width: 38px; padding: 4px 6px; }
+      .cd-num { font-size: 1rem; }
+      .countdown-cta { padding: 8px 12px; font-size: 0.75rem; }
+    }
+    @media (max-width: 320px) {
+      .container { padding: 0 16px; }
+      .hero-chips { gap: 6px; }
+      .hero-chip { font-size: 0.72rem; padding: 5px 10px; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     SECTION 1 — NAVBAR
+============================================================ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+
+      <a href="#hero" class="nav-logo" aria-label="Idealnovate Africa Campus Home">
+        <img src="../Pictures/Idealnovate Logo Dark.png" alt="Idealnovate Africa" />
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#programmes">Programmes</a></li>
+        <li><a href="#uiux-track">UI/UX Design</a></li>
+        <li><a href="#data-track">Data Analysis</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <button class="btn btn-primary open-modal" aria-haspopup="dialog">Enroll Now</button>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+  <a href="#programmes" class="mobile-link">Programmes</a>
+  <a href="#uiux-track"  class="mobile-link">UI/UX Design</a>
+  <a href="#data-track"  class="mobile-link">Data Analysis</a>
+  <a href="#community"   class="mobile-link">Community</a>
+  <a href="#faq"         class="mobile-link">FAQ</a>
+  <button class="btn btn-primary open-modal" style="border-radius:var(--radius-md)">Enroll Now</button>
+</div>
+
+<!-- ============================================================
+     SECTION 2 — COUNTDOWN BANNER
+============================================================ -->
+<div id="countdown-banner" role="alert" aria-live="polite">
+  <div class="container">
+    <div class="countdown-inner">
+      <div class="countdown-label">
+        <i class="fa-solid fa-fire" aria-hidden="true"></i>
+        <span>Admission closes in</span>
+      </div>
+      <div class="countdown-timer" role="timer" aria-label="Countdown to admission deadline">
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-days">01</span>
+          <span class="cd-lbl">Days</span>
+        </div>
+        <span class="cd-sep" aria-hidden="true">:</span>
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-hours">23</span>
+          <span class="cd-lbl">Hrs</span>
+        </div>
+        <span class="cd-sep" aria-hidden="true">:</span>
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-mins">59</span>
+          <span class="cd-lbl">Mins</span>
+        </div>
+        <span class="cd-sep" aria-hidden="true">:</span>
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-secs">59</span>
+          <span class="cd-lbl">Secs</span>
+        </div>
+      </div>
+      <button class="countdown-cta open-modal">
+        Secure Your Spot <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SECTION 3 — HERO
+============================================================ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Left — copy -->
+      <div data-aos="fade-right" data-aos-duration="800">
+
+        <div class="hero-badge">
+          <i class="fa-solid fa-star" style="color:var(--accent)" aria-hidden="true"></i>
+          <span>FREE</span> Scholarship Bootcamp — Limited Spots
+        </div>
+
+        <h1 class="hero-title">
+          One Campus.<br><em>Two Career-Launching</em> Scholarships.
+        </h1>
+
+        <p class="hero-sub">
+          Learn <strong>UI/UX Design</strong> or <strong>Data Analysis</strong> — 100% free,
+          beginner-friendly, mentor-led, and remote-ready. Your new career starts here.
+        </p>
+
+        <div class="hero-track-pills">
+          <span class="track-pill track-pill-uiux">
+            <i class="fa-solid fa-pen-ruler" aria-hidden="true"></i> UI/UX Design · Figma, FigJam, AI
+          </span>
+          <span class="track-pill track-pill-data">
+            <i class="fa-solid fa-chart-column" aria-hidden="true"></i> Data Analysis · Excel, Power BI, SQL
+          </span>
+        </div>
+
+        <div class="hero-chips">
+          <span class="hero-chip"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Free Scholarship</span>
+          <span class="hero-chip"><i class="fa-regular fa-calendar" aria-hidden="true"></i> June 27, 2026</span>
+          <span class="hero-chip"><i class="fa-solid fa-clock" aria-hidden="true"></i> 2 Weeks</span>
+          <span class="hero-chip"><i class="fa-solid fa-earth-africa" aria-hidden="true"></i> 40+ Countries</span>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="#uiux-track" class="btn btn-secondary">
+            <i class="fa-solid fa-pen-ruler" aria-hidden="true"></i> Explore UI/UX Design
+          </a>
+          <a href="#data-track" class="btn btn-secondary">
+            <i class="fa-solid fa-chart-column" aria-hidden="true"></i> Explore Data Analysis
+          </a>
+          <button class="btn btn-primary btn-lg open-modal">
+            <i class="fa-solid fa-rocket" aria-hidden="true"></i> Enroll Now — It's FREE
+          </button>
+        </div>
+
+        <div class="hero-trust">
+          <div class="hero-avatars">
+            <img src="../Pictures/ava1.jpg" alt="Idealnovate Africa alumni" />
+            <img src="../Pictures/ava2.jpg" alt="Idealnovate Africa alumni" />
+            <img src="../Pictures/ava3.jpg" alt="Idealnovate Africa alumni" />
+            <img src="../Pictures/ava4.jpg" alt="Idealnovate Africa alumni" />
+          </div>
+          <span>Join <strong>10,000+ learners</strong> already transforming their careers across Africa</span>
+        </div>
+
+      </div>
+
+      <!-- Right — image -->
+      <div class="hero-image-wrap" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+        <img
+          src="../Pictures/Hero2.jpg"
+          alt="Young professional learning UI/UX design and data analysis online"
+          class="hero-img-main"
+          loading="eager"
+        />
+
+        <div class="hero-float-card card-1">
+          <div class="float-label">Next Cohort Starts</div>
+          <div class="float-value">June 27, 2026</div>
+          <div class="float-sub">Limited seats available</div>
+        </div>
+
+        <div class="hero-float-card card-2">
+          <div class="float-label">Avg. Salary Increase</div>
+          <div class="float-value">3× <span style="color:var(--primary);font-size:0.9rem">↑</span></div>
+          <div class="float-sub">Within 6 months</div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4 — INFO STRIP
+============================================================ -->
+<div id="info-strip">
+  <div class="container">
+    <div class="info-strip-grid">
+
+      <div class="info-strip-item">
+        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+        <div>
+          <strong>100% Free Scholarship</strong>
+          <span>No fees, ever</span>
+        </div>
+      </div>
+
+      <div class="info-strip-divider" aria-hidden="true"></div>
+
+      <div class="info-strip-item">
+        <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
+        <div>
+          <strong>2 Career Tracks</strong>
+          <span>UI/UX Design &amp; Data Analysis</span>
+        </div>
+      </div>
+
+      <div class="info-strip-divider" aria-hidden="true"></div>
+
+      <div class="info-strip-item">
+        <i class="fa-solid fa-certificate" aria-hidden="true"></i>
+        <div>
+          <strong>Earn a Certificate</strong>
+          <span>Verifiable &amp; LinkedIn-ready</span>
+        </div>
+      </div>
+
+      <div class="info-strip-divider" aria-hidden="true"></div>
+
+      <div class="info-strip-item">
+        <i class="fa-solid fa-star" aria-hidden="true"></i>
+        <div>
+          <strong>⭐ 4.8/5 Alumni Rating</strong>
+          <span>Alumni Survey 2026</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SECTIONS 5–18 — TO BE ADDED IN PHASES 2, 3 & 4
+============================================================ -->
+
+
+<!-- ============================================================
+     BACK TO TOP
+============================================================ -->
+<button id="back-to-top" aria-label="Back to top">
+  <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+</button>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<!-- ============================================================
+     JAVASCRIPT — PHASE 1
+============================================================ -->
+<script>
+/* ---------- AOS ---------- */
+AOS.init({ duration: 700, once: true, offset: 60 });
+
+/* ---------- Navbar scroll ---------- */
+(function () {
+  var nav = document.getElementById('navbar');
+  function onScroll() {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ---------- Hamburger ---------- */
+(function () {
+  var btn    = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('mobile-nav');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var open = mobileNav.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.querySelectorAll('.mobile-link, .mobile-nav .btn').forEach(function (el) {
+    el.addEventListener('click', function () {
+      mobileNav.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+
+/* ---------- Back to top ---------- */
+(function () {
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  window.addEventListener('scroll', function () {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+/* ---------- Countdown Timer ---------- */
+(function () {
+  var DURATION = 2 * 24 * 60 * 60 * 1000;
+  var KEY      = 'idealnovate_campus_deadline';
+
+  function getDeadline() {
+    var stored = localStorage.getItem(KEY);
+    var dl = stored ? parseInt(stored, 10) : 0;
+    if (!dl || Date.now() >= dl) {
+      dl = Date.now() + DURATION;
+      localStorage.setItem(KEY, dl);
+    }
+    return dl;
+  }
+
+  var deadline = getDeadline();
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  function setText(id, val) {
+    var el = document.getElementById(id);
+    if (el && el.textContent !== val) {
+      el.textContent = val;
+      el.classList.remove('cd-pulse');
+      void el.offsetWidth;
+      el.classList.add('cd-pulse');
+    }
+  }
+
+  function tick() {
+    var remaining = deadline - Date.now();
+    if (remaining <= 0) {
+      deadline = Date.now() + DURATION;
+      localStorage.setItem(KEY, deadline);
+      remaining = DURATION;
+    }
+    var days  = Math.floor(remaining / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var mins  = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+    var secs  = Math.floor((remaining % (1000 * 60)) / 1000);
+
+    /* Top banner */
+    setText('cd-days',  pad(days));
+    setText('cd-hours', pad(hours));
+    setText('cd-mins',  pad(mins));
+    setText('cd-secs',  pad(secs));
+
+    /* Pre-footer banner — IDs added in Phase 4 */
+    setText('pfc-days',  pad(days));
+    setText('pfc-hours', pad(hours));
+    setText('pfc-mins',  pad(mins));
+    setText('pfc-secs',  pad(secs));
+  }
+
+  tick();
+  setInterval(tick, 1000);
+})();
+
+/* ---------- Modal stubs — full modal added in Phase 3 ---------- */
+/* Any element with class open-modal, open-modal-uiux, open-modal-data
+   will trigger the modal once Section 4 of the enrollment modal is built. */
+</script>
+
+</body>
+</html>
