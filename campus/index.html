@@ -735,6 +735,327 @@
       .hero-chip { font-size: 0.72rem; padding: 5px 10px; }
     }
 
+    /* ============================================================
+       PHASE 2 CSS — SECTIONS 5–9
+    ============================================================ */
+
+    /* ---- Section 5: Programme Selector ---- */
+    #programmes { background: #fff; }
+    .programmes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .prog-card {
+      background: var(--bg-base);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition);
+      border-top: 5px solid transparent;
+    }
+    .prog-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .prog-card-uiux { border-top-color: var(--uiux-accent); }
+    .prog-card-data  { border-top-color: var(--data-accent); }
+    .prog-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .prog-badge-uiux { background: rgba(162,89,255,0.1); color: var(--uiux-accent); border: 1px solid rgba(162,89,255,0.25); }
+    .prog-badge-data  { background: rgba(33,115,70,0.1);  color: var(--data-accent);  border: 1px solid rgba(33,115,70,0.25); }
+    .prog-icon {
+      width: 60px; height: 60px;
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+    .prog-icon-uiux { background: rgba(162,89,255,0.12); color: var(--uiux-accent); }
+    .prog-icon-data  { background: rgba(33,115,70,0.12);  color: var(--data-accent); }
+    .prog-card h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--primary-dark); margin-bottom: 12px; }
+    .prog-card > p { font-size: 0.95rem; line-height: 1.7; margin-bottom: 24px; }
+    .prog-tools-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .prog-tool-chip {
+      font-size: 0.74rem; font-weight: 600;
+      padding: 4px 12px; border-radius: 100px;
+      background: #fff; border: 1px solid var(--border); color: var(--text-mid);
+    }
+    .prog-stats-row {
+      display: flex; flex-wrap: wrap; gap: 10px 20px;
+      margin-bottom: 28px; padding: 16px 20px;
+      background: #fff; border-radius: var(--radius-md); border: 1px solid var(--border);
+    }
+    .prog-stat { display: flex; align-items: center; gap: 6px; font-size: 0.84rem; font-weight: 600; color: var(--text-dark); }
+    .prog-stat i { font-size: 0.8rem; color: var(--primary); }
+
+    /* ---- Section 6: Benefits ---- */
+    #benefits { background: var(--bg-base); }
+    .benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .benefit-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .benefit-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--primary); }
+    .benefit-card:hover::before { transform: scaleX(1); }
+    .benefit-icon {
+      width: 56px; height: 56px;
+      border-radius: var(--radius-md);
+      background: rgba(6,130,118,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+      transition: background var(--transition);
+    }
+    .benefit-card:hover .benefit-icon { background: var(--primary); color: #fff; }
+    .benefit-card h3 { font-size: 1.15rem; margin-bottom: 12px; color: var(--primary-dark); }
+    .benefit-card p  { font-size: 0.95rem; line-height: 1.75; }
+    .no-risk-bar {
+      display: flex; align-items: center; flex-wrap: wrap;
+      gap: 6px 20px; margin-top: 14px;
+      font-size: 0.79rem; color: var(--text-muted);
+    }
+    .no-risk-bar span { display: inline-flex; align-items: center; gap: 5px; }
+    .no-risk-bar i { color: var(--primary); font-size: 0.72rem; }
+
+    /* ---- Section 7: Comparison Table ---- */
+    #comparison { background: #fff; }
+    .comparison-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 500px;
+      background: #fff;
+    }
+    .comparison-table thead tr { background: var(--primary-dark); }
+    .comparison-table th {
+      padding: 20px 24px;
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: left;
+      color: #fff;
+    }
+    .comparison-table th:first-child { border-right: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.75); }
+    .comparison-table th.col-uiux { color: #d4b8ff; }
+    .comparison-table th.col-data { color: #9dd4a8; }
+    .comparison-table td {
+      padding: 16px 24px;
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      border-bottom: 1px solid var(--border);
+    }
+    .comparison-table td:first-child {
+      font-weight: 600;
+      color: var(--primary-dark);
+      border-right: 1px solid var(--border);
+      width: 34%;
+    }
+    .comparison-table td .check { color: var(--primary); font-weight: 700; }
+    .comparison-table td .free-badge {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 800;
+      background: rgba(6,130,118,0.12); color: var(--primary);
+      padding: 3px 10px; border-radius: 100px;
+      letter-spacing: 0.05em;
+    }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .comparison-table tbody tr:hover td { background: rgba(6,130,118,0.02); }
+    .comparison-footer { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 36px; }
+
+    /* ---- Track Toggle (shared — used by Sections 8 & 9) ---- */
+    .track-toggle-wrap { display: flex; justify-content: center; margin-bottom: 48px; }
+    .track-tabs {
+      display: flex; gap: 4px;
+      background: rgba(6,130,118,0.07);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 4px;
+    }
+    .track-tab {
+      padding: 10px 28px;
+      border-radius: 100px;
+      font-size: 0.9rem; font-weight: 600;
+      border: none; background: transparent;
+      color: var(--text-mid);
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .track-tab.active { background: var(--primary); color: #fff; box-shadow: 0 2px 12px rgba(6,130,118,0.3); }
+    .track-tab:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+    .track-panel { display: none; }
+    .track-panel.active { display: block; }
+
+    /* ---- Section 8: Tools ---- */
+    #tools { background: var(--bg-dark); position: relative; overflow: hidden; }
+    #tools::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(6,130,118,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #tools .section-header h2 { color: #fff; }
+    #tools .section-header p  { color: rgba(255,255,255,0.65); }
+    #tools .tag { background: rgba(255,255,255,0.1); color: #fff; }
+    #tools .track-tabs { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); }
+    #tools .track-tab { color: rgba(255,255,255,0.6); }
+    #tools .track-tab.active { background: var(--primary); color: #fff; }
+    .tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .tools-grid-data { grid-template-columns: repeat(3, 1fr); max-width: 800px; margin: 0 auto; }
+    .tool-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: 40px 28px 36px;
+      text-align: center;
+      transition: all var(--transition);
+    }
+    .tool-card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(6,130,118,0.5);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(6,130,118,0.2);
+    }
+    .tool-icon {
+      width: 88px; height: 88px;
+      border-radius: var(--radius-md);
+      margin: 0 auto 20px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.06);
+      overflow: hidden; font-size: 2rem;
+    }
+    .tool-icon img { width: 56px; height: 56px; object-fit: contain; border-radius: 8px; }
+    .tool-icon-wrap { position: relative; display: inline-flex; }
+    .tool-ai-badge {
+      position: absolute; top: -4px; right: -4px;
+      font-size: 0.58rem; font-weight: 800;
+      background: var(--accent); color: #fff;
+      padding: 2px 6px; border-radius: 100px;
+    }
+    .tool-card h3 { color: #fff; font-size: 1.1rem; margin-bottom: 10px; }
+    .tool-card p  { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+    .tool-tag {
+      display: inline-block; margin-bottom: 16px;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(244,168,94,0.15);
+      border: 1px solid rgba(244,168,94,0.25);
+      padding: 4px 12px; border-radius: 100px;
+    }
+
+    /* ---- Section 9: Curriculum ---- */
+    #curriculum { background: var(--bg-base); }
+    .curriculum-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .curriculum-sidebar { position: sticky; top: 96px; }
+    .curriculum-sidebar h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--primary-dark); }
+    .curriculum-sidebar > p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 24px; }
+    .curriculum-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+    .cs-item { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px; text-align: center; }
+    .cs-num { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: var(--primary); display: block; }
+    .cs-lbl { font-size: 0.72rem; color: var(--text-muted); }
+    .includes-box { background: rgba(6,130,118,0.06); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; }
+    .includes-box > p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px; }
+    .includes-box ul { list-style: none; padding: 0; }
+    .includes-box li { display: flex; align-items: center; gap: 8px; font-size: 0.86rem; color: var(--text-muted); padding: 6px 0; border-bottom: 1px solid var(--border); }
+    .includes-box li:last-child { border-bottom: none; }
+    .includes-box i { color: var(--primary); }
+    .accordion { display: flex; flex-direction: column; gap: 12px; }
+    .acc-item { border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; transition: border-color var(--transition); }
+    .acc-item.open { border-color: var(--primary); }
+    .acc-trigger {
+      width: 100%; background: #fff;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 24px; text-align: left; gap: 14px;
+      transition: background var(--transition); border: none; cursor: pointer;
+    }
+    .acc-item.open .acc-trigger { background: rgba(6,130,118,0.06); }
+    .acc-trigger:hover { background: rgba(6,130,118,0.04); }
+    .acc-week { font-size: 0.68rem; font-weight: 700; color: var(--primary); background: rgba(6,130,118,0.1); padding: 3px 10px; border-radius: 100px; white-space: nowrap; flex-shrink: 0; }
+    .acc-title { font-family: var(--font-heading); font-size: 0.93rem; font-weight: 600; color: var(--text-dark); flex: 1; }
+    .acc-icon { color: var(--primary); font-size: 1rem; transition: transform var(--transition); flex-shrink: 0; }
+    .acc-item.open .acc-icon { transform: rotate(180deg); }
+    .acc-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .acc-item.open .acc-body { max-height: 700px; }
+    .acc-content { padding: 0 24px 24px; border-top: 1px solid var(--border); }
+    .acc-content ul { margin-top: 12px; }
+    .acc-content li { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; font-size: 0.91rem; color: var(--text-mid); border-bottom: 1px solid #f5f5f5; line-height: 1.55; }
+    .acc-content li:last-child { border-bottom: none; }
+    .acc-content li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--primary); flex-shrink: 0; margin-top: 7px; }
+    .acc-practical { display: flex; align-items: flex-start; gap: 8px; margin-top: 12px; padding: 10px 14px; background: rgba(6,130,118,0.06); border-left: 3px solid var(--primary); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 0.88rem; color: var(--primary-dark); line-height: 1.55; }
+    .curriculum-cta { margin-top: 56px; padding: 40px; background: linear-gradient(135deg, var(--bg-base), #e8faf7); border-radius: var(--radius-xl); border: 1px solid var(--border); text-align: center; }
+    .curriculum-cta h3 { color: var(--primary-dark); margin-bottom: 12px; }
+    .curriculum-cta p  { color: var(--text-muted); max-width: 480px; margin: 0 auto 24px; }
+    .curriculum-cta .btn-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    /* ---- Phase 2 Responsive ---- */
+    @media (max-width: 1024px) {
+      .tools-grid { grid-template-columns: repeat(2, 1fr); }
+      .tools-grid-data { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+    }
+    @media (max-width: 900px) {
+      .curriculum-layout { grid-template-columns: 1fr; }
+      .curriculum-sidebar { position: static; }
+    }
+    @media (max-width: 768px) {
+      .programmes-grid { grid-template-columns: 1fr; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .tools-grid { grid-template-columns: 1fr 1fr; }
+      .tools-grid-data { grid-template-columns: 1fr 1fr; }
+      .track-tab { padding: 10px 18px; font-size: 0.85rem; }
+    }
+    @media (max-width: 560px) {
+      .tools-grid, .tools-grid-data { grid-template-columns: 1fr; max-width: 340px; margin-left: auto; margin-right: auto; }
+      .track-tabs { flex-direction: column; border-radius: var(--radius-md); }
+      .track-tab { border-radius: var(--radius-sm); justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .prog-card { padding: 28px 20px; }
+      .acc-trigger { padding: 16px 18px; }
+      .acc-content { padding: 0 18px 20px; }
+      .curriculum-cta { padding: 28px 20px; }
+      .curriculum-cta .btn-row { flex-direction: column; align-items: center; }
+    }
+
   </style>
 </head>
 <body>
@@ -959,7 +1280,718 @@
 </div>
 
 <!-- ============================================================
-     SECTIONS 5–18 — TO BE ADDED IN PHASES 2, 3 & 4
+     SECTION 5 — PROGRAMME SELECTOR
+============================================================ -->
+<section id="programmes" class="section">
+  <div class="container">
+
+    <div class="section-header center" data-aos="fade-up">
+      <div class="tag">Choose Your Track</div>
+      <h2>Two Scholarships. One Campus.</h2>
+      <div class="divider center"></div>
+      <p>Both programmes are 100% free, mentor-led, and designed to get you job-ready in just 2 weeks. Pick the track that matches your goals.</p>
+    </div>
+
+    <div class="programmes-grid">
+
+      <!-- UI/UX Design Card -->
+      <div class="prog-card prog-card-uiux" data-aos="fade-up" data-aos-delay="0">
+        <div class="prog-badge prog-badge-uiux">
+          <i class="fa-solid fa-pen-ruler" aria-hidden="true"></i> UI/UX Design Bootcamp
+        </div>
+        <div class="prog-icon prog-icon-uiux">
+          <i class="fa-solid fa-pen-ruler" aria-hidden="true"></i>
+        </div>
+        <h3>Become a Recognised UI/UX Designer</h3>
+        <p>Learn product design from scratch — wireframes, prototypes, and AI-powered design tools. Graduate with a portfolio, a certificate, and the confidence to land your first design role.</p>
+        <div class="prog-tools-row">
+          <span class="prog-tool-chip">Figma</span>
+          <span class="prog-tool-chip">FigJam</span>
+          <span class="prog-tool-chip">Figma AI</span>
+          <span class="prog-tool-chip">Lovable AI</span>
+        </div>
+        <div class="prog-stats-row">
+          <span class="prog-stat"><i class="fa-solid fa-clock" aria-hidden="true"></i> 2 Weeks</span>
+          <span class="prog-stat"><i class="fa-solid fa-naira-sign" aria-hidden="true"></i> ₦300k–₦600k+</span>
+          <span class="prog-stat"><i class="fa-solid fa-users" aria-hidden="true"></i> 3,120+ Designers</span>
+        </div>
+        <button class="btn btn-uiux open-modal-uiux" style="width:100%;justify-content:center;">
+          Enroll in UI/UX Design <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <!-- Data Analysis Card -->
+      <div class="prog-card prog-card-data" data-aos="fade-up" data-aos-delay="100">
+        <div class="prog-badge prog-badge-data">
+          <i class="fa-solid fa-chart-column" aria-hidden="true"></i> Data Analysis Bootcamp
+        </div>
+        <div class="prog-icon prog-icon-data">
+          <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
+        </div>
+        <h3>Become a Job-Ready Data Analyst</h3>
+        <p>Learn to work with real data using industry tools — from spreadsheets to dashboards to SQL databases. Graduate with hands-on projects, a certificate, and a clear path to a data career.</p>
+        <div class="prog-tools-row">
+          <span class="prog-tool-chip">Microsoft Excel</span>
+          <span class="prog-tool-chip">Power BI</span>
+          <span class="prog-tool-chip">SQL</span>
+        </div>
+        <div class="prog-stats-row">
+          <span class="prog-stat"><i class="fa-solid fa-clock" aria-hidden="true"></i> 2 Weeks</span>
+          <span class="prog-stat"><i class="fa-solid fa-naira-sign" aria-hidden="true"></i> ₦400k–₦770k+</span>
+          <span class="prog-stat"><i class="fa-solid fa-users" aria-hidden="true"></i> 7,236+ Data Analysts</span>
+        </div>
+        <button class="btn btn-data open-modal-data" style="width:100%;justify-content:center;">
+          Enroll in Data Analysis <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 6 — WHY IDEALNOVATE (BENEFITS)
+============================================================ -->
+<section id="benefits" class="section">
+  <div class="container">
+
+    <div class="section-header center" data-aos="fade-up">
+      <div class="tag">Why Idealnovate</div>
+      <h2>Skills That Pay. Community That Stays.<br>Results That Last.</h2>
+      <div class="divider center"></div>
+      <p>We don't just teach skills — we transform careers. Discover the advantages you get when you join any Idealnovate Africa scholarship bootcamp.</p>
+    </div>
+
+    <div class="benefits-grid">
+
+      <div class="benefit-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="benefit-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></div>
+        <h3>Industry-Relevant Skills</h3>
+        <p>Whether you choose UI/UX or Data Analysis, every tool and skill you learn is mapped directly to what employers are hiring for right now — Figma, Power BI, SQL, and more.</p>
+      </div>
+
+      <div class="benefit-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="benefit-icon"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i></div>
+        <h3>Increased Earnings</h3>
+        <p>UI/UX designers earn ₦300k–₦600k+ monthly. Data analysts earn ₦400k–₦770k+. Our graduates report an average <strong>3× salary increase</strong> within 6 months of completing their programme.</p>
+      </div>
+
+      <div class="benefit-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="benefit-icon"><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i></div>
+        <h3>More Scholarship Access</h3>
+        <p>Completing one Idealnovate programme unlocks priority access to advanced diploma scholarships, partnerships, collaborations, and personalised mentorship tailored to your goals.</p>
+      </div>
+
+      <div class="benefit-card" data-aos="fade-up" data-aos-delay="240">
+        <div class="benefit-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
+        <h3>Community Support</h3>
+        <p>Join 10,000+ designers and analysts across Africa. Get peer feedback, collaborate on projects, attend live events, and stay connected to a community that grows with you long after graduation.</p>
+      </div>
+
+    </div>
+
+    <div class="text-center" style="margin-top:48px;" data-aos="fade-up" data-aos-delay="200">
+      <button class="btn btn-primary btn-lg open-modal">
+        <i class="fa-solid fa-rocket" aria-hidden="true"></i> Enroll Now — It's Free
+      </button>
+      <div class="no-risk-bar" style="justify-content:center;margin-top:14px;">
+        <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Completely free</span>
+        <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> No payment required</span>
+        <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> No hidden fees</span>
+        <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Just show up and learn</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 7 — PROGRAMME COMPARISON TABLE
+============================================================ -->
+<section id="comparison" class="section" style="background:#fff;">
+  <div class="container">
+
+    <div class="section-header center" data-aos="fade-up">
+      <div class="tag">Side by Side</div>
+      <h2>Compare the Two Tracks</h2>
+      <div class="divider center"></div>
+      <p>Not sure which to pick? Here's everything you need to decide — both tracks are free, beginner-friendly, and award the same Idealnovate Africa certificate.</p>
+    </div>
+
+    <div class="comparison-wrap" data-aos="fade-up" data-aos-delay="100">
+      <table class="comparison-table" role="table" aria-label="Programme comparison table">
+        <thead>
+          <tr>
+            <th scope="col">Feature</th>
+            <th scope="col" class="col-uiux"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i> UI/UX Design</th>
+            <th scope="col" class="col-data"><i class="fa-solid fa-chart-column" aria-hidden="true"></i> Data Analysis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Duration</td>
+            <td>2 Weeks</td>
+            <td>2 Weeks</td>
+          </tr>
+          <tr>
+            <td>Sessions</td>
+            <td>6 Live Days</td>
+            <td>6 Live Sessions</td>
+          </tr>
+          <tr>
+            <td>Tools You'll Master</td>
+            <td>Figma, FigJam, Figma AI, Lovable AI</td>
+            <td>Microsoft Excel, Power BI, SQL</td>
+          </tr>
+          <tr>
+            <td>Earning Range</td>
+            <td>₦300,000 – ₦600,000+</td>
+            <td>₦400,000 – ₦770,000+</td>
+          </tr>
+          <tr>
+            <td>Projects</td>
+            <td>5+ Portfolio Pieces</td>
+            <td>5+ Data Case Studies</td>
+          </tr>
+          <tr>
+            <td>Certificate</td>
+            <td><span class="check">✓</span> Idealnovate Certificate</td>
+            <td><span class="check">✓</span> Idealnovate Certificate</td>
+          </tr>
+          <tr>
+            <td>Beginner Friendly</td>
+            <td><span class="check">✓</span> Zero experience needed</td>
+            <td><span class="check">✓</span> Zero experience needed</td>
+          </tr>
+          <tr>
+            <td>Cost</td>
+            <td><span class="free-badge">FREE</span></td>
+            <td><span class="free-badge">FREE</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="comparison-footer" data-aos="fade-up" data-aos-delay="150">
+      <button class="btn btn-uiux open-modal-uiux">
+        <i class="fa-solid fa-pen-ruler" aria-hidden="true"></i> Enroll in UI/UX Design
+      </button>
+      <button class="btn btn-data open-modal-data">
+        <i class="fa-solid fa-chart-column" aria-hidden="true"></i> Enroll in Data Analysis
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 8 — TOOLS YOU'LL MASTER (track-toggle)
+============================================================ -->
+<section id="tools" class="section">
+  <div class="container">
+
+    <div class="section-header center" data-aos="fade-up">
+      <div class="tag">Tools</div>
+      <h2>Master Industry-Standard Tools</h2>
+      <div class="divider center"></div>
+      <p>You'll graduate confident in the exact tools that employers and clients expect — used by top teams across Africa and worldwide.</p>
+    </div>
+
+    <div class="track-toggle-wrap" data-aos="fade-up" data-aos-delay="50">
+      <div class="track-tabs" role="tablist" aria-label="Tools track selector">
+        <button class="track-tab active" role="tab" aria-selected="true"
+                data-group="tools" data-panel="tools-uiux">
+          <i class="fa-solid fa-pen-ruler" aria-hidden="true"></i> UI/UX Design
+        </button>
+        <button class="track-tab" role="tab" aria-selected="false"
+                data-group="tools" data-panel="tools-data">
+          <i class="fa-solid fa-chart-column" aria-hidden="true"></i> Data Analysis
+        </button>
+      </div>
+    </div>
+
+    <!-- UI/UX Tools Panel -->
+    <div class="track-panel active" data-group="tools" data-panel="tools-uiux" role="tabpanel" data-aos="fade-up" data-aos-delay="100">
+      <div class="tools-grid">
+
+        <div class="tool-card">
+          <div class="tool-icon" style="background:transparent;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="34" height="51" role="img" aria-label="Figma logo">
+              <path d="M100 0H50C22.4 0 0 22.4 0 50s22.4 50 50 50h50V0z" fill="#F24E1E"/>
+              <path d="M100 0h50c27.6 0 50 22.4 50 50s-22.4 50-50 50H100V0z" fill="#A259FF"/>
+              <path d="M0 150c0-27.6 22.4-50 50-50h50v100H50C22.4 200 0 177.6 0 150z" fill="#FF7262"/>
+              <circle cx="150" cy="150" r="50" fill="#1ABCFE"/>
+              <path d="M0 250c0-27.6 22.4-50 50-50h50v50c0 27.6-22.4 50-50 50S0 277.6 0 250z" fill="#0ACF83"/>
+            </svg>
+          </div>
+          <div class="tool-tag">Wireframes &amp; Prototypes</div>
+          <h3>Figma</h3>
+          <p>The world's #1 design tool for UI/UX — from wireframes and components to polished, interactive prototypes ready for handoff.</p>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-icon">🗺️</div>
+          <div class="tool-tag">Design Thinking &amp; Ideation</div>
+          <h3>FigJam</h3>
+          <p>Collaborative whiteboarding for user research, design thinking workshops, user flows, and team ideation sessions.</p>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-icon" style="background:transparent;">
+            <div class="tool-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="34" height="51" role="img" aria-label="Figma AI logo">
+                <path d="M100 0H50C22.4 0 0 22.4 0 50s22.4 50 50 50h50V0z" fill="#F24E1E"/>
+                <path d="M100 0h50c27.6 0 50 22.4 50 50s-22.4 50-50 50H100V0z" fill="#A259FF"/>
+                <path d="M0 150c0-27.6 22.4-50 50-50h50v100H50C22.4 200 0 177.6 0 150z" fill="#FF7262"/>
+                <circle cx="150" cy="150" r="50" fill="#1ABCFE"/>
+                <path d="M0 250c0-27.6 22.4-50 50-50h50v50c0 27.6-22.4 50-50 50S0 277.6 0 250z" fill="#0ACF83"/>
+              </svg>
+              <span class="tool-ai-badge">AI</span>
+            </div>
+          </div>
+          <div class="tool-tag">AI-Powered Design</div>
+          <h3>Figma AI</h3>
+          <p>Automate repetitive tasks, generate design assets, and accelerate your workflow with Figma's built-in AI capabilities.</p>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-icon" style="background:transparent;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="38" height="38" role="img" aria-label="Lovable AI logo">
+              <defs>
+                <linearGradient id="lovable-g" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FF4E6A"/>
+                  <stop offset="100%" stop-color="#A855F7"/>
+                </linearGradient>
+              </defs>
+              <path d="M28 48C28 48 6 34.5 6 20.5C6 13.1 11.9 7 19 7C22.9 7 26.4 8.9 28 12C29.6 8.9 33.1 7 37 7C44.1 7 50 13.1 50 20.5C50 34.5 28 48 28 48Z" fill="url(#lovable-g)"/>
+            </svg>
+          </div>
+          <div class="tool-tag">Design to Code</div>
+          <h3>Lovable AI</h3>
+          <p>Turn your Figma designs into fully working web apps in minutes — no coding knowledge required, just your creativity.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Data Tools Panel -->
+    <div class="track-panel" data-group="tools" data-panel="tools-data" role="tabpanel">
+      <div class="tools-grid tools-grid-data">
+
+        <div class="tool-card">
+          <div class="tool-icon">
+            <img src="../Pictures/excel-logo.svg" alt="Microsoft Excel logo" />
+          </div>
+          <div class="tool-tag">Spreadsheets &amp; Visualisation</div>
+          <h3>Microsoft Excel</h3>
+          <p>The world's most-used data tool. Master formulas, pivot tables, sorting, filtering, and chart-building to clean, analyse, and present data with confidence.</p>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-icon">
+            <img src="../Pictures/powerbi-logo.svg" alt="Microsoft Power BI logo" />
+          </div>
+          <div class="tool-tag">Dashboards &amp; BI Reports</div>
+          <h3>Microsoft Power BI</h3>
+          <p>Microsoft's leading business intelligence platform. Build interactive dashboards that turn raw data into clear, actionable insights for any audience.</p>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-icon">
+            <img src="../Pictures/sql-logo.svg" alt="SQL Database logo" />
+          </div>
+          <div class="tool-tag">Database Querying</div>
+          <h3>SQL</h3>
+          <p>The universal language of databases. Learn to query, filter, join, and extract data from real database systems — an essential skill every hiring manager expects.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="text-center" style="margin-top:48px;" data-aos="fade-up" data-aos-delay="200">
+      <button class="btn btn-accent btn-lg open-modal">
+        <i class="fa-solid fa-rocket" aria-hidden="true"></i> Enroll Now — It's Free
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 9 — CURRICULUM (track-toggle)
+============================================================ -->
+<section id="curriculum" class="section">
+  <div class="container">
+
+    <div class="section-header center" data-aos="fade-up">
+      <div class="tag">Scheme of Work</div>
+      <h2>Your 2-Week Learning Journey</h2>
+      <div class="divider center"></div>
+      <p>A structured, hands-on curriculum designed to take you from complete beginner to job-ready across 6 live sessions — for either track.</p>
+    </div>
+
+    <div class="track-toggle-wrap" data-aos="fade-up" data-aos-delay="50">
+      <div class="track-tabs" role="tablist" aria-label="Curriculum track selector">
+        <button class="track-tab active" role="tab" aria-selected="true"
+                data-group="curriculum" data-panel="curriculum-uiux">
+          <i class="fa-solid fa-pen-ruler" aria-hidden="true"></i> UI/UX Design
+        </button>
+        <button class="track-tab" role="tab" aria-selected="false"
+                data-group="curriculum" data-panel="curriculum-data">
+          <i class="fa-solid fa-chart-column" aria-hidden="true"></i> Data Analysis
+        </button>
+      </div>
+    </div>
+
+    <!-- UI/UX Curriculum Panel -->
+    <div id="uiux-track" class="track-panel active" data-group="curriculum" data-panel="curriculum-uiux" role="tabpanel">
+      <div class="curriculum-layout">
+
+        <div class="curriculum-sidebar" data-aos="fade-right">
+          <h3>Programme Overview</h3>
+          <p>2-week live online bootcamp designed for absolute beginners with zero tech background.</p>
+          <div class="curriculum-stats">
+            <div class="cs-item"><span class="cs-num">2</span><span class="cs-lbl">Weeks</span></div>
+            <div class="cs-item"><span class="cs-num">14hrs</span><span class="cs-lbl">Live Sessions</span></div>
+            <div class="cs-item"><span class="cs-num">5+</span><span class="cs-lbl">Projects</span></div>
+            <div class="cs-item"><span class="cs-num">4</span><span class="cs-lbl">Tools Mastered</span></div>
+          </div>
+          <div class="includes-box">
+            <p><strong style="color:var(--primary-dark);">What's included:</strong></p>
+            <ul>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Live instructor-led sessions</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Daily assignments &amp; feedback</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Portfolio project support</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Global certificate upon completion</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion" id="accordion-uiux" data-aos="fade-left" data-aos-delay="100">
+
+          <div class="acc-item open">
+            <button class="acc-trigger" aria-expanded="true">
+              <span class="acc-week">Day 1</span>
+              <span class="acc-title">Foundations of UI/UX Design &amp; Design Thinking</span>
+              <i class="fa-solid fa-chevron-down acc-icon" aria-hidden="true"></i>
+            </button>
+            <div class="acc-body">
+              <div class="acc-content">
+                <ul>
+                  <li>What is UI vs UX — understanding the difference and why both matter</li>
+                  <li>Introduction to Design Thinking: Empathize, Define, Ideate, Prototype, Test</li>
+                  <li>Overview of the design industry: roles, career paths and earning potential</li>
+                  <li>Setting up your Figma workspace and navigating the interface</li>
+                  <li>Assignment: Create your first mood board and design brief</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-trigger" aria-expanded="false">
+              <span class="acc-week">Day 2</span>
+              <span class="acc-title">Wireframing &amp; UI Design Fundamentals</span>
+              <i class="fa-solid fa-chevron-down acc-icon" aria-hidden="true"></i>
+            </button>
+            <div class="acc-body">
+              <div class="acc-content">
+                <ul>
+                  <li>Lo-fi and hi-fi wireframing techniques using Figma</li>
+                  <li>Typography in UI: choosing fonts, scale, hierarchy and readability</li>
+                  <li>Colour theory for digital design: palettes, accessibility, contrast ratios</li>
+                  <li>Spacing, grids and layout systems (8-point grid)</li>
+                  <li>Assignment: Design a 5-screen wireframe for your chosen app concept</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-trigger" aria-expanded="false">
+              <span class="acc-week">Day 3</span>
+              <span class="acc-title">Prototyping, Micro-interactions &amp; Usability Testing</span>
+              <i class="fa-solid fa-chevron-down acc-icon" aria-hidden="true"></i>
+            </button>
+            <div class="acc-body">
+              <div class="acc-content">
+                <ul>
+                  <li>Creating interactive prototypes in Figma with transitions and animations</li>
+                  <li>Micro-interactions: hover states, loading states, feedback cues</li>
+                  <li>Planning and conducting a usability test session</li>
+                  <li>Analysing test results and iterating on your design</li>
+                  <li>Assignment: Prototype your app and run a usability test with 3 users</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-trigger" aria-expanded="false">
+              <span class="acc-week">Day 4</span>
+              <span class="acc-title">AI-Powered Design: Figma AI &amp; Lovable</span>
+              <i class="fa-solid fa-chevron-down acc-icon" aria-hidden="true"></i>
+            </button>
+            <div class="acc-body">
+              <div class="acc-content">
+                <ul>
+                  <li>Using Figma AI for auto-generation, content fill and design suggestions</li>
+                  <li>FigJam AI for whiteboarding sessions and collaborative ideation</li>
+                  <li>Introduction to Lovable AI: turning Figma designs into live web prototypes</li>
+                  <li>Assignment: Use AI tools to redesign and document an existing product screen</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-trigger" aria-expanded="false">
+              <span class="acc-week">Day 5</span>
+              <span class="acc-title">Portfolio Building &amp; Job Readiness</span>
+              <i class="fa-solid fa-chevron-down acc-icon" aria-hidden="true"></i>
+            </button>
+            <div class="acc-body">
+              <div class="acc-content">
+                <ul>
+                  <li>Structuring your Behance and portfolio case study for maximum impact</li>
+                  <li>Writing compelling design case studies that get recruiter attention</li>
+                  <li>Optimizing your LinkedIn profile and applying for design roles</li>
+                  <li>Capstone project preparation: end-to-end design challenge brief</li>
+                  <li>Assignment: Build and publish your first portfolio case study</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-trigger" aria-expanded="false">
+              <span class="acc-week">Day 6</span>
+              <span class="acc-title">Final Design Challenge, Critique &amp; Graduation</span>
+              <i class="fa-solid fa-chevron-down acc-icon" aria-hidden="true"></i>
+            </button>
+            <div class="acc-body">
+              <div class="acc-content">
+                <ul>
+                  <li>Final capstone project presentation to a panel of industry mentors</li>
+                  <li>Live design critique: structured feedback and iteration session</li>
+                  <li>Graduation ceremony and premium certificate issuance</li>
+                  <li>Career launch: community onboarding, alumni network &amp; job placement support</li>
+                  <li>Next steps: accessing hiring partner introductions and freelance opportunities</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /accordion-uiux -->
+      </div><!-- /curriculum-layout -->
+
+      <div class="curriculum-cta" data-aos="fade-up">
+        <h3>Ready to Start Your Design Journey?</h3>
+        <p>Secure your free seat in the next cohort and begin building the UI/UX career you deserve — starting with Day 1.</p>
+        <div class="btn-row">
+          <button class="btn btn-primary btn-lg open-modal-uiux">
+            <i class="fa-solid fa-rocket" aria-hidden="true"></i> Claim Your Free Spot
+          </button>
+          <a href="https://wa.me/2349065436488?text=Hello%20Idealnovate%20Africa%2C%20I%20have%20a%20question%20about%20the%20UI%2FUX%20Design%20Scholarship%20Bootcamp." target="_blank" rel="noopener" class="btn btn-secondary btn-lg">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Ask a Question
+          </a>
+        </div>
+      </div>
+    </div><!-- /panel uiux-track -->
+
+    <!-- Data Analysis Curriculum Panel -->
+    <div id="data-track" class="track-panel" data-group="curriculum" data-panel="curriculum-data" role="tabpanel">
+      <div class="curriculum-layout">
+
+        <div class="curriculum-sidebar" data-aos="fade-right">
+          <h3>Programme Overview</h3>
+          <p>2-week live online bootcamp designed for absolute beginners with zero tech or data background.</p>
+          <div class="curriculum-stats">
+            <div class="cs-item"><span class="cs-num">2</span><span class="cs-lbl">Weeks</span></div>
+            <div class="cs-item"><span class="cs-num">14hrs</span><span class="cs-lbl">Live Sessions</span></div>
+            <div class="cs-item"><span class="cs-num">5+</span><span class="cs-lbl">Projects</span></div>
+            <div class="cs-item"><span class="cs-num">3</span><span class="cs-lbl">Tools Mastered</span></div>
+          </div>
+          <div class="includes-box">
+            <p><strong style="color:var(--primary-dark);">What's included:</strong></p>
+            <ul>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Live instructor-led sessions</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Assignments &amp; expert feedback</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Real-world data project support</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Global certificate upon completion</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion" id="accordion-data" data-aos="fade-left" data-aos-delay="100">
+
+          <div class="acc-item open">
+            <button class="acc-trigger" aria-expanded="true">
+              <span class="acc-week">Wk 1 · S1</span>
+              <span class="acc-title">Introduction to Data Analysis &amp; Excel Basics</span>
+              <i class="fa-solid fa-chevron-down acc-icon" aria-hidden="true"></i>
+            </button>
+            <div class="acc-body">
+              <div class="acc-content">
+                <ul>
+                  <li>Definition &amp; importance of data analysis in business and everyday decisions</li>
+                  <li>Core data concepts — structured vs unstructured data, data types</li>
+                  <li>Types of data analytics: descriptive, diagnostic, predictive, prescriptive</li>
+                  <li>Roles in data: analyst, engineer, scientist — what each does and earns</li>
+                  <li>Introduction to Microsoft Excel — navigating the interface</li>
+                  <li>Creating, saving &amp; exporting files; working with sheets &amp; workbooks</li>
+                  <li>Pivot tables &amp; pivot charts — your first look at summarising data</li>
+                </ul>
+                <div class="acc-practical">
+                  <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
+                  <span><strong>Practical:</strong> Basic data visualisation in Excel — building charts &amp; graphs from a real sample dataset.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-trigger" aria-expanded="false">
+              <span class="acc-week">Wk 1 · S2</span>
+              <span class="acc-title">Excel for Data Analysis</span>
+              <i class="fa-solid fa-chevron-down acc-icon" aria-hidden="true"></i>
+            </button>
+            <div class="acc-body">
+              <div class="acc-content">
+                <ul>
+                  <li>Formatting data — number formats, conditional formatting, cell styles</li>
+                  <li>Customising tabs &amp; groups for a faster workflow</li>
+                  <li>Sorting &amp; filtering datasets to find insights quickly</li>
+                  <li>Critical formulas &amp; functions: SUM, AVERAGE, MIN, MAX, COUNT, COUNTA</li>
+                  <li>Arithmetic operators and nested formulas for real calculations</li>
+                  <li>TEXT functions — manipulating and cleaning text-based data</li>
+                  <li>Introduction to Microsoft Power BI — installation &amp; setup</li>
+                </ul>
+                <div class="acc-practical">
+                  <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
+                  <span><strong>Assignment:</strong> Sales Data Project — analyse a real sales dataset, apply key formulas, and present findings with charts.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-trigger" aria-expanded="false">
+              <span class="acc-week">Wk 1 · S3</span>
+              <span class="acc-title">Introduction to Power BI</span>
+              <i class="fa-solid fa-chevron-down acc-icon" aria-hidden="true"></i>
+            </button>
+            <div class="acc-body">
+              <div class="acc-content">
+                <ul>
+                  <li>Data visualisation concepts — why visuals communicate faster than tables</li>
+                  <li>Power BI overview: Desktop, Service, and Mobile — what's what</li>
+                  <li>Navigating the Power BI interface: report view, data view, model view</li>
+                  <li>Loading and transforming data using Power Query</li>
+                  <li>Power BI chart types — bar, line, pie, map, card, and matrix visuals</li>
+                  <li>Building and formatting your first interactive dashboard</li>
+                </ul>
+                <div class="acc-practical">
+                  <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
+                  <span><strong>Practical:</strong> Build basic Power BI visualisations + create a fully interactive dynamic dashboard from a provided dataset.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-trigger" aria-expanded="false">
+              <span class="acc-week">Wk 2 · S4</span>
+              <span class="acc-title">The Future of Data Analysis — Live AMA Session</span>
+              <i class="fa-solid fa-chevron-down acc-icon" aria-hidden="true"></i>
+            </button>
+            <div class="acc-body">
+              <div class="acc-content">
+                <ul>
+                  <li>Opportunities in data analysis — local, remote, and freelance markets</li>
+                  <li>How to monetise your data skills: full-time roles, contracts, consulting</li>
+                  <li>Job access as a data analyst — building your CV, portfolio &amp; LinkedIn</li>
+                  <li>What hiring managers look for in entry-level data analyst candidates</li>
+                  <li>Salary expectations across Africa, Europe, and remote global roles</li>
+                </ul>
+                <div class="acc-practical">
+                  <i class="fa-solid fa-microphone" aria-hidden="true"></i>
+                  <span><strong>Live AMA:</strong> Open Q&amp;A with Idealnovate Africa industry mentors — bring your career questions.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-trigger" aria-expanded="false">
+              <span class="acc-week">Wk 2 · S5</span>
+              <span class="acc-title">Introduction to SQL for Data Analysis</span>
+              <i class="fa-solid fa-chevron-down acc-icon" aria-hidden="true"></i>
+            </button>
+            <div class="acc-body">
+              <div class="acc-content">
+                <ul>
+                  <li>Introduction to databases — what they are and how data is stored</li>
+                  <li>Introduction to SQL — why every data analyst needs it</li>
+                  <li>SQL commands &amp; operations: CRUD (Create, Read, Update, Delete)</li>
+                  <li>Creating SQL tables and defining a SQL database structure</li>
+                  <li>Querying data — SELECT, FROM, WHERE, ORDER BY, LIMIT</li>
+                  <li>Filtering and aggregating results with GROUP BY and HAVING</li>
+                </ul>
+                <div class="acc-practical">
+                  <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
+                  <span><strong>Practical:</strong> Run basic SQL queries on a real sample database — retrieve, filter, and count records from scratch.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-trigger" aria-expanded="false">
+              <span class="acc-week">Wk 2 · S6</span>
+              <span class="acc-title">Real-World Data Analysis — Live Capstone Session</span>
+              <i class="fa-solid fa-chevron-down acc-icon" aria-hidden="true"></i>
+            </button>
+            <div class="acc-body">
+              <div class="acc-content">
+                <ul>
+                  <li>Working through a real-world business case study from start to finish</li>
+                  <li>Defining analysis objectives and understanding the business question</li>
+                  <li>Data cleaning — identifying errors, duplicates, nulls, and inconsistencies</li>
+                  <li>Data visualisation &amp; storytelling — presenting findings to stakeholders</li>
+                  <li>Building your final project report and dashboard for your portfolio</li>
+                  <li>Graduation — certificate issuance and community onboarding</li>
+                </ul>
+                <div class="acc-practical">
+                  <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
+                  <span><strong>Practical:</strong> Hands-on end-to-end capstone analysis — clean, analyse, visualise, and present a real dataset.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /accordion-data -->
+      </div><!-- /curriculum-layout -->
+
+      <div class="curriculum-cta" data-aos="fade-up">
+        <h3>Ready to Start Your Data Journey?</h3>
+        <p>Secure your free seat in the next cohort and begin building the data analysis career you deserve — starting with Session 1.</p>
+        <div class="btn-row">
+          <button class="btn btn-primary btn-lg open-modal-data">
+            <i class="fa-solid fa-rocket" aria-hidden="true"></i> Claim Your Free Spot
+          </button>
+          <a href="https://wa.me/2349065436488?text=Hello%20Idealnovate%20Africa%2C%20I%20have%20a%20question%20about%20the%20Data%20Analysis%20Scholarship%20Bootcamp." target="_blank" rel="noopener" class="btn btn-secondary btn-lg">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Ask a Question
+          </a>
+        </div>
+      </div>
+    </div><!-- /panel data-track -->
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTIONS 10–18 — TO BE ADDED IN PHASES 3 & 4
 ============================================================ -->
 
 
@@ -1079,9 +2111,64 @@ AOS.init({ duration: 700, once: true, offset: 60 });
   setInterval(tick, 1000);
 })();
 
+/* ---------- Track Toggle ---------- */
+(function () {
+  function initTrackToggle(groupName) {
+    var tabs   = document.querySelectorAll('[data-group="' + groupName + '"].track-tab');
+    var panels = document.querySelectorAll('[data-group="' + groupName + '"].track-panel');
+    if (!tabs.length) return;
+
+    function activate(targetPanel) {
+      tabs.forEach(function (t) {
+        var isActive = t.dataset.panel === targetPanel;
+        t.classList.toggle('active', isActive);
+        t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      panels.forEach(function (p) {
+        p.classList.toggle('active', p.dataset.panel === targetPanel);
+      });
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () { activate(tab.dataset.panel); });
+      tab.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(tab.dataset.panel); }
+      });
+    });
+  }
+
+  initTrackToggle('tools');
+  initTrackToggle('curriculum');
+})();
+
+/* ---------- Curriculum Accordions ---------- */
+(function () {
+  function initAccordion(accordionId) {
+    var acc = document.getElementById(accordionId);
+    if (!acc) return;
+    acc.querySelectorAll('.acc-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item   = btn.closest('.acc-item');
+        var isOpen = item.classList.contains('open');
+        acc.querySelectorAll('.acc-item').forEach(function (i) {
+          i.classList.remove('open');
+          i.querySelector('.acc-trigger').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  }
+
+  initAccordion('accordion-uiux');
+  initAccordion('accordion-data');
+})();
+
 /* ---------- Modal stubs — full modal added in Phase 3 ---------- */
 /* Any element with class open-modal, open-modal-uiux, open-modal-data
-   will trigger the modal once Section 4 of the enrollment modal is built. */
+   will trigger the modal once it is built in Phase 3. */
 </script>
 
 </body>
