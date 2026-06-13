@@ -1220,7 +1220,7 @@
     font-family: var(--font-heading); font-weight: 700; font-size: 0.93rem;
     padding: 13px 26px; border-radius: 100px; transition: background var(--transition);
   }
-  .btn-whatsapp:hover { background: #1eb858; }
+  .btn-whatsapp:hover { background: #1eb858; color: #fff; }
   .btn-community-enroll {
     display: inline-flex; align-items: center; gap: 10px;
     background: var(--primary); color: #fff; text-decoration: none;
@@ -1359,13 +1359,13 @@
     animation: modalPop 0.3s cubic-bezier(0.34,1.56,0.64,1) both;
   }
   @keyframes modalPop { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-  .modal-header { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); padding: 28px 28px 24px; color: #fff; position: relative; }
-  .modal-logo { height: 30px; width: auto; margin-bottom: 12px; display: block; }
-  .modal-header-tag { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); background: rgba(244,168,94,0.15); border: 1px solid rgba(244,168,94,0.3); display: inline-block; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
-  .modal-header h2 { font-size: 1.35rem; font-weight: 800; margin-bottom: 5px; }
-  .modal-header > p { font-size: 0.86rem; color: rgba(255,255,255,0.75); }
-  .modal-close { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; background: rgba(255,255,255,0.15); border: none; border-radius: 50%; color: #fff; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background var(--transition); }
-  .modal-close:hover { background: rgba(255,255,255,0.3); }
+  .modal-header { background: linear-gradient(135deg, #f0fdf9 0%, #ffffff 100%); padding: 32px 40px 24px; border-bottom: 1px solid var(--border); position: relative; }
+  .modal-logo { height: 38px; width: auto; margin-bottom: 18px; display: block; }
+  .modal-header-tag { display: inline-block; font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; color: var(--primary); background: rgba(6,130,118,0.1); padding: 5px 14px; border-radius: 100px; margin-bottom: 14px; }
+  .modal-header h2 { font-size: clamp(1.4rem, 3vw, 1.85rem); color: var(--primary-dark); margin-bottom: 8px; line-height: 1.2; }
+  .modal-header > p { font-size: 0.97rem; color: var(--text-muted); margin: 0; line-height: 1.6; }
+  .modal-close { position: absolute; top: 18px; right: 18px; width: 38px; height: 38px; border-radius: 50%; background: rgba(2,44,40,0.06); border: none; color: var(--primary-dark); font-size: 1.05rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background var(--transition); }
+  .modal-close:hover { background: rgba(2,44,40,0.12); }
   .modal-body { padding: 24px 28px 28px; }
   .enroll-form { display: flex; flex-direction: column; gap: 16px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
@@ -1446,7 +1446,8 @@
     .comm-cards { grid-template-columns: 1fr; }
     .kickstart-box { padding: 40px 22px; }
     .modal-box { max-height: 95vh; }
-    .modal-header { padding: 22px 20px 18px; }
+    .modal-header { padding: 20px 22px 16px; }
+    .modal-header .modal-logo { display: none; }
     .modal-body { padding: 20px 20px 26px; }
     .form-row { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; gap: 34px; }
@@ -1625,37 +1626,15 @@
         </div>
 
         <h1 class="hero-title">
-          One Campus.<br><em>Two Career-Launching</em> Scholarships.
+          Your Free Scholarship<br><em>Into Tech Starts Here.</em>
         </h1>
 
         <p class="hero-sub">
-          Learn <strong>UI/UX Design</strong> or <strong>Data Analysis</strong> — 100% free,
-          beginner-friendly, mentor-led, and remote-ready. Your new career starts here.
+          Choose <strong>UI/UX Design</strong> or <strong>Data Analysis</strong> — 100% free,
+          beginner-friendly, mentor-led, and remote-ready. Your new career starts June 27.
         </p>
 
-        <div class="hero-track-pills">
-          <span class="track-pill track-pill-uiux">
-            <i class="fa-solid fa-pen-ruler" aria-hidden="true"></i> UI/UX Design · Figma, FigJam, AI
-          </span>
-          <span class="track-pill track-pill-data">
-            <i class="fa-solid fa-chart-column" aria-hidden="true"></i> Data Analysis · Excel, Power BI, SQL
-          </span>
-        </div>
-
-        <div class="hero-chips">
-          <span class="hero-chip"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Free Scholarship</span>
-          <span class="hero-chip"><i class="fa-regular fa-calendar" aria-hidden="true"></i> June 27, 2026</span>
-          <span class="hero-chip"><i class="fa-solid fa-clock" aria-hidden="true"></i> 2 Weeks</span>
-          <span class="hero-chip"><i class="fa-solid fa-earth-africa" aria-hidden="true"></i> 40+ Countries</span>
-        </div>
-
         <div class="hero-buttons">
-          <a href="#uiux-track" class="btn btn-secondary">
-            <i class="fa-solid fa-pen-ruler" aria-hidden="true"></i> Explore UI/UX Design
-          </a>
-          <a href="#data-track" class="btn btn-secondary">
-            <i class="fa-solid fa-chart-column" aria-hidden="true"></i> Explore Data Analysis
-          </a>
           <button class="btn btn-primary btn-lg open-modal">
             <i class="fa-solid fa-rocket" aria-hidden="true"></i> Enroll Now — It's FREE
           </button>
@@ -3032,7 +3011,7 @@
         <h3>Join the Conversation<br>Before Cohort Opens</h3>
         <p>Get early access to resources, connect with your future classmates, and stay ahead before the bootcamp even begins. Our WhatsApp community is free and always open.</p>
         <div class="comm-cta-btns">
-          <a href="https://chat.whatsapp.com/I0yaZzhdyoSExZm3vv1n61?s=cl&p=i&ilr=2" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+          <a href="https://chat.whatsapp.com/ElMdkHBthmG2ynUeP9dPu2?s=cl&p=i&ilr=2" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
             <i class="fa-brands fa-whatsapp"></i> Join the WhatsApp Community
           </a>
           <button class="btn-community-enroll open-modal">
@@ -3076,8 +3055,7 @@
       </div>
 
       <div class="kickstart-buttons">
-        <button class="btn-white open-modal-uiux"><i class="fa-solid fa-pen-ruler"></i> Enroll in UI/UX Design</button>
-        <button class="btn-white open-modal-data"><i class="fa-solid fa-chart-bar"></i> Enroll in Data Analysis</button>
+        <button class="btn-white open-modal"><i class="fa-solid fa-rocket"></i> Enroll Now — It's FREE</button>
         <a href="https://wa.me/2349065436488" target="_blank" rel="noopener noreferrer" class="btn-ghost-white"><i class="fa-brands fa-whatsapp"></i> Chat With Us</a>
       </div>
 
@@ -3284,6 +3262,10 @@
         </div>
         <div class="footer-contact-item">
           <i class="fa-brands fa-whatsapp"></i>
+          <span><a href="https://wa.me/2348079680209" target="_blank" rel="noopener noreferrer">+234 807 968 0209</a></span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa-brands fa-whatsapp"></i>
           <span><a href="https://wa.me/2349065436488" target="_blank" rel="noopener noreferrer">+234 906 543 6488</a></span>
         </div>
         <div class="footer-contact-item">
@@ -3338,7 +3320,7 @@
           <div class="modal-notice-text">
             <strong>Join Our WhatsApp Community</strong>
             Get class links, resources, and peer support shared directly on WhatsApp.
-            <a href="https://chat.whatsapp.com/I0yaZzhdyoSExZm3vv1n61?s=cl&p=i&ilr=2" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Join the Community →</a>
+            <a href="https://chat.whatsapp.com/ElMdkHBthmG2ynUeP9dPu2?s=cl&p=i&ilr=2" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Join the Community →</a>
           </div>
         </div>
       </div>
@@ -3461,7 +3443,7 @@
         <div class="modal-notice-text">
           <strong>Join Our WhatsApp Community</strong>
           After enrolling, join 10,000+ learners for live class links, resources, and peer support — all shared directly on WhatsApp.
-          <a href="https://chat.whatsapp.com/I0yaZzhdyoSExZm3vv1n61?s=cl&p=i&ilr=2" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Join the Community →</a>
+          <a href="https://chat.whatsapp.com/ElMdkHBthmG2ynUeP9dPu2?s=cl&p=i&ilr=2" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Join the Community →</a>
         </div>
       </div>
 
@@ -3681,7 +3663,7 @@ AOS.init({ duration: 700, once: true, offset: 60 });
 
 /* ---------- Enrollment Modal ---------- */
 (function () {
-  var GOOGLE_SHEET_ENDPOINT = 'PASTE_WEB_APP_URL_HERE';
+  var GOOGLE_SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw_2laRBFIZ2Ss45VQ1p2niCfD-K6VbwkJPIeORL2XSt7KAxgLzwpQEjVt6O5dipSdU/exec';
 
   var modal       = document.getElementById('enroll-modal');
   var enrollForm  = document.getElementById('enroll-form');
@@ -3813,15 +3795,11 @@ AOS.init({ duration: 700, once: true, offset: 60 });
       body:    JSON.stringify(payload)
     })
     .then(function () {
-      enrollForm.style.display = 'none';
-      if (waNotice) waNotice.style.display = 'none';
-      successDiv.classList.add('show');
+      window.location.href = 'regsuccess/';
     })
     .catch(function () {
       /* no-cors always resolves — this only fires on network failure */
-      enrollForm.style.display = 'none';
-      if (waNotice) waNotice.style.display = 'none';
-      successDiv.classList.add('show');
+      window.location.href = 'regsuccess/';
     });
   });
 
@@ -3837,6 +3815,21 @@ AOS.init({ duration: 700, once: true, offset: 60 });
       openModal(null);
     });
   }
+})();
+
+/* ---------- Nav track links — scroll to curriculum + activate tab ---------- */
+(function () {
+  ['uiux', 'data'].forEach(function (track) {
+    document.querySelectorAll('a[href="#' + track + '-track"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var tabBtn = document.querySelector('button[data-group="curriculum"][data-panel="curriculum-' + track + '"]');
+        if (tabBtn) tabBtn.click();
+        var section = document.getElementById('curriculum');
+        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  });
 })();
 </script>
 
