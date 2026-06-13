@@ -48,8 +48,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css" />
 
-  <!-- Preload hero image -->
+  <!-- Canonical -->
+  <link rel="canonical" href="https://idealnovate.com/campus/" />
+
+  <!-- Preload critical above-the-fold assets -->
   <link rel="preload" as="image" href="../Pictures/Hero2.jpg" />
+  <link rel="preload" as="image" href="../Pictures/Idealnovate Logo White.png" fetchpriority="low" />
 
   <style>
     /* ============================================================
@@ -1459,9 +1463,69 @@
     .footer-bottom { flex-direction: column; align-items: flex-start; }
   }
 
+
+  /* ========================================================
+     PHASE 4 CSS — Accessibility, focus rings, mobile polish
+  ======================================================== */
+
+  /* Skip-to-content link */
+  .skip-link {
+    position: absolute; top: -100px; left: 16px; z-index: 99999;
+    background: var(--primary-dark); color: #fff;
+    font-size: 0.85rem; font-weight: 700; padding: 10px 18px;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    text-decoration: none; transition: top 0.2s;
+  }
+  .skip-link:focus { top: 0; }
+
+  /* Global focus-visible ring — keyboard users only */
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+  }
+  /* Override for elements that provide their own focus indicator */
+  .form-input:focus-visible, .form-select:focus-visible { outline: none; }
+
+  /* noscript banner */
+  .noscript-bar {
+    background: var(--accent-dark); color: #fff;
+    text-align: center; padding: 12px 20px; font-size: 0.88rem;
+    font-weight: 600;
+  }
+
+  /* Mobile tweaks — 480px */
+  @media (max-width: 480px) {
+    .cert-float-badge { display: none; }
+    .comm-stats-bar { border-radius: var(--radius-lg); padding: 20px 16px; }
+    .testi-proof-bar { flex-direction: column; gap: 12px; padding: 20px 16px; }
+    .testi-proof-divider { width: 60px; height: 1px; }
+    .alumni-stats-grid { grid-template-columns: 1fr 1fr; }
+    .kickstart-box { padding: 36px 16px; }
+    .kickstart-steps { gap: 4px; }
+    .ks-num { width: 38px; height: 38px; font-size: 0.9rem; }
+    .ks-lbl { font-size: 0.7rem; }
+  }
+
+  /* Very small screens — 360px */
+  @media (max-width: 360px) {
+    .hero-title { font-size: 1.6rem; }
+    .modal-header h2 { font-size: 1.15rem; }
+    .pill-group { gap: 6px; }
+    .pill-opt label { padding: 7px 12px; font-size: 0.8rem; }
+  }
+
   </style>
 </head>
 <body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<noscript>
+  <div class="noscript-bar">
+    <i class="fa-solid fa-circle-exclamation" style="margin-right:6px;"></i>
+    This page uses JavaScript for the enrollment form, countdown timer, and accordions. Please enable JavaScript for the full experience.
+  </div>
+</noscript>
 
 <!-- ============================================================
      SECTION 1 — NAVBAR
@@ -1504,6 +1568,9 @@
   <button class="btn btn-primary open-modal" style="border-radius:var(--radius-md)">Enroll Now</button>
 </div>
 
+<!-- Skip-to-content target -->
+<span id="main-content" tabindex="-1" style="display:block;height:0;position:absolute;"></span>
+
 <!-- ============================================================
      SECTION 2 — COUNTDOWN BANNER
 ============================================================ -->
@@ -1545,7 +1612,7 @@
 <!-- ============================================================
      SECTION 3 — HERO
 ============================================================ -->
-<section id="hero">
+<section id="hero" aria-label="Hero">
   <div class="container">
     <div class="hero-grid">
 
@@ -3634,6 +3701,9 @@ AOS.init({ duration: 700, once: true, offset: 60 });
       radioEl = document.getElementById('b-data');
       if (radioEl) radioEl.checked = true;
     }
+    /* Move focus to close button so keyboard users can navigate */
+    var closeBtn = modal.querySelector('.modal-close');
+    if (closeBtn) setTimeout(function () { closeBtn.focus(); }, 50);
   }
 
   function closeModal() {
@@ -3667,7 +3737,22 @@ AOS.init({ duration: 700, once: true, offset: 60 });
   /* Close */
   modal.querySelector('.modal-close').addEventListener('click', closeModal);
   modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closeModal(); return; }
+    /* Focus trap: keep Tab inside modal while open */
+    if (e.key === 'Tab' && modal.classList.contains('open')) {
+      var focusable = modal.querySelectorAll(
+        'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      var first = focusable[0];
+      var last  = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+      }
+    }
+  });
 
   /* Validate */
   function getVal(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
