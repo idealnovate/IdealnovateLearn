@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Application Received — Idealnovate Africa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:      #068276;
+      --primary-dark: #022c28;
+      --accent:       #f4a85e;
+      --bg-base:      #f0fdf9;
+      --text-dark:    #0a0a0a;
+      --text-muted:   #6b7280;
+      --border:       #d1fae5;
+    }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--bg-base);
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    .card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 56px 48px;
+      max-width: 560px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(2,44,40,0.1);
+      border: 1px solid var(--border);
+    }
+    .icon-wrap {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), #0a9e90);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px;
+      font-size: 2rem;
+      color: #fff;
+      box-shadow: 0 12px 32px rgba(6,130,118,0.35);
+      animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.4); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+    .logo { height: 36px; width: auto; margin-bottom: 32px; }
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+    p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .next-steps {
+      background: var(--bg-base);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: left;
+      margin-bottom: 32px;
+    }
+    .next-steps h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .step:last-child { margin-bottom: 0; }
+    .step-dot {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step span { font-size: 0.9rem; color: var(--text-dark); line-height: 1.6; }
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+      transition: background 0.2s;
+    }
+    .btn-wa:hover { background: #1eb858; color: #fff; }
+    .btn-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    .btn-home:hover { text-decoration: underline; }
+    .social-row { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .social-row p { font-size: 0.82rem; margin-bottom: 12px; }
+    .social-row a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(6,130,118,0.08);
+      color: var(--primary);
+      font-size: 0.9rem;
+      text-decoration: none;
+      margin: 0 4px;
+      transition: all 0.2s;
+    }
+    .social-row a:hover { background: var(--primary); color: #fff; }
+    @media (max-width: 480px) {
+      .card { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="../Pictures/Idealnovate Logo Dark.png" alt="Idealnovate Africa" class="logo" />
+
+    <div class="icon-wrap">
+      <i class="fa-solid fa-circle-check"></i>
+    </div>
+
+    <h1>Application Received!</h1>
+    <p>You've taken the first step towards becoming a job-ready data analyst. Check your inbox — a welcome email from Idealnovate Africa is on its way.</p>
+
+    <div class="next-steps">
+      <h3>What Happens Next</h3>
+      <div class="step">
+        <div class="step-dot">1</div>
+        <span>Check your email for your welcome message and pre-class resources.</span>
+      </div>
+      <div class="step">
+        <div class="step-dot">2</div>
+        <span>Join the WhatsApp community to connect with your cohort and get class links.</span>
+      </div>
+      <div class="step">
+        <div class="step-dot">3</div>
+        <span>Show up on <strong>June 28, 2026</strong> for your first live session — and enjoy the ride!</span>
+      </div>
+    </div>
+
+    <a href="https://chat.whatsapp.com/I0yaZzhdyoSExZm3vv1n61?s=cl&p=i&ilr=2" target="_blank" rel="noopener noreferrer" class="btn-wa">
+      <i class="fa-brands fa-whatsapp"></i> Join the WhatsApp Community
+    </a>
+    <br>
+    <a href="../" class="btn-home">
+      <i class="fa-solid fa-arrow-left"></i> Back to Idealnovate Africa
+    </a>
+
+    <div class="social-row">
+      <p>Follow us for updates, tips, and community highlights</p>
+      <a href="https://instagram.com/idealnovate"        target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://x.com/idealnovate"                target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://linkedin.com/company/idealnovate" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://tiktok.com/@idealnovate"          target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@idealnovate"     target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+  </div>
+
+</body>
+</html>
