@@ -1168,7 +1168,11 @@
   .cert-visual { position: relative; }
   .cert-img-frame { position: relative; }
   .cert-img-panel { display: none; }
-  .cert-img-panel.active { display: block; }
+  .cert-img-panel.active { display: block; animation: certFadeIn 0.55s ease forwards; }
+  @keyframes certFadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to   { opacity: 1; transform: scale(1); }
+  }
   .cert-img-real { width: 100%; border-radius: var(--radius-xl); box-shadow: 0 24px 72px rgba(2,44,40,0.18); display: block; }
   .cert-float-badge {
     position: absolute; bottom: -16px; right: 22px;
@@ -1303,23 +1307,23 @@
   /* ---- Section 17: Pre-footer Countdown ---- */
   #campus-pfc {
     background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-    padding: 18px 0;
+    padding: 14px 0;
   }
   #campus-pfc .countdown-inner { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
-  #campus-pfc .countdown-label { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); font-size: 0.88rem; font-weight: 600; }
-  #campus-pfc .countdown-label i { color: var(--accent); }
-  #campus-pfc .countdown-timer { display: flex; align-items: center; gap: 8px; }
-  #campus-pfc .cd-unit { text-align: center; }
-  #campus-pfc .cd-num { display: block; font-family: var(--font-heading); font-size: 1.55rem; font-weight: 800; color: var(--accent); line-height: 1; min-width: 42px; }
-  #campus-pfc .cd-lbl { font-size: 0.58rem; color: rgba(255,255,255,0.6); }
-  #campus-pfc .cd-sep { color: rgba(255,255,255,0.4); font-size: 1.3rem; }
+  #campus-pfc .countdown-label { display: flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-size: 0.92rem; font-weight: 600; color: #fff; white-space: nowrap; }
+  #campus-pfc .countdown-label i { color: var(--accent); font-size: 1.05rem; }
+  #campus-pfc .countdown-timer { display: flex; align-items: center; gap: 6px; }
+  #campus-pfc .cd-unit { display: flex; flex-direction: column; align-items: center; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); border-radius: 8px; padding: 8px 14px; min-width: 56px; }
+  #campus-pfc .cd-num { font-family: var(--font-heading); font-size: 1.45rem; font-weight: 800; color: #fff; line-height: 1; transition: all 0.2s; }
+  #campus-pfc .cd-lbl { font-size: 0.6rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 3px; }
+  #campus-pfc .cd-sep { color: rgba(255,255,255,0.35); font-size: 1.3rem; font-weight: 700; padding-bottom: 10px; line-height: 1; }
   #campus-pfc .countdown-cta {
     display: inline-flex; align-items: center; gap: 8px;
-    background: #fff; color: var(--primary-dark);
-    font-weight: 700; font-size: 0.86rem;
-    padding: 9px 20px; border-radius: 100px; text-decoration: none; transition: background var(--transition);
+    background: var(--accent); color: #fff;
+    font-family: var(--font-heading); font-weight: 700; font-size: 0.85rem;
+    padding: 10px 20px; border-radius: 100px; text-decoration: none; white-space: nowrap; transition: all var(--transition);
   }
-  #campus-pfc .countdown-cta:hover { background: var(--accent); color: var(--primary-dark); }
+  #campus-pfc .countdown-cta:hover { background: var(--accent-dark); color: #fff; transform: translateY(-2px); }
 
   /* ---- Section 18: Footer ---- */
   #footer { background: var(--primary-dark); padding: 64px 0 0; }
@@ -3249,7 +3253,6 @@
           <li><a href="#certification">Certification</a></li>
           <li><a href="#community">Community</a></li>
           <li><a href="#faq">FAQs</a></li>
-          <li><a href="../campus/">Campus Page</a></li>
         </ul>
       </div>
 
@@ -3614,6 +3617,33 @@ AOS.init({ duration: 700, once: true, offset: 60 });
   initTrackToggle('curriculum');
   initTrackToggle('alumni');
   initTrackToggle('cert');
+})();
+
+/* ---------- Cert Auto-Cycle ---------- */
+(function () {
+  var order   = ['cert-uiux', 'cert-data'];
+  var current = 0;
+  var timer   = null;
+  var tabs    = document.querySelectorAll('[data-group="cert"].track-tab');
+  var pnls    = document.querySelectorAll('[data-group="cert"].track-panel');
+
+  function activate(idx) {
+    current = idx;
+    tabs.forEach(function (t) {
+      var on = t.dataset.panel === order[idx];
+      t.classList.toggle('active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    pnls.forEach(function (p) {
+      p.classList.toggle('active', p.dataset.panel === order[idx]);
+    });
+  }
+
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+  tabs.forEach(function (tab) { tab.addEventListener('click', stop); });
+
+  timer = setInterval(function () { activate((current + 1) % order.length); }, 3000);
 })();
 
 /* ---------- Curriculum Accordions ---------- */

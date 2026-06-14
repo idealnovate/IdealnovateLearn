@@ -287,7 +287,7 @@
 
     /* ===================== HERO ===================== */
     #hero {
-      padding: 140px 0 96px;
+      padding: 80px 0 96px;
       background: linear-gradient(135deg, #f0fdf9 0%, #e8faf7 50%, #f5fffd 100%);
       position: relative;
       overflow: hidden;
@@ -421,11 +421,11 @@
       .btn-lg { width: 100%; justify-content: center; }
     }
     @media (max-width: 480px) {
-      #hero { padding: 120px 0 72px; }
+      #hero { padding: 72px 0 64px; }
     }
     @media (max-width: 360px) {
       .section { padding: 52px 0; }
-      #hero { padding: 100px 0 56px; }
+      #hero { padding: 56px 0 48px; }
       .hero-buttons { gap: 10px; }
       .btn-lg { padding: 14px 20px; font-size: 0.9rem; }
     }
@@ -434,6 +434,7 @@
     #countdown-banner {
       background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
       padding: 14px 0;
+      margin-top: 76px;
       position: relative;
       z-index: 10;
     }
@@ -2110,32 +2111,18 @@
     #back-top.visible { opacity: 1; pointer-events: auto; }
     #back-top:hover { background: var(--primary-mid); transform: translateY(-3px); }
 
-    /* ===================== FLOATING MOBILE CTA ===================== */
+    /* ===================== FLOATING CTA ===================== */
     #float-enroll {
-      display: none;
-      position: fixed;
-      bottom: 28px; left: 20px;
-      z-index: 890;
-      background: var(--primary);
-      color: #fff;
-      font-family: var(--font-body);
-      font-size: 0.92rem;
-      font-weight: 700;
-      padding: 14px 24px;
-      border-radius: var(--radius-xl);
-      box-shadow: 0 8px 28px rgba(6,130,118,0.45);
-      text-decoration: none;
-      align-items: center;
-      gap: 8px;
-      transition: background var(--transition), transform var(--transition);
-      animation: floatPulse 2.8s ease-in-out infinite;
+      position: fixed; bottom: 80px; right: 20px; z-index: 5000;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff; text-decoration: none;
+      display: none; align-items: center; gap: 8px;
+      padding: 11px 20px; border-radius: 100px;
+      font-family: var(--font-heading); font-weight: 700; font-size: 0.88rem;
+      box-shadow: 0 8px 24px rgba(6,130,118,0.4); transition: all var(--transition);
     }
-    @keyframes floatPulse {
-      0%,100% { box-shadow: 0 8px 28px rgba(6,130,118,0.45); }
-      50%      { box-shadow: 0 12px 36px rgba(6,130,118,0.65); }
-    }
-    #float-enroll:hover { background: var(--primary-mid); transform: translateY(-2px); color: #fff; }
-    @media (max-width: 768px) { #float-enroll { display: flex; } }
+    #float-enroll.visible { display: flex; }
+    #float-enroll:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(6,130,118,0.5); color: #fff; }
 
     /* ===================== ENROLLMENT MODAL ===================== */
     #enroll-modal {
@@ -2405,7 +2392,6 @@
       .modal-body   { padding: 16px 18px 24px; }
     }
     @media (max-width: 320px) {
-      #float-enroll { bottom: 60px; padding: 11px 18px; font-size: 0.82rem; }
       #back-top { bottom: 12px; }
     }
   </style>
@@ -2447,6 +2433,42 @@
   <a href="#student-projects" class="mobile-link">Students Work</a>
   <a href="#faq"              class="mobile-link">FAQ</a>
   <a href="#enroll" class="btn btn-primary enroll-trigger">Enroll Now</a>
+</div>
+
+<!-- ===================== COUNTDOWN BANNER ===================== -->
+<div id="countdown-banner" role="alert" aria-live="polite">
+  <div class="container">
+    <div class="countdown-inner">
+      <div class="countdown-label">
+        <i class="fa-solid fa-fire"></i>
+        <span>Admission closes in</span>
+      </div>
+      <div class="countdown-timer">
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-days">01</span>
+          <span class="cd-lbl">Days</span>
+        </div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-hours">23</span>
+          <span class="cd-lbl">Hrs</span>
+        </div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-mins">59</span>
+          <span class="cd-lbl">Mins</span>
+        </div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit">
+          <span class="cd-num" id="cd-secs">59</span>
+          <span class="cd-lbl">Secs</span>
+        </div>
+      </div>
+      <a href="#enroll" class="countdown-cta enroll-trigger">
+        Secure Your Spot <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
 </div>
 
 <!-- ===================== HERO ===================== -->
@@ -2515,42 +2537,6 @@
     </div>
   </div>
 </section>
-
-<!-- ===================== COUNTDOWN BANNER ===================== -->
-<div id="countdown-banner" role="alert" aria-live="polite">
-  <div class="container">
-    <div class="countdown-inner">
-      <div class="countdown-label">
-        <i class="fa-solid fa-fire"></i>
-        <span>Admission closes in</span>
-      </div>
-      <div class="countdown-timer">
-        <div class="cd-unit">
-          <span class="cd-num" id="cd-days">01</span>
-          <span class="cd-lbl">Days</span>
-        </div>
-        <span class="cd-sep">:</span>
-        <div class="cd-unit">
-          <span class="cd-num" id="cd-hours">23</span>
-          <span class="cd-lbl">Hrs</span>
-        </div>
-        <span class="cd-sep">:</span>
-        <div class="cd-unit">
-          <span class="cd-num" id="cd-mins">59</span>
-          <span class="cd-lbl">Mins</span>
-        </div>
-        <span class="cd-sep">:</span>
-        <div class="cd-unit">
-          <span class="cd-num" id="cd-secs">59</span>
-          <span class="cd-lbl">Secs</span>
-        </div>
-      </div>
-      <a href="#enroll" class="countdown-cta enroll-trigger">
-        Secure Your Spot <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
-</div>
 
 <!-- ===================== INFO STRIP ===================== -->
 <div id="info-strip">
@@ -3983,9 +3969,11 @@
         </div>
         <div class="footer-contact-item">
           <i class="fa-brands fa-whatsapp"></i>
-          <span>
-            <a href="https://wa.me/2349065436488" target="_blank" rel="noopener noreferrer">+234 906 543 6488</a>
-          </span>
+          <span><a href="https://wa.me/2348079680209" target="_blank" rel="noopener noreferrer">+234 807 968 0209</a></span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span><a href="https://wa.me/2349065436488" target="_blank" rel="noopener noreferrer">+234 906 543 6488</a></span>
         </div>
         <div class="footer-contact-item">
           <i class="fa-solid fa-location-dot"></i>
@@ -4209,6 +4197,14 @@
   window.addEventListener('scroll', () => {
     backTop.classList.toggle('visible', window.scrollY > 400);
   }, { passive: true });
+
+  /* ---- Floating CTA visibility ---- */
+  const floatEnroll = document.getElementById('float-enroll');
+  if (floatEnroll) {
+    window.addEventListener('scroll', () => {
+      floatEnroll.classList.toggle('visible', window.scrollY > 600);
+    }, { passive: true });
+  }
 
   /* ---- Enrollment modal ---- */
   const modal         = document.getElementById('enroll-modal');
