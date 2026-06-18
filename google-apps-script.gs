@@ -18,7 +18,7 @@ const SHEET_NAME   = 'Enrollments';          // Tab name in your Google Sheet
 const SHEET_ID     = 'YOUR_GOOGLE_SHEET_ID'; // From the Sheet URL: /d/<THIS_PART>/edit
 const FROM_NAME    = 'Idealnovate Africa';
 const REPLY_TO     = 'hello@idealnovate.com';
-const COHORT_DATE  = 'June 28, 2026';
+const COHORT_DATE  = 'June 27, 2026';
 const WHATSAPP_URL = 'https://chat.whatsapp.com/BYeEU8V8NWSGUN7Vtp4WqM?s=cl&p=i&ilr=2';
 // ─────────────────────────────────────────────────────────────────────────────
 
