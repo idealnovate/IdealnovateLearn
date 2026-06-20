@@ -19,7 +19,7 @@ const SHEET_ID     = 'YOUR_GOOGLE_SHEET_ID'; // From the Sheet URL: /d/<THIS_PAR
 const FROM_NAME    = 'Idealnovate Africa';
 const REPLY_TO     = 'hello@idealnovate.com';
 const COHORT_DATE  = 'June 27, 2026';
-const WHATSAPP_URL = 'https://chat.whatsapp.com/BYeEU8V8NWSGUN7Vtp4WqM?s=cl&p=i&ilr=2';
+const WHATSAPP_URL = 'https://chat.whatsapp.com/Jtc1Srj2HNTK1aIV00NrlJ?s=cl&p=i&ilr=2';
 // ─────────────────────────────────────────────────────────────────────────────
 
 function doPost(e) {
