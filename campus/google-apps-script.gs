@@ -15,7 +15,7 @@
  */
 
 // ── CONFIG ────────────────────────────────────────────────────────────────────
-const SHEET_NAME   = 'Campus Enrollments';
+const SHEET_NAME   = 'Campus Enrollments2';
 const SHEET_ID     = 'YOUR_GOOGLE_SHEET_ID';
 const FROM_NAME    = 'Idealnovate Africa';
 const REPLY_TO     = 'hello@idealnovate.com';
@@ -33,9 +33,9 @@ function doPost(e) {
     if (sheet.getLastRow() === 0) {
       sheet.appendRow([
         'Timestamp', 'Bootcamp', 'First Name', 'Last Name',
-        'Email', 'Phone (WhatsApp)', 'Gender', 'How They Heard', 'Has Computer'
+        'Email', 'Phone (WhatsApp)', 'Location', 'Gender', 'How They Heard', 'Has Computer'
       ]);
-      sheet.getRange(1, 1, 1, 9).setFontWeight('bold').setBackground('#022c28').setFontColor('#ffffff');
+      sheet.getRange(1, 1, 1, 10).setFontWeight('bold').setBackground('#022c28').setFontColor('#ffffff');
     }
 
     // Append applicant row
@@ -46,6 +46,7 @@ function doPost(e) {
       data.lastName,
       data.email,
       data.phone,
+      data.location,
       data.gender,
       data.referral,
       data.hasComputer

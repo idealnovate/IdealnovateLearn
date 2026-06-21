@@ -3392,6 +3392,26 @@
           <span class="form-field-error" id="err-phone">Please enter your WhatsApp number.</span>
         </div>
 
+        <!-- Location -->
+        <div class="form-group">
+          <label class="form-label" for="f-location">Location <span>*</span></label>
+          <div class="select-wrap">
+            <select id="f-location" name="location" class="form-select">
+              <option value="" disabled selected>Select an option</option>
+              <option value="Nigeria">Nigeria</option>
+              <option value="Ghana">Ghana</option>
+              <option value="Kenya">Kenya</option>
+              <option value="South Africa">South Africa</option>
+              <option value="USA">USA</option>
+              <option value="UK">UK</option>
+              <option value="Other African Nations">Other African Nations</option>
+              <option value="Other Asian Nations">Other Asian Nations</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+          <span class="form-field-error" id="err-location">Please select your location.</span>
+        </div>
+
         <!-- Gender -->
         <div class="form-group">
           <label class="form-label">Gender <span>*</span></label>
@@ -3808,6 +3828,7 @@ AOS.init({ duration: 700, once: true, offset: 60 });
     var email = getVal('f-email');
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showErr('err-email'); markErr('f-email'); ok = false; }
     if (!getVal('f-phone'))      { showErr('err-phone');    markErr('f-phone');    ok = false; }
+    if (!getVal('f-location'))   { showErr('err-location'); markErr('f-location'); ok = false; }
     if (!getRadio('gender'))     { showErr('err-gender');   ok = false; }
     if (!getVal('f-referral'))   { showErr('err-referral'); markErr('f-referral'); ok = false; }
     if (!getRadio('hasComputer')){ showErr('err-computer'); ok = false; }
@@ -3830,6 +3851,7 @@ AOS.init({ duration: 700, once: true, offset: 60 });
       lastName:    getVal('f-lastname'),
       email:       getVal('f-email'),
       phone:       getVal('f-phone'),
+      location:    getVal('f-location'),
       gender:      getRadio('gender'),
       referral:    getVal('f-referral'),
       hasComputer: getRadio('hasComputer')
