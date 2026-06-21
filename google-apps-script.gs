@@ -14,7 +14,7 @@
  */
 
 // ── CONFIG ───────────────────────────────────────────────────────────────────
-const SHEET_NAME   = 'Enrollments';          // Tab name in your Google Sheet
+const SHEET_NAME   = 'Enrollments2';          // Tab name in your Google Sheet
 const SHEET_ID     = 'YOUR_GOOGLE_SHEET_ID'; // From the Sheet URL: /d/<THIS_PART>/edit
 const FROM_NAME    = 'Idealnovate Africa';
 const REPLY_TO     = 'hello@idealnovate.com';
@@ -32,9 +32,9 @@ function doPost(e) {
     if (sheet.getLastRow() === 0) {
       sheet.appendRow([
         'Timestamp', 'First Name', 'Last Name', 'Email',
-        'Phone (WhatsApp)', 'Gender', 'How They Heard', 'Has Computer'
+        'Phone (WhatsApp)', 'Location', 'Gender', 'How They Heard', 'Has Computer'
       ]);
-      sheet.getRange(1, 1, 1, 8).setFontWeight('bold').setBackground('#022c28').setFontColor('#ffffff');
+      sheet.getRange(1, 1, 1, 9).setFontWeight('bold').setBackground('#022c28').setFontColor('#ffffff');
     }
 
     // Append applicant row
@@ -44,6 +44,7 @@ function doPost(e) {
       data.lastName,
       data.email,
       data.phone,
+      data.location,
       data.gender,
       data.referral,
       data.hasComputer

@@ -4060,6 +4060,26 @@
           <span class="form-field-error" id="err-phone">Please enter your WhatsApp number.</span>
         </div>
 
+        <!-- Location -->
+        <div class="form-group">
+          <label class="form-label" for="f-location">Location <span>*</span></label>
+          <div class="select-wrap">
+            <select id="f-location" name="location" class="form-select">
+              <option value="" disabled selected>Eg. Nigeria</option>
+              <option value="Nigeria">Nigeria</option>
+              <option value="Ghana">Ghana</option>
+              <option value="Kenya">Kenya</option>
+              <option value="South Africa">South Africa</option>
+              <option value="USA">USA</option>
+              <option value="UK">UK</option>
+              <option value="Other African Nations">Other African Nations</option>
+              <option value="Other Asian Nations">Other Asian Nations</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+          <span class="form-field-error" id="err-location">Please select your location.</span>
+        </div>
+
         <div class="form-group">
           <label class="form-label">Gender <span>*</span></label>
           <div class="pill-group">
@@ -4283,6 +4303,7 @@
     ok = setFieldState('f-lastname',  'err-lastname',  d.lastName.trim() === '')                        && ok;
     ok = setFieldState('f-email',     'err-email',     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email))    && ok;
     ok = setFieldState('f-phone',     'err-phone',     d.phone.trim().length < 7)                       && ok;
+    ok = setFieldState('f-location',  'err-location',  d.location === '')                                && ok;
     const gErr = document.getElementById('err-gender');
     if (!d.gender)      { if (gErr) gErr.classList.add('show');    ok = false; }
     else                { if (gErr) gErr.classList.remove('show'); }
@@ -4303,6 +4324,7 @@
       lastName:    document.getElementById('f-lastname').value.trim(),
       email:       document.getElementById('f-email').value.trim(),
       phone:       document.getElementById('f-phone').value.trim(),
+      location:    document.getElementById('f-location').value,
       gender:      (document.querySelector('input[name="gender"]:checked')      || {}).value || '',
       referral:    document.getElementById('f-referral').value,
       hasComputer: (document.querySelector('input[name="hasComputer"]:checked') || {}).value || ''
