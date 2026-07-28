@@ -821,9 +821,23 @@
       transform: translateY(-3px);
       box-shadow: var(--shadow-sm);
     }
-    .company-chip:hover .company-icon,
+    .company-chip:hover .company-badge { background: #fff; color: var(--primary); }
     .company-chip:hover .company-name { color: #fff; }
-    .company-icon { font-size: 1.3rem; }
+    .company-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--border);
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary);
+      transition: all var(--transition);
+    }
     .company-name {
       font-family: var(--font-heading);
       font-size: 0.92rem;
@@ -2791,31 +2805,31 @@
     <div class="companies-track-wrap" data-aos="fade-up" data-aos-delay="100">
       <div class="companies-track">
         <!-- First set -->
-        <div class="company-chip"><span class="company-icon">🟢</span><span class="company-name">Paystack</span></div>
-        <div class="company-chip"><span class="company-icon">🏢</span><span class="company-name">Thuja LLC</span></div>
-        <div class="company-chip"><span class="company-icon">🌿</span><span class="company-name">Vital Relief Wellness</span></div>
-        <div class="company-chip"><span class="company-icon">⚡</span><span class="company-name">Bolt</span></div>
-        <div class="company-chip"><span class="company-icon">🏦</span><span class="company-name">Access Bank</span></div>
-        <div class="company-chip"><span class="company-icon">🟠</span><span class="company-name">Glovo</span></div>
-        <div class="company-chip"><span class="company-icon">🛒</span><span class="company-name">Jumia</span></div>
-        <div class="company-chip"><span class="company-icon">💳</span><span class="company-name">Moniepoint</span></div>
-        <div class="company-chip"><span class="company-icon">📊</span><span class="company-name">PiggyVest</span></div>
-        <div class="company-chip"><span class="company-icon">🔵</span><span class="company-name">Flutterwave</span></div>
-        <div class="company-chip"><span class="company-icon">🏪</span><span class="company-name">Konga</span></div>
-        <div class="company-chip"><span class="company-icon">📱</span><span class="company-name">MTN Nigeria</span></div>
+        <div class="company-chip"><span class="company-badge">P</span><span class="company-name">Paystack</span></div>
+        <div class="company-chip"><span class="company-badge">T</span><span class="company-name">Thuja LLC</span></div>
+        <div class="company-chip"><span class="company-badge">V</span><span class="company-name">Vital Relief Wellness</span></div>
+        <div class="company-chip"><span class="company-badge">B</span><span class="company-name">Bolt</span></div>
+        <div class="company-chip"><span class="company-badge">A</span><span class="company-name">Access Bank</span></div>
+        <div class="company-chip"><span class="company-badge">G</span><span class="company-name">Glovo</span></div>
+        <div class="company-chip"><span class="company-badge">J</span><span class="company-name">Jumia</span></div>
+        <div class="company-chip"><span class="company-badge">M</span><span class="company-name">Moniepoint</span></div>
+        <div class="company-chip"><span class="company-badge">P</span><span class="company-name">PiggyVest</span></div>
+        <div class="company-chip"><span class="company-badge">F</span><span class="company-name">Flutterwave</span></div>
+        <div class="company-chip"><span class="company-badge">K</span><span class="company-name">Konga</span></div>
+        <div class="company-chip"><span class="company-badge">M</span><span class="company-name">MTN Nigeria</span></div>
         <!-- Duplicate for seamless loop -->
-        <div class="company-chip"><span class="company-icon">🟢</span><span class="company-name">Paystack</span></div>
-        <div class="company-chip"><span class="company-icon">🏢</span><span class="company-name">Thuja LLC</span></div>
-        <div class="company-chip"><span class="company-icon">🌿</span><span class="company-name">Vital Relief Wellness</span></div>
-        <div class="company-chip"><span class="company-icon">⚡</span><span class="company-name">Bolt</span></div>
-        <div class="company-chip"><span class="company-icon">🏦</span><span class="company-name">Access Bank</span></div>
-        <div class="company-chip"><span class="company-icon">🟠</span><span class="company-name">Glovo</span></div>
-        <div class="company-chip"><span class="company-icon">🛒</span><span class="company-name">Jumia</span></div>
-        <div class="company-chip"><span class="company-icon">💳</span><span class="company-name">Moniepoint</span></div>
-        <div class="company-chip"><span class="company-icon">📊</span><span class="company-name">PiggyVest</span></div>
-        <div class="company-chip"><span class="company-icon">🔵</span><span class="company-name">Flutterwave</span></div>
-        <div class="company-chip"><span class="company-icon">🏪</span><span class="company-name">Konga</span></div>
-        <div class="company-chip"><span class="company-icon">📱</span><span class="company-name">MTN Nigeria</span></div>
+        <div class="company-chip"><span class="company-badge">P</span><span class="company-name">Paystack</span></div>
+        <div class="company-chip"><span class="company-badge">T</span><span class="company-name">Thuja LLC</span></div>
+        <div class="company-chip"><span class="company-badge">V</span><span class="company-name">Vital Relief Wellness</span></div>
+        <div class="company-chip"><span class="company-badge">B</span><span class="company-name">Bolt</span></div>
+        <div class="company-chip"><span class="company-badge">A</span><span class="company-name">Access Bank</span></div>
+        <div class="company-chip"><span class="company-badge">G</span><span class="company-name">Glovo</span></div>
+        <div class="company-chip"><span class="company-badge">J</span><span class="company-name">Jumia</span></div>
+        <div class="company-chip"><span class="company-badge">M</span><span class="company-name">Moniepoint</span></div>
+        <div class="company-chip"><span class="company-badge">P</span><span class="company-name">PiggyVest</span></div>
+        <div class="company-chip"><span class="company-badge">F</span><span class="company-name">Flutterwave</span></div>
+        <div class="company-chip"><span class="company-badge">K</span><span class="company-name">Konga</span></div>
+        <div class="company-chip"><span class="company-badge">M</span><span class="company-name">MTN Nigeria</span></div>
       </div>
     </div>
 

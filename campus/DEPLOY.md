@@ -98,6 +98,6 @@ The Web App URL stays the same — no change needed in `index.html`.
 | Sheet ID | `campus/google-apps-script.gs` — `SHEET_ID` | Set after creating sheet |
 | Cohort date | Hero section, Kickstart section | June 27, 2026 |
 | Countdown key | `index.html` JS — `KEY` | `'idealnovate_campus_deadline'` |
-| WhatsApp community | Modal notice, Community section | `chat.whatsapp.com/I0yaZzhdyoSExZm3vv1n61` |
+| WhatsApp community | Modal notice, Community section | `chat.whatsapp.com/ElMdkHBthmG2ynUeP9dPu2` |
 | Contact email | FAQ sidebar, Footer | `hello@idealnovate.com` |
 | Hiring email | FAQ answer #8 | `hire@idealnovate.com` |
