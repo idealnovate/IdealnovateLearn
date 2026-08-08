@@ -139,11 +139,11 @@ function sendWelcomeEmail(data) {
   <!-- Body -->
   <div class="body">
     <p class="greeting">Hi ${firstName},</p>
-    <p>Congratulations and a huge welcome to <strong>AI Income Blueprint</strong>! We&#8217;ve received your application and we&#8217;re excited to help you turn AI tools into daily profit.</p>
+    <p>Congratulations and a huge welcome to <strong>AI Income Blueprint</strong>! We&#8217;ve received your application and we&#8217;re excited to help you turn AI tools into daily revenue streams.</p>
 
     <div class="highlight-box">
       <strong>Cohort Start Date</strong>
-      <p>Your cohort kicks off on <strong>${COHORT_DATE}</strong>. Mark your calendar &mdash; this is where your AI income journey begins.</p>
+      <p>Your cohort kicks off on <strong>${COHORT_DATE}</strong> and runs for 1 week across 3 live sessions. Mark your calendar &mdash; this is where your AI income journey begins.</p>
     </div>
 
     <p>Here&#8217;s what happens next:</p>
@@ -176,7 +176,7 @@ function sendWelcomeEmail(data) {
 
     <p>If you have any questions before the cohort starts, simply reply to this email or reach us on WhatsApp &mdash; we respond within 24 hours.</p>
 
-    <p>We&#8217;ll see you on <strong>${COHORT_DATE}</strong>. Get ready to turn AI tools into daily profit!</p>
+    <p>We&#8217;ll see you on <strong>${COHORT_DATE}</strong>. Get ready to turn AI tools into daily revenue streams!</p>
 
     <p>With excitement,<br><strong>The Idealnovate Africa Team</strong></p>
 
