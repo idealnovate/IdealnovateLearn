@@ -87,8 +87,8 @@ The Web App URL stays the same — no change needed in `index.html`.
 
 | What | Where | Value |
 |---|---|---|
-| Apps Script endpoint | `aiblueprint/index.html` — `SCRIPT_URL` | **TODO** — set after deploy |
-| Sheet ID | `aiblueprint/google-apps-script.gs` — `SHEET_ID` | **TODO** — set after creating sheet |
+| Apps Script endpoint | `aiblueprint/index.html` — `SCRIPT_URL` | Set (2026-08-08) |
+| Sheet ID | The deployed copy in script.google.com — `SHEET_ID` | **Unverified from here** — confirm it's a real Sheet ID, not still `'YOUR_GOOGLE_SHEET_ID'`, in the script you pasted into script.google.com |
 | Cohort date | Apps Script `COHORT_DATE`, `regsuccess/index.html` | `August 15th 2026` |
 | Cohort duration | FAQ section | 1 week, 3 live sessions |
 | Missed-session policy | FAQ section | Sessions are recorded; replay link posted in the WhatsApp community |
