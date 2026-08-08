@@ -4157,7 +4157,7 @@
 
         <div class="form-error-banner" id="form-error-banner">
           <i class="fa-solid fa-circle-exclamation"></i>
-          <span>Please fill in all required fields before submitting.</span>
+          <span id="form-error-banner-text">Please fill in all required fields before submitting.</span>
         </div>
 
         <button type="submit" class="form-submit-btn" id="form-submit-btn">
@@ -4292,9 +4292,12 @@
   const modal         = document.getElementById('enroll-modal');
   const modalBackdrop = modal.querySelector('.modal-backdrop');
   const modalClose    = modal.querySelector('.modal-close');
-  const enrollForm    = document.getElementById('enroll-form');
-  const submitBtn     = document.getElementById('form-submit-btn');
-  const errorBanner   = document.getElementById('form-error-banner');
+  const enrollForm      = document.getElementById('enroll-form');
+  const submitBtn       = document.getElementById('form-submit-btn');
+  const errorBanner     = document.getElementById('form-error-banner');
+  const errorBannerText = document.getElementById('form-error-banner-text');
+  const VALIDATION_ERROR_MSG = 'Please fill in all required fields before submitting.';
+  const SUBMIT_ERROR_MSG     = 'Something went wrong and your application wasn\'t submitted. Please check your connection and try again.';
 
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzO7ohfA1-k0zTV2xn_HxsSccQEAsseTNwNutaTGVcYcISDtP-CkVExIe1RN0nTTR67/exec';
 
@@ -4374,6 +4377,7 @@
     };
 
     if (!validateForm(data)) {
+      errorBannerText.textContent = VALIDATION_ERROR_MSG;
       errorBanner.classList.add('show');
       const firstErr = enrollForm.querySelector('.error, .form-field-error.show');
       if (firstErr) firstErr.scrollIntoView({ block: 'nearest' });
@@ -4383,17 +4387,32 @@
     submitBtn.disabled = true;
     submitBtn.classList.add('loading');
 
+    /* No mode:'no-cors' here on purpose — Content-Type: text/plain keeps this a
+       CORS-safelisted "simple request" (no preflight), and Apps Script's
+       ContentService responses carry permissive CORS headers, so the JSON
+       body is actually readable. That's what makes real success/failure
+       detection possible instead of assuming success unconditionally. */
     fetch(SCRIPT_URL, {
       method:  'POST',
-      mode:    'no-cors',
       headers: { 'Content-Type': 'text/plain' },
       body:    JSON.stringify(data)
     })
-    .catch(() => { /* opaque response expected with no-cors */ })
-    .finally(() => {
-      if (typeof ttq !== 'undefined') { ttq.track('SubmitForm'); }
-      window.location.href = 'success/';
-    });
+      .then(res => res.json())
+      .then(result => {
+        if (result && result.status === 'success') {
+          if (typeof ttq !== 'undefined') { ttq.track('SubmitForm'); }
+          window.location.href = 'regsuccess/';
+        } else {
+          throw new Error((result && result.message) || 'Submission failed');
+        }
+      })
+      .catch(() => {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+        errorBannerText.textContent = SUBMIT_ERROR_MSG;
+        errorBanner.classList.add('show');
+        errorBanner.scrollIntoView({ block: 'nearest' });
+      });
   });
 
   /* Clear field error on input */
