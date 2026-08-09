@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Clinic Circle Connect — Secure Your Spot</title>
+  <meta name="description" content="Join the Digital Clinic Circle Connect in Lagos — a community meetup for tech and digital skill builders. Diagnose. Execute. Monetize." />
+  <link rel="icon" type="image/jpeg" href="../Pictures/dccicon.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — Digital Clinic Circle
+       Palette pulled from the live dcc flyer (dcclive.jpg):
+       deep navy + teal-to-mint gradient, no brown accent.
+       ============================================================ */
+    :root {
+      --ink:          #0F172A;   /* navy — dominant logo/wordmark color, primary text */
+      --ink-soft:      #334155;
+      --muted:         #64748B;
+      --clinic:        #14B8A6;  /* core teal — from the CIRCLE wordmark + accent shapes */
+      --clinic-deep:   #0F766E;  /* deeper teal / gradient end, pressed states */
+      --mint:          #8FF0E0;  /* light aqua tint — from the flyer's highlight accents */
+      --paper:         #F1F5F9;  /* light neutral background */
+      --paper-white:   #FFFFFF;
+      --border:        #DCE3EA;
+
+      --font-display: 'Unbounded', sans-serif;
+      --font-body:    'Plus Jakarta Sans', sans-serif;
+
+      --radius-sm: 0;
+      --radius-md: 0;
+      --radius-lg: 0;
+      --radius-pill: 0;
+
+      --shadow-sm: 0 4px 16px rgba(15,23,42,0.06);
+      --shadow-md: 0 14px 40px rgba(15,118,110,0.16);
+      --shadow-lg: 0 24px 64px rgba(15,23,42,0.16);
+
+      --ease: cubic-bezier(0.4,0,0.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+    body {
+      font-family: var(--font-body);
+      background: var(--paper);
+      color: var(--ink-soft);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      max-width: 100%;
+      width: 100%;
+      position: relative;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    :focus-visible { outline: 3px solid var(--clinic-deep); outline-offset: 3px; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+    h1, h2, h3, h4 { font-family: var(--font-display); color: var(--ink); line-height: 1.22; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 100%;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--clinic-deep);
+      background: var(--mint);
+      padding: 8px 16px 8px 12px;
+      border-radius: var(--radius-pill);
+    }
+    .eyebrow-label { min-width: 0; overflow-wrap: break-word; }
+    .eyebrow .dot {
+      width: 7px; height: 7px; border-radius: 0;
+      background: var(--clinic);
+      animation: pulse-dot 1.6s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%      { transform: scale(1.5); opacity: 0.5; }
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 15px 30px;
+      border-radius: var(--radius-pill);
+      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s var(--ease);
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--clinic), var(--clinic-deep));
+      color: #fff;
+      box-shadow: var(--shadow-md);
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 48px rgba(15,118,110,0.28); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1.5px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--clinic); color: var(--clinic-deep); }
+    .btn-block { width: 100%; }
+
+    /* ============================================================
+       NAVBAR — transparent, sits over the hero
+       ============================================================ */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      padding: 22px 0;
+      transition: background 0.3s var(--ease), padding 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+    .navbar.scrolled {
+      background: rgba(241,245,249,0.9);
+      backdrop-filter: blur(14px);
+      padding: 14px 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .nav-logo { flex-shrink: 0; min-width: 0; }
+    .nav-logo img { height: 40px; width: auto; max-width: 100%; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.86rem;
+      color: #fff;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.3s var(--ease);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; left: 0; bottom: 0;
+      width: 0; height: 2px;
+      background: var(--mint);
+      transition: width 0.25s var(--ease);
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .navbar.scrolled .nav-links a { color: var(--ink); }
+    .navbar.scrolled .nav-links a::after { background: var(--clinic); }
+
+    .nav-cta { display: flex; align-items: center; gap: 18px; flex-shrink: 0; }
+    .nav-toggle {
+      display: none;
+      width: 40px; height: 40px;
+      align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .navbar.scrolled .nav-toggle { color: var(--ink); }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+    }
+    @media (max-width: 860px) {
+      .nav-cta .btn-primary { padding: 12px 20px; font-size: 0.85rem; }
+    }
+    @media (max-width: 380px) {
+      .nav-logo img { height: 30px; }
+      .nav-cta .btn-primary { padding: 10px 14px; font-size: 0.76rem; }
+    }
+
+    /* ---------- Mobile drawer — slides left to right ---------- */
+    .drawer-overlay {
+      position: fixed; inset: 0;
+      background: rgba(15,23,42,0.6);
+      z-index: 1500;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
+    }
+    .drawer-overlay.active { opacity: 1; visibility: visible; }
+    .mobile-drawer {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: min(320px, 82vw);
+      background: var(--ink);
+      z-index: 1600;
+      padding: 30px 28px;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(-100%);
+      transition: transform 0.35s var(--ease);
+    }
+    .mobile-drawer.active { transform: translateX(0); }
+    .drawer-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 48px; }
+    .drawer-head img { height: 30px; width: auto; }
+    .drawer-close {
+      width: 36px; height: 36px;
+      border: 1.5px solid rgba(241,245,249,0.3);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .drawer-links { display: flex; flex-direction: column; margin-bottom: auto; }
+    .drawer-links a {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #fff;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(241,245,249,0.12);
+    }
+    .mobile-drawer .btn { margin-top: 30px; width: 100%; }
+
+    /* ============================================================
+       HERO — single column, centered "poster" composition over a
+       dark, transparent overlay on the real community photo, with
+       a horizontal traveling pulse-wave strip beneath the copy.
+       ============================================================ */
+    .hero {
+      position: relative;
+      padding: 176px 0 90px;
+      background:
+        linear-gradient(180deg, rgba(6,12,26,0.90) 0%, rgba(6,12,26,0.86) 55%, rgba(6,12,26,0.94) 100%),
+        url('../Pictures/dccfill.png') center 20% / cover no-repeat,
+        var(--ink);
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero-copy { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+    .hero-copy .eyebrow {
+      margin-bottom: 24px;
+      background: rgba(143,240,224,0.14);
+      color: var(--mint);
+    }
+    .hero-copy .eyebrow .dot { background: var(--mint); }
+    .hero-copy h1 {
+      font-size: clamp(1.9rem, 4.6vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.28;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .hero-copy h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--mint), var(--clinic));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-sub {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--mint);
+      margin-bottom: 10px;
+    }
+    .hero-tagline {
+      font-size: 1.1rem;
+      color: rgba(241,245,249,0.82);
+      margin-bottom: 34px;
+    }
+    .hero-tagline .sep { color: var(--mint); margin: 0 8px; font-weight: 700; }
+
+    .date-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 100%;
+      background: rgba(241,245,249,0.08);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(241,245,249,0.18);
+      border-radius: var(--radius-pill);
+      padding: 10px 20px 10px 10px;
+      margin-bottom: 32px;
+      font-size: 0.88rem;
+      text-align: left;
+      color: rgba(241,245,249,0.85);
+    }
+    .date-pill .badge-icon {
+      width: 30px; height: 30px;
+      border-radius: 0;
+      background: var(--mint);
+      color: var(--clinic-deep);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+    .date-pill-text { min-width: 0; overflow-wrap: break-word; }
+    .date-pill strong { color: #fff; font-family: var(--font-display); }
+    .date-pill span.tentative-tag {
+      display: block;
+      font-size: 0.7rem;
+      color: rgba(241,245,249,0.6);
+      font-style: italic;
+      margin-top: 1px;
+    }
+
+    .hero-actions { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .hero-note { font-size: 0.85rem; color: rgba(241,245,249,0.75); display: flex; align-items: center; gap: 8px; max-width: 100%; }
+    .hero-note i { color: var(--mint); flex-shrink: 0; }
+    .hero-note-text { min-width: 0; overflow-wrap: break-word; }
+
+    /* ---------- Signature: The Pulse Wave — a traveling beat across a row of community nodes ---------- */
+    .pulse-wave {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      margin: 72px auto 0;
+    }
+    .pulse-wave::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 0; right: 0;
+      height: 2px;
+      transform: translateY(-50%);
+      background: repeating-linear-gradient(to right, var(--clinic) 0 10px, transparent 10px 20px);
+    }
+    .pulse-wave-track {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 24px 30px;
+    }
+    .wave-node {
+      width: 58px; height: 58px;
+      border-radius: 0;
+      background: var(--paper-white);
+      border: 2px solid var(--mint);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15rem;
+      color: var(--clinic-deep);
+      box-shadow: var(--shadow-sm);
+      animation: wave-beat 3.2s ease-in-out infinite;
+    }
+    .wave-node:nth-child(1) { animation-delay: 0s; }
+    .wave-node:nth-child(2) { animation-delay: 0.2s; }
+    .wave-node:nth-child(3) { animation-delay: 0.4s; }
+    .wave-node:nth-child(4) { animation-delay: 0.6s; }
+    .wave-node:nth-child(5) { animation-delay: 0.8s; }
+    .wave-node:nth-child(6) { animation-delay: 1s; }
+    @keyframes wave-beat {
+      0%, 100% { transform: scale(1); box-shadow: var(--shadow-sm); }
+      50%      { transform: scale(1.18); box-shadow: 0 0 0 9px rgba(20,184,166,0.14), var(--shadow-md); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wave-node, .eyebrow .dot { animation: none !important; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 140px 0 70px; }
+      .date-pill { text-align: left; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .btn { width: 100%; }
+      .pulse-wave { margin-top: 52px; }
+      .pulse-wave-track { gap: 20px 22px; }
+      .wave-node { width: 44px; height: 44px; font-size: 0.95rem; }
+    }
+    @media (max-width: 360px) {
+      .pulse-wave-track { gap: 18px 18px; }
+      .wave-node { width: 38px; height: 38px; font-size: 0.85rem; }
+    }
+
+    /* ============================================================
+       WHY ATTEND — vertical "vitals strip" continuing the hero's
+       pulse motif: each benefit is a checkpoint on the same line.
+       ============================================================ */
+    .why-attend { padding: 110px 0; background: var(--paper-white); }
+    .why-head { max-width: 640px; margin: 0 auto 56px; text-align: center; }
+    .why-head .eyebrow { margin-bottom: 20px; }
+    .why-head h2 {
+      font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .why-head p { font-size: 1.02rem; color: var(--muted); }
+
+    .vitals-list { position: relative; max-width: 760px; margin: 0 auto; }
+    .vitals-list::before {
+      content: '';
+      position: absolute;
+      left: 31px;
+      top: 32px;
+      bottom: 32px;
+      width: 2px;
+      background: repeating-linear-gradient(to bottom, var(--clinic) 0 7px, transparent 7px 14px);
+    }
+    .vital-row {
+      display: flex;
+      gap: 26px;
+      align-items: flex-start;
+      position: relative;
+      margin-bottom: 44px;
+    }
+    .vital-row:last-child { margin-bottom: 0; }
+    .vital-icon {
+      width: 64px; height: 64px;
+      border-radius: 0;
+      background: var(--paper-white);
+      border: 2px solid var(--mint);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem;
+      color: var(--clinic-deep);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+      box-shadow: var(--shadow-sm);
+    }
+    .vital-copy h3 { font-size: 1.14rem; font-weight: 700; margin-bottom: 7px; }
+    .vital-copy p { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.7; }
+    .vital-copy p strong { color: var(--ink); font-weight: 600; }
+
+    .why-cta { max-width: 760px; margin: 64px auto 0; text-align: center; }
+    .why-cta p {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--ink);
+      margin-bottom: 22px;
+    }
+
+    @media (max-width: 640px) {
+      .why-attend { padding: 80px 0; }
+      .vitals-list::before { left: 27px; }
+      .vital-icon { width: 56px; height: 56px; font-size: 1.1rem; }
+      .why-cta { margin-top: 48px; }
+      .why-cta .btn { width: 100%; }
+    }
+
+    /* ============================================================
+       PARTNERS & SPONSORS — dark stage, stamped cards. The bold
+       swing here: each logo card carries a rotated "stamp" tag,
+       like it's been officially certified by the organizer.
+       ============================================================ */
+    .partners {
+      position: relative;
+      padding: 110px 0;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(20,184,166,0.14), transparent 55%),
+        var(--ink);
+      overflow: hidden;
+    }
+    .partners-head { max-width: 700px; margin: 0 auto 68px; text-align: center; }
+    .partners-head .eyebrow {
+      margin-bottom: 20px;
+      background: rgba(143,240,224,0.14);
+      color: var(--mint);
+    }
+    .partners-head .eyebrow .dot { background: var(--mint); }
+    .partners-head h2 {
+      color: #fff;
+      font-size: clamp(1.7rem, 3.6vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 18px;
+    }
+    .partners-head p { color: rgba(241,245,249,0.72); font-size: 1.04rem; }
+
+    .partners-grid {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+    }
+    .partner-card {
+      position: relative;
+      background: var(--paper-white);
+      border: 3px solid var(--clinic);
+      padding: 60px 32px 38px;
+      text-align: center;
+    }
+    .partner-tag {
+      position: absolute;
+      top: -17px;
+      left: 26px;
+      background: var(--clinic);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 8px 14px;
+      transform: rotate(-3deg);
+      box-shadow: var(--shadow-md);
+    }
+    .partner-card img { max-width: 230px; width: 100%; margin: 0 auto 22px; }
+    .partner-role { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.6; }
+    .partner-role strong { color: var(--ink); font-weight: 700; }
+
+    .partners-statement { margin-top: 76px; text-align: center; }
+    .partners-statement p {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.1rem, 2.8vw, 1.55rem);
+      color: #fff;
+      letter-spacing: -0.01em;
+      line-height: 1.5;
+    }
+    .partners-statement span { color: var(--mint); }
+
+    @media (max-width: 720px) {
+      .partners { padding: 80px 0; }
+      .partners-grid { grid-template-columns: 1fr; max-width: 340px; gap: 60px; }
+      .partners-statement { margin-top: 56px; }
+    }
+
+    /* ============================================================
+       ACTIVITIES — "The Lineup": a mosaic of light/navy/teal cards
+       (this really is a running order for the day, so numbering
+       here is earned, not decorative) each stamped with an oversized
+       ghost numeral for poster-board energy.
+       ============================================================ */
+    .activities { padding: 110px 0; background: var(--paper); }
+    .activities-head { max-width: 700px; margin: 0 auto 60px; text-align: center; }
+    .activities-head .eyebrow { margin-bottom: 20px; }
+    .activities-head h2 {
+      font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+    .activities-head p { font-size: 1.02rem; color: var(--muted); }
+
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .activity-card {
+      position: relative;
+      overflow: hidden;
+      padding: 34px 28px 30px;
+      border: 2px solid var(--border);
+    }
+    .activity-num {
+      position: absolute;
+      top: 6px; right: 16px;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(3.2rem, 6vw, 4.4rem);
+      line-height: 1;
+      opacity: 0.14;
+      pointer-events: none;
+    }
+    .activity-icon {
+      width: 52px; height: 52px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 1;
+    }
+    .activity-card h3 { font-size: 1.12rem; font-weight: 700; margin-bottom: 10px; position: relative; z-index: 1; }
+    .activity-card p { font-size: 0.92rem; line-height: 1.7; position: relative; z-index: 1; }
+
+    .activity-card.card-light {
+      background: var(--paper-white);
+      border-color: var(--border);
+    }
+    .activity-card.card-light .activity-num { color: var(--clinic); }
+    .activity-card.card-light .activity-icon { background: var(--mint); color: var(--clinic-deep); }
+    .activity-card.card-light h3 { color: var(--ink); }
+    .activity-card.card-light p { color: var(--ink-soft); }
+
+    .activity-card.card-dark {
+      background: var(--ink);
+      border-color: var(--ink);
+    }
+    .activity-card.card-dark .activity-num { color: var(--mint); }
+    .activity-card.card-dark .activity-icon { background: rgba(143,240,224,0.14); color: var(--mint); }
+    .activity-card.card-dark h3 { color: #fff; }
+    .activity-card.card-dark p { color: rgba(241,245,249,0.72); }
+
+    .activity-card.card-teal {
+      background: var(--clinic-deep);
+      border-color: var(--clinic-deep);
+    }
+    .activity-card.card-teal .activity-num { color: #fff; }
+    .activity-card.card-teal .activity-icon { background: rgba(255,255,255,0.16); color: #fff; }
+    .activity-card.card-teal h3 { color: #fff; }
+    .activity-card.card-teal p { color: rgba(255,255,255,0.82); }
+
+    .activities-cta { max-width: 760px; margin: 64px auto 0; text-align: center; }
+    .activities-cta p {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--ink);
+      margin-bottom: 22px;
+    }
+
+    @media (max-width: 980px) {
+      .activities-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .activities { padding: 80px 0; }
+      .activities-grid { grid-template-columns: 1fr; gap: 22px; }
+      .activities-cta { margin-top: 48px; }
+      .activities-cta .btn { width: 100%; }
+    }
+
+    /* ============================================================
+       CONVENER — dark executive spotlight: portrait offset in front
+       of a solid teal color-block, stamped like the partner cards.
+       ============================================================ */
+    .convener {
+      position: relative;
+      padding: 110px 0;
+      background:
+        radial-gradient(circle at 85% 10%, rgba(20,184,166,0.14), transparent 55%),
+        var(--ink);
+      overflow: hidden;
+    }
+    .convener .container {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .convener-photo { position: relative; max-width: 380px; margin: 0 auto; }
+    .convener-photo::before {
+      content: '';
+      position: absolute;
+      top: 22px; left: 22px;
+      right: -22px; bottom: -22px;
+      background: var(--clinic-deep);
+      z-index: 0;
+    }
+    .convener-photo img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: block;
+      border: 3px solid var(--ink);
+    }
+    .convener-tag {
+      position: absolute;
+      z-index: 2;
+      top: -16px;
+      left: 24px;
+      background: var(--clinic);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 8px 14px;
+      transform: rotate(-3deg);
+      box-shadow: var(--shadow-md);
+    }
+
+    .convener-content .eyebrow { margin-bottom: 20px; background: rgba(143,240,224,0.14); color: var(--mint); }
+    .convener-content .eyebrow .dot { background: var(--mint); }
+    .convener-content h2 {
+      color: #fff;
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .convener-title {
+      font-size: 1rem;
+      color: var(--mint);
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+
+    .convener-stats { display: flex; gap: 32px; margin-bottom: 30px; flex-wrap: wrap; }
+    .convener-stat strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .convener-stat span { font-size: 0.78rem; color: rgba(241,245,249,0.65); }
+
+    .convener-bio p {
+      color: rgba(241,245,249,0.8);
+      font-size: 0.98rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .convener-creds { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 34px; }
+    .convener-creds span {
+      border: 1.5px solid rgba(143,240,224,0.35);
+      color: rgba(241,245,249,0.85);
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 8px 14px;
+    }
+
+    .convener-dcc {
+      border-left: 3px solid var(--clinic);
+      padding-left: 22px;
+      margin-bottom: 34px;
+    }
+    .convener-dcc p { color: rgba(241,245,249,0.8); font-size: 0.95rem; line-height: 1.75; margin-bottom: 10px; }
+    .convener-dcc .mission {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--mint);
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+    }
+
+    @media (max-width: 900px) {
+      .convener .container { grid-template-columns: 1fr; gap: 56px; text-align: center; }
+      .convener-photo { margin: 0 auto; }
+      .convener-stats { justify-content: center; }
+      .convener-creds { justify-content: center; }
+      .convener-dcc { border-left: none; border-top: 3px solid var(--clinic); padding-left: 0; padding-top: 20px; }
+    }
+    @media (max-width: 640px) {
+      .convener { padding: 80px 0; }
+      .convener-photo { max-width: 280px; }
+      .convener .btn { width: 100%; }
+    }
+
+    /* ============================================================
+       SPONSORS — "The Sponsor Brief": a quiet, editorial two-column
+       layout. One restrained risk carries the whole section: large
+       outlined (stroke-only) numerals instead of colored blocks —
+       mature on purpose, with the boldness spent in one place.
+       ============================================================ */
+    .sponsors { padding: 120px 0; background: var(--paper-white); }
+    .sponsors .container {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .sponsors-intro { position: sticky; top: 120px; }
+    .sponsors-intro .eyebrow { margin-bottom: 22px; }
+    .sponsors-intro h2 {
+      font-size: clamp(1.9rem, 3.4vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 22px;
+    }
+    .sponsors-quote {
+      font-family: var(--font-body);
+      font-size: 1.08rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      border-left: 2px solid var(--clinic);
+      padding-left: 20px;
+      margin-bottom: 34px;
+    }
+    .sponsors-cta p {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .sponsors-cta .sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 20px; }
+
+    .sponsor-list { border-top: 1px solid var(--border); }
+    .sponsor-item {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .sponsor-num {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 2.6rem;
+      line-height: 1;
+      flex-shrink: 0;
+      width: 64px;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--ink);
+      transition: -webkit-text-stroke 0.25s var(--ease), color 0.25s var(--ease);
+    }
+    .sponsor-item:hover .sponsor-num {
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--clinic);
+    }
+    .sponsor-copy h3 { font-size: 1.12rem; font-weight: 700; margin-bottom: 8px; }
+    .sponsor-copy p { font-size: 0.94rem; color: var(--ink-soft); line-height: 1.7; }
+
+    @media (max-width: 900px) {
+      .sponsors .container { grid-template-columns: 1fr; gap: 48px; }
+      .sponsors-intro { position: static; text-align: center; }
+      .sponsors-quote { text-align: left; }
+    }
+    @media (max-width: 640px) {
+      .sponsors { padding: 80px 0; }
+      .sponsor-item { gap: 18px; padding: 24px 0; }
+      .sponsor-num { font-size: 1.9rem; width: 46px; }
+      .sponsors-cta .btn { width: 100%; }
+    }
+
+    /* ============================================================
+       FAQ — dark, bold index-accordion. Big ghost numerals instead
+       of chevrons; the open item flips to a solid teal block so
+       "what's open" reads at a glance, not just via an icon rotate.
+       ============================================================ */
+    .faq {
+      position: relative;
+      padding: 110px 0;
+      background:
+        radial-gradient(circle at 90% 90%, rgba(20,184,166,0.14), transparent 55%),
+        var(--ink);
+      overflow: hidden;
+    }
+    .faq-head { max-width: 700px; margin: 0 auto 60px; text-align: center; }
+    .faq-head .eyebrow { margin-bottom: 20px; background: rgba(143,240,224,0.14); color: var(--mint); }
+    .faq-head .eyebrow .dot { background: var(--mint); }
+    .faq-head h2 {
+      color: #fff;
+      font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+    .faq-head p { color: rgba(241,245,249,0.72); font-size: 1.02rem; }
+
+    .faq-list { max-width: 840px; margin: 0 auto; }
+    .faq-item {
+      border: 2px solid rgba(241,245,249,0.14);
+      border-top-width: 0;
+    }
+    .faq-item:first-child { border-top-width: 2px; }
+    .faq-q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      padding: 26px 28px;
+      text-align: left;
+      color: #fff;
+      transition: background 0.25s var(--ease);
+    }
+    .faq-q .faq-num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: var(--mint);
+      flex-shrink: 0;
+      width: 34px;
+    }
+    .faq-q .faq-q-text {
+      flex: 1;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.02rem;
+    }
+    .faq-q .faq-toggle {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      border: 1.5px solid rgba(241,245,249,0.35);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+      position: relative;
+    }
+    .faq-toggle::before, .faq-toggle::after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      transition: transform 0.25s var(--ease);
+    }
+    .faq-toggle::before { width: 12px; height: 2px; }
+    .faq-toggle::after { width: 2px; height: 12px; }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s var(--ease);
+    }
+    .faq-a-inner { padding: 0 28px 30px 84px; }
+    .faq-a-inner p { color: rgba(241,245,249,0.78); font-size: 0.96rem; line-height: 1.8; }
+
+    .faq-item.open .faq-q { background: var(--clinic-deep); }
+    .faq-item.open .faq-toggle::after { transform: scaleY(0); }
+    .faq-item.open .faq-num { color: #fff; }
+
+    .faq-cta { max-width: 760px; margin: 56px auto 0; text-align: center; }
+    .faq-cta p {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 22px;
+    }
+
+    @media (max-width: 640px) {
+      .faq { padding: 80px 0; }
+      .faq-q { padding: 20px 18px; gap: 14px; }
+      .faq-q .faq-q-text { font-size: 0.94rem; }
+      .faq-a-inner { padding: 0 18px 24px 66px; }
+      .faq-cta .btn { width: 100%; }
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer { background: var(--ink); padding: 72px 0 0; }
+    .footer .container {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 1fr;
+      gap: 48px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(241,245,249,0.12);
+    }
+    .footer-brand img { height: 34px; width: auto; margin-bottom: 18px; }
+    .footer-brand p {
+      color: rgba(241,245,249,0.68);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      max-width: 340px;
+      margin-bottom: 22px;
+    }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a {
+      width: 38px; height: 38px;
+      border: 1.5px solid rgba(241,245,249,0.25);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 0.9rem;
+      transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+    }
+    .footer-social a:hover { background: var(--clinic); border-color: var(--clinic); }
+
+    .footer-col h4 {
+      font-family: var(--font-display);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 13px; }
+    .footer-col a {
+      color: rgba(241,245,249,0.68);
+      font-size: 0.92rem;
+      transition: color 0.2s var(--ease);
+    }
+    .footer-col a:hover { color: var(--mint); }
+    .footer-col .contact-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: rgba(241,245,249,0.68);
+      font-size: 0.92rem;
+    }
+    .footer-col .contact-line i { color: var(--mint); margin-top: 3px; flex-shrink: 0; }
+
+    .footer-bottom {
+      padding: 26px 0;
+      text-align: center;
+      color: rgba(241,245,249,0.5);
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 860px) {
+      .footer .container { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 540px) {
+      .footer .container { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       MODAL — Secure Your Spot enrollment
+       ============================================================ */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(15,23,42,0.6);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 2000;
+      opacity: 0;
+      transition: opacity 0.3s var(--ease);
+    }
+    .modal-overlay.active { display: flex; opacity: 1; }
+    .modal-box {
+      background: var(--paper-white);
+      border-radius: var(--radius-lg);
+      max-width: 560px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(24px) scale(0.97);
+      transition: transform 0.35s var(--ease);
+      box-shadow: var(--shadow-lg);
+    }
+    .modal-overlay.active .modal-box { transform: translateY(0) scale(1); }
+    .modal-head {
+      padding: 30px 32px 20px;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0;
+      background: var(--paper-white);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      z-index: 2;
+    }
+    .modal-head h3 { font-size: 1.35rem; margin-bottom: 6px; }
+    .modal-head p { font-size: 0.88rem; color: var(--muted); }
+    .modal-close {
+      position: absolute; top: 22px; right: 24px;
+      width: 34px; height: 34px;
+      border-radius: 0;
+      background: var(--paper);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ink); font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: var(--mint); }
+    .modal-body { padding: 26px 32px 32px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 7px;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--ink);
+      background: var(--paper);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--clinic);
+      box-shadow: 0 0 0 4px rgba(20,184,166,0.14);
+      outline: none;
+    }
+    .form-group.error input,
+    .form-group.error select { border-color: #DC2626; }
+    .error-msg { display: none; font-size: 0.76rem; color: #DC2626; margin-top: 5px; }
+    .form-group.error .error-msg { display: block; }
+
+    .pill-group { display: flex; gap: 10px; flex-wrap: wrap; }
+    .pill-option { flex: 1; min-width: 90px; }
+    .pill-option input { display: none; }
+    .pill-option label {
+      display: block;
+      text-align: center;
+      padding: 12px 10px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      cursor: pointer;
+      transition: all 0.2s;
+      margin: 0;
+    }
+    .pill-option input:checked + label {
+      border-color: var(--clinic);
+      background: var(--mint);
+      color: var(--clinic-deep);
+    }
+
+    .modal-notice {
+      display: flex;
+      gap: 12px;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      font-size: 0.83rem;
+      color: var(--ink-soft);
+    }
+    .modal-notice i { color: var(--clinic-deep); font-size: 1.05rem; margin-top: 2px; flex-shrink: 0; }
+    .modal-notice span { min-width: 0; overflow-wrap: break-word; }
+    .modal-notice a { color: var(--clinic-deep); font-weight: 600; text-decoration: underline; }
+    .modal-notice.security i { color: var(--ink); }
+
+    .form-status {
+      display: none;
+      text-align: center;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .form-status.show { display: block; }
+    .form-status.success { background: var(--mint); color: var(--clinic-deep); }
+    .form-status.fail { background: #FEE2E2; color: #B91C1C; }
+
+    @media (max-width: 520px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#top" class="nav-logo"><img src="../Pictures/dccwhitelogo.png" alt="Digital Clinic Circle" id="navLogoImg" /></a>
+      <ul class="nav-links">
+        <li><a href="#why-attend">Why Attend</a></li>
+        <li><a href="#activities">The Lineup</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-cta">
+        <button class="btn btn-primary" onclick="openModal()">Secure Your Spot</button>
+        <button class="nav-toggle" aria-label="Open menu" onclick="openDrawer()"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       MOBILE DRAWER — slides left to right
+       ============================================================ -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-head">
+      <img src="../Pictures/dccwhitelogo.png" alt="Digital Clinic Circle" />
+      <button class="drawer-close" aria-label="Close menu" onclick="closeDrawer()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-links">
+      <a href="#why-attend" onclick="closeDrawer()">Why Attend</a>
+      <a href="#activities" onclick="closeDrawer()">The Lineup</a>
+      <a href="#partners" onclick="closeDrawer()">Partners</a>
+      <a href="#faq" onclick="closeDrawer()">FAQ</a>
+    </div>
+    <button class="btn btn-primary" onclick="closeDrawer(); openModal();">Secure Your Spot</button>
+  </aside>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <header class="hero" id="top">
+    <div class="container">
+      <div class="hero-copy" data-aos="fade-up">
+        <span class="eyebrow"><span class="dot"></span> <span class="eyebrow-label">Idealnovate X PDU · Community Connect</span></span>
+        <h1>Present <em>"Digital Clinic Circle Connect"</em></h1>
+        <p class="hero-sub">Your Growth Circle</p>
+        <p class="hero-tagline">Diagnose<span class="sep">·</span>Execute<span class="sep">·</span>Monetize</p>
+
+        <div class="date-pill">
+          <span class="badge-icon"><i class="fa-solid fa-calendar-days"></i></span>
+          <span class="date-pill-text">
+            <strong>Proposed: September 6</strong> — Lagos, Nigeria
+            <span class="tentative-tag">Date pending final confirmation</span>
+          </span>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="openModal()">Secure Your Spot</button>
+          <span class="hero-note"><i class="fa-solid fa-circle-check"></i> <span class="hero-note-text">Free to attend · Only 50 spots available</span></span>
+        </div>
+      </div>
+
+      <div class="pulse-wave" data-aos="fade-up" data-aos-delay="150">
+        <div class="pulse-wave-track">
+          <div class="wave-node"><i class="fa-solid fa-stethoscope"></i></div>
+          <div class="wave-node"><i class="fa-solid fa-comments"></i></div>
+          <div class="wave-node"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="wave-node"><i class="fa-solid fa-handshake"></i></div>
+          <div class="wave-node"><i class="fa-solid fa-lightbulb"></i></div>
+          <div class="wave-node"><i class="fa-solid fa-people-group"></i></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       WHY ATTEND
+       ============================================================ -->
+  <section class="why-attend" id="why-attend">
+    <div class="container">
+      <div class="why-head" data-aos="fade-up">
+        <span class="eyebrow"><span class="dot"></span> Why Attend</span>
+        <h2>What This Circle Diagnoses — And Fixes</h2>
+        <p>DCC exists so no member figures it out alone. Here's what walking into the Circle actually gets you.</p>
+      </div>
+
+      <div class="vitals-list">
+          <div class="vital-row" data-aos="fade-up">
+            <div class="vital-icon"><i class="fa-solid fa-stethoscope"></i></div>
+            <div class="vital-copy">
+              <h3>Tailored Challenge Discovery</h3>
+              <p>Instead of generic advice, you get a real "clinic" evaluation of your specific tech, career, or business bottleneck. Facilitators and peers help isolate the root cause — a weak portfolio, wrong pricing, broken execution — and build a clear, step-by-step fix.</p>
+            </div>
+          </div>
+
+          <div class="vital-row" data-aos="fade-up">
+            <div class="vital-icon"><i class="fa-solid fa-people-arrows"></i></div>
+            <div class="vital-copy">
+              <h3>Radical Peer Accountability</h3>
+              <p>Passive learning leads to burnout. DCC pairs members into high-accountability pods that meet bi-weekly to track goals, review progress, and make sure plans actually get executed — not left unfinished.</p>
+            </div>
+          </div>
+
+          <div class="vital-row" data-aos="fade-up">
+            <div class="vital-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+            <div class="vital-copy">
+              <h3>Practical Skill Monetization</h3>
+              <p>DCC focuses heavily on financial return: direct guidance, playbooks, and feedback on turning raw digital skills into income — client acquisition, pitching, service packaging, pricing, freelancing and business models.</p>
+            </div>
+          </div>
+
+          <div class="vital-row" data-aos="fade-up">
+            <div class="vital-icon"><i class="fa-solid fa-handshake"></i></div>
+            <div class="vital-copy">
+              <h3>High-Value Network & Collaboration</h3>
+              <p>Get direct access to <strong>Mr. Favour Francis</strong>, industry mentors, and a community of ambitious peers. Physical quarterly meetups build strong local bonds — opening doors to co-founding, project partnerships, referrals, and shared talent.</p>
+            </div>
+          </div>
+
+          <div class="vital-row" data-aos="fade-up">
+            <div class="vital-icon"><i class="fa-solid fa-box-open"></i></div>
+            <div class="vital-copy">
+              <h3>Access to Exclusive Growth Resources</h3>
+              <p>Members get curated tools, pitch deck templates, portfolio frameworks, gig opportunities, and workshop recordings — built to accelerate professional growth and business scaling.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-cta" data-aos="fade-up">
+          <p>Ready to stop figuring it out alone?</p>
+          <button class="btn btn-primary" onclick="openModal()">Secure Your Spot</button>
+        </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PARTNERS & SPONSORS
+       ============================================================ -->
+  <section class="partners" id="partners">
+    <div class="container">
+      <div class="partners-head" data-aos="fade-up">
+        <span class="eyebrow"><span class="dot"></span> <span class="eyebrow-label">DCC Community Connect · Edition 01</span></span>
+        <h2>DCC Community Connect Edition 1: Headline Organizers, Partners &amp; Sponsors</h2>
+        <p>Two Africa-built training brands, one mission — turning skills into careers.</p>
+      </div>
+
+      <div class="partners-grid">
+        <div class="partner-card" data-aos="fade-up">
+          <span class="partner-tag">Headline Organizer</span>
+          <img src="../Pictures/Idealnovate Logo Dark.png" alt="Idealnovate Africa" />
+          <p class="partner-role"><strong>Idealnovate Africa</strong> — Community &amp; bootcamp partner behind DCC's tech and data training pipeline.</p>
+        </div>
+
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="150">
+          <span class="partner-tag">Partner &amp; Sponsor</span>
+          <img src="../Pictures/PDU Logo Dark.png" alt="PDU Africa — Productdesignuniversity" />
+          <p class="partner-role"><strong>PDU Africa</strong> — Product design education partner behind DCC's UI/UX training pipeline.</p>
+        </div>
+      </div>
+
+      <div class="partners-statement" data-aos="fade-up">
+        <p>Organized &amp; powered by Idealnovate Africa <span>×</span> PDU Africa</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ACTIVITIES — The Lineup
+       ============================================================ -->
+  <section class="activities" id="activities">
+    <div class="container">
+      <div class="activities-head" data-aos="fade-up">
+        <span class="eyebrow"><span class="dot"></span> <span class="eyebrow-label">The Lineup</span></span>
+        <h2>Six Sessions. Zero Filler.</h2>
+        <p>Here's what's actually happening on the day — every segment built to move you from stuck to shipped.</p>
+      </div>
+
+      <div class="activities-grid">
+        <div class="activity-card card-dark" data-aos="fade-up">
+          <span class="activity-num">01</span>
+          <div class="activity-icon"><i class="fa-solid fa-heart-circle-exclamation"></i></div>
+          <h3>Tech Wahala & Open Heart Roundtable</h3>
+          <p>Participants share their current roadblocks and bottlenecks that have kept them from scaling and monetizing their skills or business.</p>
+        </div>
+
+        <div class="activity-card card-light" data-aos="fade-up" data-aos-delay="100">
+          <span class="activity-num">02</span>
+          <div class="activity-icon"><i class="fa-solid fa-bullhorn"></i></div>
+          <h3>Pitch My Broken Project</h3>
+          <p>Members pitch their tech skill monetization strategy using different monetization approaches. The funniest and most convincing pitch wins a prize!</p>
+        </div>
+
+        <div class="activity-card card-teal" data-aos="fade-up" data-aos-delay="200">
+          <span class="activity-num">03</span>
+          <div class="activity-icon"><i class="fa-solid fa-brain"></i></div>
+          <h3>Smart, Skilled, but Broke: The Way Out</h3>
+          <p>A conversation confronting a frustrating reality facing thousands of African professionals: high intellect, technical expertise, and multiple certifications — yet constant low income, delayed payments, and financial stagnation.</p>
+        </div>
+
+        <div class="activity-card card-teal" data-aos="fade-up">
+          <span class="activity-num">04</span>
+          <div class="activity-icon"><i class="fa-solid fa-dice"></i></div>
+          <h3>Network, Fun and Games</h3>
+          <p>Designed to break the ice, spark spontaneous networking, and turn traditional corporate networking on its head through lighthearted competition and collaborative play.</p>
+        </div>
+
+        <div class="activity-card card-dark" data-aos="fade-up" data-aos-delay="100">
+          <span class="activity-num">05</span>
+          <div class="activity-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <h3>Portfolio Review Corner</h3>
+          <p>An interactive, peer-led diagnostic session where members bring their real-world work out of isolation to get actionable, real-time feedback.</p>
+        </div>
+
+        <div class="activity-card card-light" data-aos="fade-up" data-aos-delay="200">
+          <span class="activity-num">06</span>
+          <div class="activity-icon"><i class="fa-solid fa-unlock"></i></div>
+          <h3>DCC Opportunity Vault</h3>
+          <p>An exclusive marketplace segment connecting community members directly to real-world financial opportunities, client leads, and strategic partnerships.</p>
+        </div>
+      </div>
+
+      <div class="activities-cta" data-aos="fade-up">
+        <p>Six sessions. One room. Miss it and you'll be hearing about it secondhand.</p>
+        <button class="btn btn-primary" onclick="openModal()">Secure Your Spot</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONVENER — Mr. Favour Francis
+       ============================================================ -->
+  <section class="convener" id="convener">
+    <div class="container">
+      <div class="convener-photo" data-aos="fade-right">
+        <span class="convener-tag">The Convener</span>
+        <img src="../Pictures/ff2.png" alt="Mr. Favour Francis, Founder of Idealnovate Africa" />
+      </div>
+
+      <div class="convener-content" data-aos="fade-up">
+        <span class="eyebrow"><span class="dot"></span> <span class="eyebrow-label">Meet The Convener</span></span>
+        <h2>Favour Francis</h2>
+        <p class="convener-title">Founder, Idealnovate Africa · Global Talent &amp; AI Growth Consultant</p>
+
+        <div class="convener-stats">
+          <div class="convener-stat"><strong>~10 Yrs</strong><span>Talent &amp; growth consulting</span></div>
+          <div class="convener-stat"><strong>7</strong><span>Countries served</span></div>
+          <div class="convener-stat"><strong>40+</strong><span>Businesses scaled</span></div>
+        </div>
+
+        <div class="convener-bio">
+          <p>Mr. Favour Francis is an international talent and AI growth consultant with nearly a decade of experience driving productivity and innovation for startups and SMEs across seven countries. Over the past five years, he has served as a key recruitment and organizational strategist for more than 40 growing businesses, connecting them with high-caliber talent to accelerate scale.</p>
+          <p>As a pioneer in AI process acceleration, he specializes in leveraging advanced generative AI frameworks across Anthropic, OpenAI, and Google AI architectures. His commitment to talent development led to the founding of Idealnovate Africa, an initiative designed to bridge the global tech skills gap and empower African youth to build sustainable ventures.</p>
+        </div>
+
+        <div class="convener-creds">
+          <span>Meta Digital Marketing Associate &amp; Professional Media Buyer</span>
+          <span>Google AI Professional</span>
+          <span>Certified Project Manager — IBM, Germany</span>
+          <span>Certified HR Manager — OAU Consulting</span>
+        </div>
+
+        <div class="convener-dcc">
+          <p>The Digital Clinic Circle (DCC) is a specialized accountability network established to identify career and business bottlenecks, deliver actionable solutions, and help members effectively monetize digital competencies.</p>
+          <p class="mission">Welcome to your growth community: Diagnose. Execute. Monetize.</p>
+        </div>
+
+        <button class="btn btn-primary" onclick="openModal()">Secure Your Spot</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SPONSORS — Why Sponsor DCC Connect
+       ============================================================ -->
+  <section class="sponsors" id="sponsors">
+    <div class="container">
+      <div class="sponsors-intro" data-aos="fade-up">
+        <span class="eyebrow"><span class="dot"></span> <span class="eyebrow-label">For Sponsors</span></span>
+        <h2>Why Sponsor DCC Connect</h2>
+        <p class="sponsors-quote">"You're not renting a banner for an afternoon — you're buying into a growth community that keeps showing up."</p>
+
+        <div class="sponsors-cta">
+          <p>Want your brand in the room?</p>
+          <p class="sub">Reach out and let's talk sponsorship packages for DCC Connect.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9gRKMvrDbF1wEMFjkQJtHr2tYLBNqQNQmpr4QCXQjKEnJDQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Become a Sponsor</a>
+        </div>
+      </div>
+
+      <div class="sponsor-list" data-aos="fade-up">
+        <div class="sponsor-item">
+          <span class="sponsor-num">01</span>
+          <div class="sponsor-copy">
+            <h3>Customer Acquisition</h3>
+            <p>Put your brand and offer directly in front of one of Lagos's most active early-career tech and creative talent pools.</p>
+          </div>
+        </div>
+
+        <div class="sponsor-item">
+          <span class="sponsor-num">02</span>
+          <div class="sponsor-copy">
+            <h3>Access Pre-Vetted Digital Talents</h3>
+            <p>Skip the guesswork — meet trained, community-vetted talent ready for internships, gigs, and full-time roles.</p>
+          </div>
+        </div>
+
+        <div class="sponsor-item">
+          <span class="sponsor-num">03</span>
+          <div class="sponsor-copy">
+            <h3>Year-Round Community Exposure</h3>
+            <p>Your brand stays visible across DCC's community channels long after the day ends — not just for one afternoon.</p>
+          </div>
+        </div>
+
+        <div class="sponsor-item">
+          <span class="sponsor-num">04</span>
+          <div class="sponsor-copy">
+            <h3>Official Placement in "The Skill-to-Cash Playbook"</h3>
+            <p>Get featured inside the resource every member references to turn their skills into income.</p>
+          </div>
+        </div>
+
+        <div class="sponsor-item">
+          <span class="sponsor-num">05</span>
+          <div class="sponsor-copy">
+            <h3>Corporate Upskilling Seats for Sponsor Employees</h3>
+            <p>Send your own team to train alongside DCC members and level up their digital skills.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ
+       ============================================================ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq-head" data-aos="fade-up">
+        <span class="eyebrow"><span class="dot"></span> <span class="eyebrow-label">FAQ</span></span>
+        <h2>Questions? Answered.</h2>
+        <p>Everything we get asked about DCC Connect, in one place.</p>
+      </div>
+
+      <div class="faq-list" data-aos="fade-up">
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span class="faq-num">01</span>
+            <span class="faq-q-text">Is DCC Connect free to attend?</span>
+            <span class="faq-toggle"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Yes — it's completely free. The only thing standing between you and a seat is registering before the 50 available spots fill up.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span class="faq-num">02</span>
+            <span class="faq-q-text">When and where is it happening?</span>
+            <span class="faq-toggle"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>It's proposed for September 6 in Lagos, Nigeria. That date is still pending final confirmation, so keep an eye on your email and the Telegram community for the locked-in details.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span class="faq-num">03</span>
+            <span class="faq-q-text">Is this a physical or virtual event?</span>
+            <span class="faq-toggle"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Physical — it's an in-person hangout in Lagos, Nigeria.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span class="faq-num">04</span>
+            <span class="faq-q-text">Who's organizing DCC Connect?</span>
+            <span class="faq-toggle"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>DCC Connect is organized and powered by Idealnovate Africa (Headline Organizer) in partnership with PDU Africa (Partner &amp; Sponsor), and convened by Favour Francis, Founder of Idealnovate Africa.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span class="faq-num">05</span>
+            <span class="faq-q-text">Do I need to be an Idealnovate or PDU alumnus to attend?</span>
+            <span class="faq-toggle"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>No. Registration just asks whether you're an alumnus or student so the team understands the room — DCC Connect is open either way.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span class="faq-num">06</span>
+            <span class="faq-q-text">What actually happens on the day?</span>
+            <span class="faq-toggle"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Six sessions: Tech Wahala &amp; Open Heart Roundtable, Pitch My Broken Project, Smart Skilled but Broke: The Way Out, Network Fun and Games, Portfolio Review Corner, and the DCC Opportunity Vault. Scroll up to "The Lineup" for the full breakdown of each.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span class="faq-num">07</span>
+            <span class="faq-q-text">What happens after I register?</span>
+            <span class="faq-toggle"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>You'll be prompted to join the DCC Telegram community, where event updates and the confirmed date will be shared. Your information is safe with us and is never shared with third parties.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span class="faq-num">08</span>
+            <span class="faq-q-text">Can my company sponsor DCC Connect?</span>
+            <span class="faq-toggle"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Yes — sponsors get customer acquisition, access to pre-vetted digital talent, year-round community exposure, official placement in "The Skill-to-Cash Playbook," and corporate upskilling seats. Check "Why Sponsor DCC Connect" above, then click "Become a Sponsor" to apply.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-cta" data-aos="fade-up">
+        <p>Still have a question?</p>
+        <button class="btn btn-primary" onclick="openModal()">Secure Your Spot</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <img src="../Pictures/dccwhitelogo.png" alt="Digital Clinic Circle" />
+        <p>Your growth community: diagnose the bottleneck, execute the fix, monetize the skill. Organized by Idealnovate Africa in partnership with PDU Africa.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/idealnovate" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://x.com/joinidealnovate" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://linkedin.com/company/idealnovate" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://tiktok.com/@idealnovate" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.youtube.com/@idealnovate" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#why-attend">Why Attend</a></li>
+          <li><a href="#activities">The Lineup</a></li>
+          <li><a href="#partners">Partners &amp; Organizers</a></li>
+          <li><a href="#convener">The Convener</a></li>
+          <li><a href="#sponsors">Sponsor DCC Connect</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact DCC</h4>
+        <ul>
+          <li class="contact-line"><i class="fa-solid fa-envelope"></i><a href="mailto:dcc@idealnovate.com">dcc@idealnovate.com</a></li>
+          <li class="contact-line"><i class="fa-solid fa-phone"></i><a href="tel:+2349059179421">+234 905 917 9421</a></li>
+          <li class="contact-line"><i class="fa-brands fa-telegram"></i><a href="https://t.me/+h4J_onzdEHYzZGFk" target="_blank" rel="noopener noreferrer">Join the Telegram Community</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Digital Clinic Circle by Idealnovate Africa. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       ENROLLMENT MODAL
+       ============================================================ -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <div class="modal-head">
+        <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+        <h3>Secure Your Spot</h3>
+        <p>Reserve your seat at the DCC Connect — Lagos, Nigeria.</p>
+      </div>
+      <div class="modal-body">
+        <div class="form-status" id="formStatus"></div>
+
+        <form id="dccForm" novalidate>
+          <div class="form-row">
+            <div class="form-group" id="grp-firstName">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" required />
+              <span class="error-msg">Please enter your first name</span>
+            </div>
+            <div class="form-group" id="grp-lastName">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" required />
+              <span class="error-msg">Please enter your last name</span>
+            </div>
+          </div>
+
+          <div class="form-group" id="grp-email">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" required />
+            <span class="error-msg">Please enter a valid email</span>
+          </div>
+
+          <div class="form-group" id="grp-phone">
+            <label for="phone">Phone Number (WhatsApp)</label>
+            <input type="tel" id="phone" required />
+            <span class="error-msg">Please enter your WhatsApp number</span>
+          </div>
+
+          <div class="form-group" id="grp-gender">
+            <label>Gender</label>
+            <div class="pill-group">
+              <div class="pill-option">
+                <input type="radio" name="gender" id="genderMale" value="Male" />
+                <label for="genderMale">Male</label>
+              </div>
+              <div class="pill-option">
+                <input type="radio" name="gender" id="genderFemale" value="Female" />
+                <label for="genderFemale">Female</label>
+              </div>
+            </div>
+            <span class="error-msg">Please select an option</span>
+          </div>
+
+          <div class="form-group" id="grp-location">
+            <label for="location">Location</label>
+            <select id="location" required>
+              <option value="" disabled selected>Select your location</option>
+              <option>Lagos Mainland</option>
+              <option>Lagos Island</option>
+              <option>Near-by Lagos</option>
+              <option>Outside Lagos</option>
+              <option>Outside Nigeria</option>
+            </select>
+            <span class="error-msg">Please select your location</span>
+          </div>
+
+          <div class="form-group" id="grp-alumni">
+            <label>Are you an Idealnovate or PDU Alumni or Student?</label>
+            <div class="pill-group">
+              <div class="pill-option">
+                <input type="radio" name="alumni" id="alumniYes" value="Yes" />
+                <label for="alumniYes">Yes</label>
+              </div>
+              <div class="pill-option">
+                <input type="radio" name="alumni" id="alumniNo" value="No" />
+                <label for="alumniNo">No</label>
+              </div>
+            </div>
+            <span class="error-msg">Please select an option</span>
+          </div>
+
+          <div class="form-group" id="grp-referral">
+            <label for="referral">How did you hear about this event?</label>
+            <select id="referral" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>WhatsApp</option>
+              <option>Telegram</option>
+              <option>Friend</option>
+              <option>Course Mate</option>
+              <option>Social Media</option>
+            </select>
+            <span class="error-msg">Please select an option</span>
+          </div>
+
+          <div class="form-group" id="grp-attend">
+            <label>This will be a physical event happening in Lagos, Nigeria. Will you be there?</label>
+            <div class="pill-group">
+              <div class="pill-option">
+                <input type="radio" name="attend" id="attendYes" value="Yes" />
+                <label for="attendYes">Yes</label>
+              </div>
+              <div class="pill-option">
+                <input type="radio" name="attend" id="attendNo" value="No" />
+                <label for="attendNo">No</label>
+              </div>
+            </div>
+            <span class="error-msg">Please select an option</span>
+          </div>
+
+          <div class="modal-notice">
+            <i class="fa-brands fa-telegram"></i>
+            <span>Once you register, join the <a href="https://t.me/+h4J_onzdEHYzZGFk" target="_blank" rel="noopener noreferrer" id="telegramLink">DCC Telegram Community</a> to get event updates and connect with other members ahead of the hangout.</span>
+          </div>
+
+          <div class="modal-notice security">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Your information is safe with us and will never be shared with third parties.</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+            <span id="submitText">Secure Your Spot</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic' });
+
+    // ---------- Navbar scroll state ----------
+    const navbar = document.getElementById('navbar');
+    const navLogoImg = document.getElementById('navLogoImg');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY > 30;
+      navbar.classList.toggle('scrolled', scrolled);
+      navLogoImg.src = scrolled ? '../Pictures/dcclogo.png' : '../Pictures/dccwhitelogo.png';
+    });
+
+    // ---------- Mobile drawer ----------
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    function openDrawer() {
+      mobileDrawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+      mobileDrawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileDrawer.classList.contains('active')) closeDrawer();
+    });
+
+    // ---------- FAQ accordion ----------
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      const q = item.querySelector('.faq-q');
+      const a = item.querySelector('.faq-a');
+      q.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach((openItem) => {
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-a').style.maxHeight = null;
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          a.style.maxHeight = a.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // ---------- Modal open/close ----------
+    const modalOverlay = document.getElementById('modalOverlay');
+    function openModal() {
+      modalOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      modalOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalOverlay.classList.contains('active')) closeModal();
+    });
+
+    // ---------- Form validation + submission ----------
+    // TODO: paste the deployed Google Apps Script Web App URL here (see DEPLOY.md)
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwmzL092NmUt0G4S07kYULbZtyg6jgAuWVUXEPD3Z_hiBc38VqZP85cKPw2diZsbLsc_w/exec';
+
+    const form = document.getElementById('dccForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitText = document.getElementById('submitText');
+    const formStatus = document.getElementById('formStatus');
+
+    function setError(id, show) {
+      document.getElementById('grp-' + id).classList.toggle('error', show);
+    }
+
+    function validate() {
+      let valid = true;
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName  = document.getElementById('lastName').value.trim();
+      const email     = document.getElementById('email').value.trim();
+      const phone     = document.getElementById('phone').value.trim();
+      const gender    = form.querySelector('input[name="gender"]:checked');
+      const location  = document.getElementById('location').value;
+      const alumni    = form.querySelector('input[name="alumni"]:checked');
+      const referral  = document.getElementById('referral').value;
+      const attend    = form.querySelector('input[name="attend"]:checked');
+
+      setError('firstName', !firstName); if (!firstName) valid = false;
+      setError('lastName', !lastName); if (!lastName) valid = false;
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      setError('email', !emailOk); if (!emailOk) valid = false;
+      setError('phone', phone.length < 7); if (phone.length < 7) valid = false;
+      setError('gender', !gender); if (!gender) valid = false;
+      setError('location', !location); if (!location) valid = false;
+      setError('alumni', !alumni); if (!alumni) valid = false;
+      setError('referral', !referral); if (!referral) valid = false;
+      setError('attend', !attend); if (!attend) valid = false;
+
+      return valid ? {
+        firstName, lastName, email, phone,
+        gender: gender.value,
+        location,
+        alumni: alumni.value,
+        referral,
+        attend: attend.value
+      } : null;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      formStatus.className = 'form-status';
+      const data = validate();
+      if (!data) return;
+
+      submitBtn.disabled = true;
+      submitText.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+
+      try {
+        const res = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(data)
+        });
+        const result = await res.json();
+
+        if (result.status === 'success') {
+          window.location.href = 'regsuccess/';
+        } else {
+          throw new Error(result.message || 'Submission failed');
+        }
+      } catch (err) {
+        formStatus.classList.add('show', 'fail');
+        formStatus.textContent = "Something went wrong — please try again, or reach us on Telegram if it keeps happening.";
+        submitBtn.disabled = false;
+        submitText.textContent = 'Secure Your Spot';
+      }
+    });
+  </script>
+</body>
+</html>

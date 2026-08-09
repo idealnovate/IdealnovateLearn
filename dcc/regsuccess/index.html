@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're Registered! — DCC Connect</title>
+  <link rel="icon" type="image/jpeg" href="../../Pictures/dccicon.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink:          #0F172A;
+      --ink-soft:      #334155;
+      --muted:         #64748B;
+      --clinic:        #14B8A6;
+      --clinic-deep:   #0F766E;
+      --mint:          #8FF0E0;
+      --bg-base:       #F1F5F9;
+      --border:        #DCE3EA;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg-base);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    .card {
+      background: #fff;
+      padding: 56px 48px;
+      max-width: 560px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(15,23,42,0.1);
+      border: 1px solid var(--border);
+    }
+    .icon-wrap {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, var(--clinic), var(--clinic-deep));
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px;
+      font-size: 2rem;
+      color: #fff;
+      box-shadow: 0 12px 32px rgba(15,118,110,0.35);
+      animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.4); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+    .logo { height: 36px; width: auto; margin-bottom: 32px; }
+    h1 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+    p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .next-steps {
+      background: var(--bg-base);
+      padding: 24px;
+      text-align: left;
+      margin-bottom: 32px;
+      border: 1px solid var(--border);
+    }
+    .next-steps h3 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--clinic-deep);
+      margin-bottom: 16px;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .step:last-child { margin-bottom: 0; }
+    .step-dot {
+      width: 24px; height: 24px;
+      background: var(--clinic);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      font-family: 'Unbounded', sans-serif;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step span { font-size: 0.9rem; color: var(--ink); line-height: 1.6; }
+    .btn-tg {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #229ED9;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 14px 28px;
+      margin-bottom: 16px;
+      transition: background 0.2s;
+    }
+    .btn-tg:hover { background: #1c87ba; color: #fff; }
+    .btn-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--clinic-deep);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    .btn-home:hover { text-decoration: underline; }
+    .social-row { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .social-row p { font-size: 0.82rem; margin-bottom: 12px; }
+    .social-row a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px; height: 36px;
+      background: rgba(15,118,110,0.08);
+      color: var(--clinic-deep);
+      font-size: 0.9rem;
+      text-decoration: none;
+      margin: 0 4px;
+      transition: all 0.2s;
+    }
+    .social-row a:hover { background: var(--clinic); color: #fff; }
+    @media (max-width: 480px) {
+      .card { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="../../Pictures/dcclogo.png" alt="Digital Clinic Circle" class="logo" />
+
+    <div class="icon-wrap">
+      <i class="fa-solid fa-circle-check"></i>
+    </div>
+
+    <h1>You're Registered!</h1>
+    <p>Your spot for DCC Connect in Lagos is confirmed. Check your inbox — a welcome email from Digital Clinic Circle is on its way.</p>
+
+    <div class="next-steps">
+      <h3>What Happens Next</h3>
+      <div class="step">
+        <div class="step-dot">1</div>
+        <span>Check your email for your registration confirmation.</span>
+      </div>
+      <div class="step">
+        <div class="step-dot">2</div>
+        <span>Join the Telegram community for schedule updates, venue reveal, logistics, and event arrangements.</span>
+      </div>
+      <div class="step">
+        <div class="step-dot">3</div>
+        <span>Stay tuned — more information will be communicated to you via email and the Telegram channel as the date approaches.</span>
+      </div>
+    </div>
+
+    <a href="https://t.me/+h4J_onzdEHYzZGFk" target="_blank" rel="noopener noreferrer" class="btn-tg">
+      <i class="fa-brands fa-telegram"></i> Join the Telegram Community
+    </a>
+    <br>
+    <a href="../" class="btn-home">
+      <i class="fa-solid fa-arrow-left"></i> Back to DCC Connect
+    </a>
+
+    <div class="social-row">
+      <p>Follow us for updates, tips, and community highlights</p>
+      <a href="https://instagram.com/idealnovate" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://x.com/joinidealnovate" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://linkedin.com/company/idealnovate" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://tiktok.com/@idealnovate" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@idealnovate" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+  </div>
+
+</body>
+</html>
