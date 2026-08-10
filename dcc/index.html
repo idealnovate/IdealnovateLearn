@@ -1773,7 +1773,9 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-    AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic' });
+    if (typeof AOS !== 'undefined') {
+      AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic' });
+    }
 
     // ---------- Navbar scroll state ----------
     const navbar = document.getElementById('navbar');
