@@ -20,7 +20,7 @@ const SHEET_ID     = 'YOUR_GOOGLE_SHEET_ID';       // From the Sheet URL: /d/<TH
 const FROM_NAME    = 'AI Income Blueprint by Idealnovate';
 const REPLY_TO     = 'hello@idealnovate.com';
 const COHORT_DATE  = 'August 15th 2026';
-const WHATSAPP_URL = 'https://chat.whatsapp.com/LZ4SwZoiu7W8zN1VpOKJTQ?s=cl&p=i&ilr=2&amv=0';
+const WHATSAPP_URL = 'https://chat.whatsapp.com/FLKfIIKiPdcIISWcaQdCDF?s=cl&p=i&ilr=2&amv=0';
 // ─────────────────────────────────────────────────────────────────────────────
 
 function doPost(e) {
