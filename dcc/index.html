@@ -327,52 +327,60 @@
     .hero-note-text { min-width: 0; overflow-wrap: break-word; }
 
     /* ---------- Signature: The Pulse Wave — a traveling beat across a row of community nodes ---------- */
-    .pulse-wave {
+    /* ---------- Signature: the Preview Ticker — teases the next
+       section's real content instead of decorating with icons ---------- */
+    .hero-ticker {
       position: relative;
       z-index: 1;
-      max-width: 640px;
-      margin: 72px auto 0;
+      margin: 64px auto 0;
+      width: 100%;
+      max-width: 720px;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+      mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
     }
-    .pulse-wave::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 0; right: 0;
-      height: 2px;
-      transform: translateY(-50%);
-      background: repeating-linear-gradient(to right, var(--clinic) 0 10px, transparent 10px 20px);
-    }
-    .pulse-wave-track {
-      position: relative;
+    .ticker-track {
       display: flex;
-      flex-wrap: nowrap;
-      justify-content: center;
       align-items: center;
-      gap: 24px;
+      gap: 16px;
+      width: max-content;
+      animation: ticker-scroll 24s linear infinite;
     }
-    .wave-node {
-      width: 58px; height: 58px;
-      flex-shrink: 0;
-      border-radius: 0;
-      background: var(--paper-white);
-      border: 2px solid var(--mint);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.15rem;
-      color: var(--clinic-deep);
-      box-shadow: var(--shadow-sm);
-      animation: wave-beat 3.2s ease-in-out infinite;
+    .ticker-track span.tick-label {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.76rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: rgba(241,245,249,0.62);
+      white-space: nowrap;
     }
-    .wave-node:nth-child(1) { animation-delay: 0s; }
-    .wave-node:nth-child(2) { animation-delay: 0.25s; }
-    .wave-node:nth-child(3) { animation-delay: 0.5s; }
-    .wave-node:nth-child(4) { animation-delay: 0.75s; }
-    .wave-node:nth-child(5) { animation-delay: 1s; }
-    @keyframes wave-beat {
-      0%, 100% { transform: scale(1); box-shadow: var(--shadow-sm); }
-      50%      { transform: scale(1.18); box-shadow: 0 0 0 9px rgba(20,184,166,0.14), var(--shadow-md); }
+    .tick-dot { width: 5px; height: 5px; background: var(--mint); flex-shrink: 0; }
+    @keyframes ticker-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .hero-scroll-cue {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: 30px;
+      color: rgba(241,245,249,0.55);
+      font-size: 0.78rem;
+      font-family: var(--font-body);
+    }
+    .hero-scroll-cue i { color: var(--mint); animation: chevron-bounce 1.8s ease-in-out infinite; }
+    @keyframes chevron-bounce {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(5px); }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .wave-node, .eyebrow .dot { animation: none !important; }
+      .ticker-track, .hero-scroll-cue i, .eyebrow .dot { animation: none !important; }
     }
 
     @media (max-width: 640px) {
@@ -380,17 +388,7 @@
       .date-pill { text-align: left; }
       .hero-actions { flex-direction: column; align-items: stretch; }
       .hero-actions .btn { width: 100%; }
-      .pulse-wave { margin-top: 52px; }
-      .pulse-wave-track { gap: 14px; }
-      .wave-node { width: 46px; height: 46px; font-size: 0.95rem; }
-    }
-    @media (max-width: 360px) {
-      .pulse-wave-track { gap: 10px; }
-      .wave-node { width: 38px; height: 38px; font-size: 0.85rem; }
-    }
-    @media (max-width: 320px) {
-      .pulse-wave-track { gap: 7px; }
-      .wave-node { width: 33px; height: 33px; font-size: 0.76rem; }
+      .hero-ticker { margin-top: 48px; }
     }
 
     /* ============================================================
@@ -1208,15 +1206,25 @@
         </div>
       </div>
 
-      <div class="pulse-wave" data-aos="fade-up" data-aos-delay="150">
-        <div class="pulse-wave-track">
-          <div class="wave-node"><i class="fa-solid fa-stethoscope"></i></div>
-          <div class="wave-node"><i class="fa-solid fa-comments"></i></div>
-          <div class="wave-node"><i class="fa-solid fa-chart-line"></i></div>
-          <div class="wave-node"><i class="fa-solid fa-handshake"></i></div>
-          <div class="wave-node"><i class="fa-solid fa-lightbulb"></i></div>
+      <div class="hero-ticker" data-aos="fade-up" data-aos-delay="150">
+        <div class="ticker-track">
+          <span class="tick-label">Tailored Challenge Discovery</span><span class="tick-dot"></span>
+          <span class="tick-label">Radical Peer Accountability</span><span class="tick-dot"></span>
+          <span class="tick-label">Practical Skill Monetization</span><span class="tick-dot"></span>
+          <span class="tick-label">High-Value Network &amp; Collaboration</span><span class="tick-dot"></span>
+          <span class="tick-label">Access to Exclusive Growth Resources</span><span class="tick-dot"></span>
+          <span class="tick-label" aria-hidden="true">Tailored Challenge Discovery</span><span class="tick-dot" aria-hidden="true"></span>
+          <span class="tick-label" aria-hidden="true">Radical Peer Accountability</span><span class="tick-dot" aria-hidden="true"></span>
+          <span class="tick-label" aria-hidden="true">Practical Skill Monetization</span><span class="tick-dot" aria-hidden="true"></span>
+          <span class="tick-label" aria-hidden="true">High-Value Network &amp; Collaboration</span><span class="tick-dot" aria-hidden="true"></span>
+          <span class="tick-label" aria-hidden="true">Access to Exclusive Growth Resources</span><span class="tick-dot" aria-hidden="true"></span>
         </div>
       </div>
+
+      <a href="#why-attend" class="hero-scroll-cue" data-aos="fade-up" data-aos-delay="250">
+        <span>Scroll to see why</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </a>
     </div>
   </header>
 
