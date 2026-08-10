@@ -344,13 +344,14 @@
     .pulse-wave-track {
       position: relative;
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: center;
       align-items: center;
-      gap: 24px 30px;
+      gap: 24px;
     }
     .wave-node {
       width: 58px; height: 58px;
+      flex-shrink: 0;
       border-radius: 0;
       background: var(--paper-white);
       border: 2px solid var(--mint);
@@ -361,11 +362,10 @@
       animation: wave-beat 3.2s ease-in-out infinite;
     }
     .wave-node:nth-child(1) { animation-delay: 0s; }
-    .wave-node:nth-child(2) { animation-delay: 0.2s; }
-    .wave-node:nth-child(3) { animation-delay: 0.4s; }
-    .wave-node:nth-child(4) { animation-delay: 0.6s; }
-    .wave-node:nth-child(5) { animation-delay: 0.8s; }
-    .wave-node:nth-child(6) { animation-delay: 1s; }
+    .wave-node:nth-child(2) { animation-delay: 0.25s; }
+    .wave-node:nth-child(3) { animation-delay: 0.5s; }
+    .wave-node:nth-child(4) { animation-delay: 0.75s; }
+    .wave-node:nth-child(5) { animation-delay: 1s; }
     @keyframes wave-beat {
       0%, 100% { transform: scale(1); box-shadow: var(--shadow-sm); }
       50%      { transform: scale(1.18); box-shadow: 0 0 0 9px rgba(20,184,166,0.14), var(--shadow-md); }
@@ -381,12 +381,16 @@
       .hero-actions { flex-direction: column; align-items: stretch; }
       .hero-actions .btn { width: 100%; }
       .pulse-wave { margin-top: 52px; }
-      .pulse-wave-track { gap: 20px 22px; }
-      .wave-node { width: 44px; height: 44px; font-size: 0.95rem; }
+      .pulse-wave-track { gap: 14px; }
+      .wave-node { width: 46px; height: 46px; font-size: 0.95rem; }
     }
     @media (max-width: 360px) {
-      .pulse-wave-track { gap: 18px 18px; }
+      .pulse-wave-track { gap: 10px; }
       .wave-node { width: 38px; height: 38px; font-size: 0.85rem; }
+    }
+    @media (max-width: 320px) {
+      .pulse-wave-track { gap: 7px; }
+      .wave-node { width: 33px; height: 33px; font-size: 0.76rem; }
     }
 
     /* ============================================================
@@ -1185,7 +1189,7 @@
   <header class="hero" id="top">
     <div class="container">
       <div class="hero-copy" data-aos="fade-up">
-        <span class="eyebrow"><span class="dot"></span> <span class="eyebrow-label">Idealnovate X PDU · Community Connect</span></span>
+        <span class="eyebrow"><span class="dot"></span> <span class="eyebrow-label">Idealnovate X PDU · Connect</span></span>
         <h1>Present <em>"Digital Clinic Circle Connect"</em></h1>
         <p class="hero-sub">Your Growth Circle</p>
         <p class="hero-tagline">Diagnose<span class="sep">·</span>Execute<span class="sep">·</span>Monetize</p>
@@ -1211,7 +1215,6 @@
           <div class="wave-node"><i class="fa-solid fa-chart-line"></i></div>
           <div class="wave-node"><i class="fa-solid fa-handshake"></i></div>
           <div class="wave-node"><i class="fa-solid fa-lightbulb"></i></div>
-          <div class="wave-node"><i class="fa-solid fa-people-group"></i></div>
         </div>
       </div>
     </div>
