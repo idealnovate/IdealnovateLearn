@@ -103,7 +103,8 @@ The Web App URL stays the same — no change needed in `index.html`.
 
 ## Build Progress (session log)
 
-- [x] Header — transparent navbar (logo swaps color/white on scroll), single-column dark-overlay hero over `dccfill.png`, horizontal "Pulse Wave" signature, enrollment modal (9 custom fields, Telegram notice, security notice)
+- [x] Header — transparent navbar (logo swaps color/white on scroll), single-column dark-overlay hero over `dccfill.png`, headline "Present: Digital Clinic Circle Lagos Hangout", enrollment modal (9 custom fields, Telegram notice, security notice)
+- [x] Hero signature — a single-line auto-scrolling ticker previewing the 5 Why Attend benefit titles (replaced an earlier circular "Pulse Ring" / horizontal "Pulse Wave" of icon nodes), followed by a "Scroll to see why" bouncing chevron linking to `#why-attend`
 - [x] Why Attend — vertical "vitals strip" of 5 benefits, closing CTA
 - [x] Partners & Organizers — Idealnovate Africa (Headline Organizer) + PDU Africa (Partner & Sponsor) stamped logo cards
 - [x] Activities ("The Lineup") — 6-session mosaic grid, closing CTA
@@ -115,4 +116,5 @@ The Web App URL stays the same — no change needed in `index.html`.
 - [x] `google-apps-script.gs` — writes to Sheet, sends a DCC-branded welcome email (registration confirmation + Telegram community prompt + "more info via email and Telegram" notice)
 - [x] `regsuccess/index.html` — modeled on `aiblueprint/regsuccess/`, reskinned to DCC branding/copy, links to the Telegram community instead of WhatsApp
 - [x] Script URL set in `index.html` and `SHEET_ID` set in `google-apps-script.gs` (2026-08-09)
+- [x] Mobile-safety fixes — `overflow-x:hidden` on both `html`/`body` (not just body), icon+text badges (eyebrow/date-pill/hero-note/modal-notice) wrapped so they can shrink instead of forcing horizontal scroll, `AOS.init()` guarded with a `typeof` check so a failed CDN load can't silently break the modal/drawer/FAQ JS that runs after it
 - [ ] Exact event time and physical venue address — not yet confirmed, not stated anywhere on the page
