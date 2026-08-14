@@ -94,8 +94,9 @@ The enrollment form posts to a Google Apps Script Web App that writes each appli
 |--------|--------|
 | Receives form submission | `doPost(e)` parses JSON body |
 | Writes to Sheet | Appends a row with timestamp + 8 applicant fields; auto-creates a formatted header on first run |
-| Sends welcome email | Branded HTML email from your Idealnovate Gmail via `GmailApp.sendEmail()` |
+| Sends welcome email | Branded HTML email from your Idealnovate Gmail via `GmailApp.sendEmail()`, wrapped in its own try/catch so a failure here (e.g. Gmail's daily send quota) can't get swallowed by the outer handler — the sheet write always completes first regardless |
 | Email content | Cohort start date, WhatsApp community link, inbox update notice |
+| Redirect | Page always redirects to `success/` regardless of response (uses `mode:'no-cors'`) — a failed welcome email is silent to the applicant, but logged server-side via `Logger.log` in the Apps Script Executions tab |
 
 ---
 

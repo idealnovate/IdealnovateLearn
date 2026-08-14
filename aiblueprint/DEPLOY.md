@@ -99,6 +99,8 @@ The Web App URL stays the same — no change needed in `index.html`.
 | Meta Pixel | `index.html` | `2085647452368752` (reused Idealnovate account pixel) |
 | TikTok Pixel | `index.html` | `D8T8R53C77U8IPSBMNG0` (reused Idealnovate account pixel) |
 
+**Email failure handling (2026-08-14):** Unlike PDU/main/campus (which use `mode:'no-cors'` and always redirect), aiblueprint reads the actual JSON response and only redirects on `result.status === 'success'` — so a thrown error in `sendWelcomeEmail(data)` (e.g. Gmail's daily send quota) used to be able to block the whole registration and show the applicant an error, even though their data was already safely written to the sheet. This is the exact bug found and fixed on DCC. `sendWelcomeEmail(data)` in `google-apps-script.gs` is now wrapped in its own try/catch so email failures can't block success anymore — but this only takes effect once the updated script is re-pasted into script.google.com and redeployed as a new version.
+
 ---
 
 ## Build Progress (session log)

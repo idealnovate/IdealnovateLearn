@@ -101,3 +101,5 @@ The Web App URL stays the same — no change needed in `index.html`.
 | WhatsApp community | Modal notice, Community section | `chat.whatsapp.com/ElMdkHBthmG2ynUeP9dPu2` |
 | Contact email | FAQ sidebar, Footer | `hello@idealnovate.com` |
 | Hiring email | FAQ answer #8 | `hire@idealnovate.com` |
+
+**Email failure handling (2026-08-14):** `sendWelcomeEmail(data)` in `google-apps-script.gs` is wrapped in its own try/catch, so a failure there (e.g. Gmail's daily send quota) can't block the sheet write or bubble up as a full registration failure. The page always redirects to the enrollment success state regardless of response (`mode:'no-cors'`), so a failed welcome email is silent to the applicant either way — check the Apps Script **Executions** tab for `Logger.log` entries if emails seem to be missing.
