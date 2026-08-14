@@ -1851,7 +1851,6 @@
     });
 
     // ---------- Form validation + submission ----------
-    // TODO: paste the deployed Google Apps Script Web App URL here (see DEPLOY.md)
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwmzL092NmUt0G4S07kYULbZtyg6jgAuWVUXEPD3Z_hiBc38VqZP85cKPw2diZsbLsc_w/exec';
 
     const form = document.getElementById('dccForm');
@@ -1911,14 +1910,24 @@
           headers: { 'Content-Type': 'text/plain' },
           body: JSON.stringify(data)
         });
-        const result = await res.json();
+
+        const rawText = await res.text();
+        let result;
+        try {
+          result = JSON.parse(rawText);
+        } catch (parseErr) {
+          console.error('DCC registration: response was not valid JSON. HTTP status:', res.status, 'Raw response:', rawText);
+          throw new Error('The registration service returned an unexpected response (not JSON) — see console for the raw response.');
+        }
 
         if (result.status === 'success') {
           window.location.href = 'regsuccess/';
         } else {
+          console.error('DCC registration: server returned an error status.', result);
           throw new Error(result.message || 'Submission failed');
         }
       } catch (err) {
+        console.error('DCC registration failed:', err);
         formStatus.classList.add('show', 'fail');
         formStatus.textContent = "Something went wrong — please try again, or reach us on Telegram if it keeps happening.";
         submitBtn.disabled = false;
