@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Privacy Policy for Idealnovate Africa — covering the Data Analysis Bootcamp, Campus, AI Income Blueprint, and DCC Connect." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#068276" />
+  <title>Privacy Policy | Idealnovate Africa</title>
+
+  <link rel="icon" type="image/jpeg" href="../Pictures/Site Icon.jpg" />
+  <link rel="apple-touch-icon" href="../Pictures/Site Icon.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:      #068276;
+      --primary-dark: #022c28;
+      --accent:       #f4a85e;
+      --bg-base:      #f0fdf9;
+      --text-dark:    #0a0a0a;
+      --text-muted:   #6b7280;
+      --border:       #d1faf4;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --shadow-sm: 0 4px 16px rgba(2,44,40,0.06);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Jost', sans-serif;
+      color: var(--text-dark);
+      background: #fff;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    ul { list-style: none; }
+    h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--primary-dark); }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Simple top bar ---------- */
+    .topbar {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+    }
+    .topbar .container { display: flex; align-items: center; justify-content: space-between; }
+    .topbar-logo img { height: 34px; width: auto; }
+    .topbar-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .topbar-back:hover { text-decoration: underline; }
+
+    /* ---------- Title block ---------- */
+    .policy-hero {
+      background: var(--bg-base);
+      padding: 56px 0 44px;
+      border-bottom: 1px solid var(--border);
+    }
+    .policy-hero .tag {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: rgba(6,130,118,0.1);
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 18px;
+    }
+    .policy-hero h1 {
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .policy-hero .updated { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px; }
+    .policy-hero .intro { max-width: 720px; color: var(--text-dark); font-size: 1.02rem; }
+
+    /* ---------- Layout: TOC + content ---------- */
+    .policy-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 56px;
+      padding: 56px 0 90px;
+      align-items: start;
+    }
+    .policy-toc {
+      position: sticky;
+      top: 24px;
+      border-left: 2px solid var(--border);
+      padding-left: 20px;
+    }
+    .policy-toc h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .policy-toc ul { display: flex; flex-direction: column; gap: 11px; }
+    .policy-toc a {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .policy-toc a:hover { color: var(--primary); }
+    .policy-toc a.active { color: var(--primary); font-weight: 600; }
+
+    .policy-content section {
+      margin-bottom: 46px;
+      scroll-margin-top: 24px;
+    }
+    .policy-content section:last-child { margin-bottom: 0; }
+    .policy-content h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      border-left: 3px solid var(--primary);
+      padding-left: 14px;
+      margin-bottom: 16px;
+    }
+    .policy-content h3 {
+      font-size: 1.02rem;
+      font-weight: 700;
+      margin: 20px 0 8px;
+    }
+    .policy-content p { color: #374151; margin-bottom: 14px; font-size: 0.98rem; }
+    .policy-content ul.bullets { margin: 0 0 14px; padding-left: 0; }
+    .policy-content ul.bullets li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 9px;
+      color: #374151;
+      font-size: 0.98rem;
+    }
+    .policy-content ul.bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 9px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+    .policy-content strong { color: var(--text-dark); font-weight: 600; }
+    .policy-content a.inline-link { color: var(--primary); text-decoration: underline; font-weight: 500; }
+
+    .info-box {
+      background: var(--bg-base);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      margin: 18px 0;
+    }
+    .info-box p { margin: 0; font-size: 0.92rem; color: var(--text-dark); }
+    .info-box p + p { margin-top: 8px; }
+
+    .contact-card {
+      background: var(--primary-dark);
+      color: #fff;
+      border-radius: var(--radius-md);
+      padding: 32px;
+      margin-top: 10px;
+    }
+    .contact-card h3 { color: #fff; margin-top: 0; margin-bottom: 14px; }
+    .contact-card p { color: rgba(255,255,255,0.78); }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 0.94rem;
+    }
+    .contact-item i { color: var(--accent); width: 18px; text-align: center; }
+    .contact-item a { color: #fff; text-decoration: none; }
+    .contact-item a:hover { text-decoration: underline; }
+
+    @media (max-width: 860px) {
+      .policy-layout { grid-template-columns: 1fr; gap: 32px; padding: 36px 0 64px; }
+      .policy-toc { position: static; border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 20px; }
+      .policy-toc ul { flex-direction: row; flex-wrap: wrap; gap: 14px; }
+      .policy-hero { padding: 40px 0 32px; }
+    }
+
+    /* ---------- Footer (mirrored from index.html, paths adjusted for this subfolder) ---------- */
+    footer#footer { background: var(--primary-dark); color: #fff; padding: 56px 0 0; margin-top: 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; padding-bottom: 36px; }
+    .footer-brand img { height: 32px; margin-bottom: 16px; }
+    .footer-brand p { color: rgba(255,255,255,0.65); font-size: 0.9rem; max-width: 320px; margin-bottom: 18px; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 0.85rem; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .footer-social a:hover { background: var(--primary); }
+    .footer-col h4 { color: #fff; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 18px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 11px; }
+    .footer-col ul a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.9rem; }
+    .footer-col ul a:hover { color: #fff; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.88rem; color: rgba(255,255,255,0.65); }
+    .footer-contact-item i { color: var(--accent); margin-top: 3px; width: 14px; }
+    .footer-contact-item a { color: rgba(255,255,255,0.85); text-decoration: none; }
+    .footer-contact-item a:hover { text-decoration: underline; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 20px 0;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    }
+    .footer-bottom p { font-size: 0.82rem; color: rgba(255,255,255,0.55); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: rgba(255,255,255,0.65); font-size: 0.82rem; text-decoration: none; }
+    .footer-links a:hover { color: #fff; }
+    @media (max-width: 760px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== TOP BAR ===================== -->
+  <div class="topbar">
+    <div class="container">
+      <a href="../index.html" class="topbar-logo"><img src="../Pictures/Idealnovate Logo Dark.png" alt="Idealnovate Africa" /></a>
+      <a href="../index.html" class="topbar-back"><i class="fa-solid fa-arrow-left"></i> Back to Idealnovate Africa</a>
+    </div>
+  </div>
+
+  <!-- ===================== TITLE ===================== -->
+  <section class="policy-hero">
+    <div class="container">
+      <span class="tag">Legal</span>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: August 14, 2026</p>
+      <p class="intro">This Privacy Policy explains how Idealnovate Africa collects, uses, and protects your information across our Data Analysis Bootcamp, Campus, AI Income Blueprint, and DCC Connect pages. Please read it before submitting any information to us.</p>
+    </div>
+  </section>
+
+  <!-- ===================== TOC + CONTENT ===================== -->
+  <div class="container">
+    <div class="policy-layout">
+
+      <!-- Table of contents -->
+      <nav class="policy-toc" aria-label="Table of contents">
+        <h4>On This Page</h4>
+        <ul id="tocList">
+          <li><a href="#introduction">1. Introduction</a></li>
+          <li><a href="#information-we-collect">2. Information We Collect</a></li>
+          <li><a href="#how-we-use-it">3. How We Use Your Information</a></li>
+          <li><a href="#community-platforms">4. Community Platforms</a></li>
+          <li><a href="#third-party">5. Third-Party Services</a></li>
+          <li><a href="#cookies">6. Cookies &amp; Tracking</a></li>
+          <li><a href="#retention">7. Data Retention</a></li>
+          <li><a href="#your-rights">8. Your Rights</a></li>
+          <li><a href="#children">9. Children's Privacy</a></li>
+          <li><a href="#security">10. Data Security</a></li>
+          <li><a href="#changes">11. Changes to This Policy</a></li>
+          <li><a href="#contact">12. Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Content -->
+      <div class="policy-content">
+
+        <section id="introduction">
+          <h2>1. Introduction</h2>
+          <p>Idealnovate Africa ("Idealnovate," "we," "us," or "our") operates a family of free training and community programmes for African tech and design talent, including the <strong>Data Analysis Scholarship Bootcamp</strong>, <strong>Idealnovate Campus</strong>, the <strong>AI Income Blueprint</strong> course, and <strong>DCC Connect</strong> (the Digital Clinic Circle community). This Privacy Policy applies to all of these pages, referred to together as "our platforms," accessible from <strong>idealnovate.com</strong> and <strong>idealnovate.com.ng</strong>.</p>
+          <div class="info-box">
+            <p><strong>Scope note:</strong> PDU Africa (pduafrica.com) is a related but separately operated programme with its own privacy documentation, linked from its own site. This policy does not cover PDU Africa.</p>
+          </div>
+          <p>By submitting an enrollment or registration form on any of our platforms, you agree to the collection and use of your information as described in this policy.</p>
+        </section>
+
+        <section id="information-we-collect">
+          <h2>2. Information We Collect</h2>
+          <p>We only collect information you choose to give us when you register for a programme or event. Depending on which page you register through, this may include:</p>
+          <ul class="bullets">
+            <li>Your first and last name</li>
+            <li>Email address</li>
+            <li>Phone number (used for WhatsApp community access)</li>
+            <li>Location / country</li>
+            <li>Gender</li>
+            <li>How you heard about the programme</li>
+            <li>Whether you have access to a computer (bootcamp pages)</li>
+            <li>Whether you're an Idealnovate/PDU alumnus or student, and whether you plan to attend in person (DCC Connect only)</li>
+          </ul>
+          <p>We do not ask for or knowingly collect sensitive information such as government ID numbers, financial account details, or health data through any enrollment form.</p>
+          <h3>Automatically collected information</h3>
+          <p>Like most websites, our pages use analytics and advertising pixels that may automatically collect standard technical data — such as your browser type, device type, general location, and which pages you visit — for the purposes described in <a href="#cookies" class="inline-link">Section 6</a>.</p>
+        </section>
+
+        <section id="how-we-use-it">
+          <h2>3. How We Use Your Information</h2>
+          <p>We use the information you provide to:</p>
+          <ul class="bullets">
+            <li>Process and confirm your registration or enrollment</li>
+            <li>Send you a welcome email with programme details, schedule, and next steps</li>
+            <li>Invite you to the relevant WhatsApp or Telegram community for your programme</li>
+            <li>Communicate important updates — schedule changes, session links, event logistics</li>
+            <li>Understand which programmes and marketing channels are working, so we can improve them</li>
+            <li>Respond to questions you send us directly</li>
+          </ul>
+          <p>We do not sell your personal information to anyone, for any reason.</p>
+        </section>
+
+        <section id="community-platforms">
+          <h2>4. Community Platforms (WhatsApp &amp; Telegram)</h2>
+          <p>After registering, you'll typically be invited to join a WhatsApp or Telegram community group for your programme. These groups are hosted on WhatsApp's and Telegram's own platforms, not ours — anything you share inside them is visible to other group members and is governed by WhatsApp's and Telegram's own privacy policies, not this one. We recommend reviewing those platforms' privacy settings before joining.</p>
+        </section>
+
+        <section id="third-party">
+          <h2>5. Third-Party Services We Use</h2>
+          <p>We rely on a small number of trusted third-party services to run our platforms:</p>
+          <ul class="bullets">
+            <li><strong>Google (Sheets &amp; Apps Script):</strong> your registration details are stored in a private Google Sheet and processed via Google Apps Script to send your welcome email.</li>
+            <li><strong>Gmail:</strong> automated welcome and update emails are sent from our Gmail account via Google's `GmailApp` service.</li>
+            <li><strong>Meta (Facebook/Instagram) Pixel:</strong> used to measure how effective our ads are and to reach people with relevant ads on Meta platforms.</li>
+            <li><strong>TikTok Pixel:</strong> used for the same advertising-measurement purpose, on TikTok.</li>
+          </ul>
+          <p>These providers may process your data on servers outside Nigeria, in line with their own privacy and security practices.</p>
+        </section>
+
+        <section id="cookies">
+          <h2>6. Cookies &amp; Tracking Technologies</h2>
+          <p>Our pages use the Meta Pixel and TikTok Pixel, which place small tracking cookies in your browser. These cookies help us understand which visits led to a completed registration, and allow us to show relevant ads to people who've visited our pages. They do not give us access to your device, files, or accounts.</p>
+          <p>You can control or clear these cookies through your browser settings at any time, or opt out of personalized advertising through <a href="https://www.facebook.com/adpreferences/" target="_blank" rel="noopener noreferrer" class="inline-link">Meta's ad preferences</a> and <a href="https://www.tiktok.com/legal/page/eea/privacy-policy/en" target="_blank" rel="noopener noreferrer" class="inline-link">TikTok's privacy settings</a>.</p>
+        </section>
+
+        <section id="retention">
+          <h2>7. Data Retention</h2>
+          <p>We keep your registration information for as long as reasonably necessary to run the programme you signed up for, stay in touch with our community, and meet any legal or record-keeping obligations. If you'd like your information removed sooner, see <a href="#your-rights" class="inline-link">Section 8</a>.</p>
+        </section>
+
+        <section id="your-rights">
+          <h2>8. Your Rights</h2>
+          <p>You have the right to:</p>
+          <ul class="bullets">
+            <li>Ask us what information we hold about you</li>
+            <li>Ask us to correct inaccurate information</li>
+            <li>Ask us to delete your information from our records</li>
+            <li>Withdraw from a WhatsApp/Telegram community at any time by leaving the group</li>
+          </ul>
+          <p>To exercise any of these rights, email us at <a href="mailto:help@idealnovate.com" class="inline-link">help@idealnovate.com</a> and we'll respond within a reasonable time.</p>
+        </section>
+
+        <section id="children">
+          <h2>9. Children's Privacy</h2>
+          <p>Our programmes are intended for young professionals and adult learners. They are not directed at children, and we do not knowingly collect information from anyone under the age of 16. If you believe a child has provided us with personal information, please contact us and we will remove it.</p>
+        </section>
+
+        <section id="security">
+          <h2>10. Data Security</h2>
+          <p>We take reasonable steps to protect the information you share with us, including restricting access to our registration records to authorized team members only. However, no method of storage or transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+        </section>
+
+        <section id="changes">
+          <h2>11. Changes to This Policy</h2>
+          <p>We may update this Privacy Policy from time to time as our programmes evolve. When we do, we'll revise the "Last updated" date at the top of this page. We encourage you to review this page occasionally to stay informed.</p>
+        </section>
+
+        <section id="contact">
+          <h2>12. Contact Us</h2>
+          <p>If you have any questions about this Privacy Policy or how your information is handled, reach out to us:</p>
+          <div class="contact-card">
+            <h3>Idealnovate Africa</h3>
+            <div class="contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:help@idealnovate.com">help@idealnovate.com</a></div>
+            <div class="contact-item"><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/2348079680209" target="_blank" rel="noopener noreferrer">+234 807 968 0209</a></div>
+            <div class="contact-item"><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/2349065436488" target="_blank" rel="noopener noreferrer">+234 906 543 6488</a></div>
+            <div class="contact-item"><i class="fa-solid fa-location-dot"></i><span>73 Hammed Omidiran Way, Kolabalogun Cres, Osogbo, Osun State, Nigeria</span></div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <img src="../Pictures/Idealnovate Logo White.png" alt="Idealnovate Africa" />
+          <p>Empowering African talent with globally recognised data skills. Idealnovate Africa is building the next generation of job-ready data analysts — from Lagos to London and beyond.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/idealnovate" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://x.com/idealnovate" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://linkedin.com/company/idealnovate" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://tiktok.com/@idealnovate" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/@idealnovate" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Our Programmes</h4>
+          <ul>
+            <li><a href="../index.html">Data Analysis Bootcamp</a></li>
+            <li><a href="../campus/index.html">Idealnovate Campus</a></li>
+            <li><a href="../aiblueprint/index.html">AI Income Blueprint</a></li>
+            <li><a href="../dcc/index.html">DCC Connect</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span><a href="mailto:help@idealnovate.com">help@idealnovate.com</a></span></div>
+          <div class="footer-contact-item"><i class="fa-brands fa-whatsapp"></i><span><a href="https://wa.me/2348079680209" target="_blank" rel="noopener noreferrer">+234 807 968 0209</a></span></div>
+          <div class="footer-contact-item"><i class="fa-brands fa-whatsapp"></i><span><a href="https://wa.me/2349065436488" target="_blank" rel="noopener noreferrer">+234 906 543 6488</a></span></div>
+          <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>73 Hammed Omidiran Way,<br>Kolabalogun Cres, Osogbo,<br>Osun State, Nigeria</span></div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Idealnovate Africa. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="index.html">Privacy Policy</a>
+          <a href="https://docs.google.com/document/d/1DTeK6jd3qIhzwu2U4A5QwOYh5odjMnNj3Ywp3hy7EV8/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-spy: highlight the current section in the TOC
+    (function () {
+      var links = Array.prototype.slice.call(document.querySelectorAll('#tocList a'));
+      var sections = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+
+      function onScroll() {
+        var pos = window.scrollY + 120;
+        var activeIndex = 0;
+        sections.forEach(function (sec, i) {
+          if (sec && sec.offsetTop <= pos) activeIndex = i;
+        });
+        links.forEach(function (a, i) { a.classList.toggle('active', i === activeIndex); });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+
+</body>
+</html>
