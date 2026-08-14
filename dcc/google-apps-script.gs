@@ -55,8 +55,14 @@ function doPost(e) {
       data.attend
     ]);
 
-    // Send automated welcome email
-    sendWelcomeEmail(data);
+    // Send automated welcome email — failures here (e.g. Gmail's daily
+    // send quota) must NOT block registration success, since the
+    // applicant's data is already safely recorded in the sheet above.
+    try {
+      sendWelcomeEmail(data);
+    } catch (emailErr) {
+      Logger.log('sendWelcomeEmail failed but registration was still recorded: ' + emailErr.message);
+    }
 
     return ContentService
       .createTextOutput(JSON.stringify({ status: 'success' }))
