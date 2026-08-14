@@ -19,7 +19,7 @@ const SHEET_NAME   = 'AI Blueprint Enrollments2'; // Tab name in your Google She
 const SHEET_ID     = 'YOUR_GOOGLE_SHEET_ID';       // From the Sheet URL: /d/<THIS_PART>/edit
 const FROM_NAME    = 'AI Income Blueprint by Idealnovate';
 const REPLY_TO     = 'hello@idealnovate.com';
-const COHORT_DATE  = 'August 15th 2026';
+const COHORT_DATE  = 'August 21st 2026';
 const WHATSAPP_URL = 'https://chat.whatsapp.com/FLKfIIKiPdcIISWcaQdCDF?s=cl&p=i&ilr=2&amv=0';
 // ─────────────────────────────────────────────────────────────────────────────
 
