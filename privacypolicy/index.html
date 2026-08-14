@@ -32,13 +32,21 @@
       --radius-md: 16px;
       --shadow-sm: 0 4px 16px rgba(2,44,40,0.06);
     }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      max-width: 100%;
+    }
     body {
       font-family: 'Jost', sans-serif;
       color: var(--text-dark);
       background: #fff;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      max-width: 100%;
+      width: 100%;
+      position: relative;
     }
     img { max-width: 100%; display: block; }
     a { color: inherit; }
@@ -51,19 +59,32 @@
       border-bottom: 1px solid var(--border);
       padding: 18px 0;
     }
-    .topbar .container { display: flex; align-items: center; justify-content: space-between; }
-    .topbar-logo img { height: 34px; width: auto; }
+    .topbar .container { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .topbar-logo { flex-shrink: 0; min-width: 0; }
+    .topbar-logo img { height: 34px; width: auto; max-width: 100%; }
     .topbar-back {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      flex-shrink: 0;
       font-family: 'Montserrat', sans-serif;
       font-weight: 600;
       font-size: 0.85rem;
       color: var(--primary);
       text-decoration: none;
+      white-space: nowrap;
     }
     .topbar-back:hover { text-decoration: underline; }
+    .topbar-back .full-label { display: inline; }
+    .topbar-back .short-label { display: none; }
+
+    @media (max-width: 480px) {
+      .topbar { padding: 14px 0; }
+      .topbar-logo img { height: 26px; }
+      .topbar-back { font-size: 0.8rem; gap: 6px; }
+      .topbar-back .full-label { display: none; }
+      .topbar-back .short-label { display: inline; }
+    }
 
     /* ---------- Title block ---------- */
     .policy-hero {
@@ -185,12 +206,13 @@
     .contact-card p { color: rgba(255,255,255,0.78); }
     .contact-item {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 12px;
       margin-bottom: 12px;
       font-size: 0.94rem;
     }
-    .contact-item i { color: var(--accent); width: 18px; text-align: center; }
+    .contact-item i { color: var(--accent); width: 18px; text-align: center; flex-shrink: 0; margin-top: 3px; }
+    .contact-item span, .contact-item a { min-width: 0; overflow-wrap: break-word; }
     .contact-item a { color: #fff; text-decoration: none; }
     .contact-item a:hover { text-decoration: underline; }
 
@@ -220,7 +242,8 @@
     .footer-col ul a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.9rem; }
     .footer-col ul a:hover { color: #fff; }
     .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.88rem; color: rgba(255,255,255,0.65); }
-    .footer-contact-item i { color: var(--accent); margin-top: 3px; width: 14px; }
+    .footer-contact-item i { color: var(--accent); margin-top: 3px; width: 14px; flex-shrink: 0; }
+    .footer-contact-item span, .footer-contact-item a { min-width: 0; overflow-wrap: break-word; }
     .footer-contact-item a { color: rgba(255,255,255,0.85); text-decoration: none; }
     .footer-contact-item a:hover { text-decoration: underline; }
     .footer-bottom {
@@ -243,7 +266,7 @@
   <div class="topbar">
     <div class="container">
       <a href="../index.html" class="topbar-logo"><img src="../Pictures/Idealnovate Logo Dark.png" alt="Idealnovate Africa" /></a>
-      <a href="../index.html" class="topbar-back"><i class="fa-solid fa-arrow-left"></i> Back to Idealnovate Africa</a>
+      <a href="../index.html" class="topbar-back"><i class="fa-solid fa-arrow-left"></i> <span class="full-label">Back to Idealnovate Africa</span><span class="short-label">Back</span></a>
     </div>
   </div>
 
