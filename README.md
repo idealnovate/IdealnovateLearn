@@ -109,7 +109,7 @@ The enrollment form posts to a Google Apps Script Web App that writes each appli
 | `SCRIPT_URL` | `index.html` JS block | Set (deployed 2026-08-12) |
 | `REPLY_TO` / footer email | `google-apps-script.gs`, `index.html` footer | `help@idealnovate.com` |
 | Cohort date | `google-apps-script.gs` `COHORT_DATE`, hero float card, kickstart urgency banner + step heading | **August 22, 2026** — hardcoded in 4 places on `index.html` alone, not just the hero; grep the whole file when changing it |
-| WhatsApp community | `google-apps-script.gs` `WHATSAPP_URL`, modal notice, hero WhatsApp button, `success/index.html` | `chat.whatsapp.com/GwSmfy7Rv7xKKNxuHtau0z` |
+| WhatsApp community | `google-apps-script.gs` `WHATSAPP_URL`, modal notice, hero WhatsApp button, `success/index.html` | `chat.whatsapp.com/CIQj4cjodVYBm249z8UlSv` |
 
 ---
 
