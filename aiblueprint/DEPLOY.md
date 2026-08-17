@@ -94,7 +94,7 @@ The Web App URL stays the same — no change needed in `index.html`.
 | Missed-session policy | FAQ section | Sessions are recorded; replay link posted in the WhatsApp community |
 | Countdown key | `index.html` JS — `KEY` | `'aiblueprint_admission_deadline'` |
 | WhatsApp community | Modal notice, `regsuccess/index.html`, Apps Script `WHATSAPP_URL` | `chat.whatsapp.com/FLKfIIKiPdcIISWcaQdCDF` |
-| Contact email | Footer | `hello@idealnovate.com` (reused) |
+| Contact email | Footer, FAQ sidebar | `help@idealnovate.com` (reused) |
 | X (Twitter) | Footer, `regsuccess/index.html`, Apps Script welcome email | `x.com/joinidealnovate` — **note:** this differs from the other Idealnovate sites' `x.com/idealnovate`; double-check this specific handle when copying social links between files, it's been fixed twice already after drifting back to the wrong one |
 | Meta Pixel | `index.html` | `2085647452368752` (reused Idealnovate account pixel) |
 | TikTok Pixel | `index.html` | `D8T8R53C77U8IPSBMNG0` (reused Idealnovate account pixel) |
