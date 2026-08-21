@@ -89,7 +89,7 @@ The Web App URL stays the same — no change needed in `index.html`.
 |---|---|---|
 | Apps Script endpoint | `aiblueprint/index.html` — `SCRIPT_URL` | Set (2026-08-08) |
 | Sheet ID | The deployed copy in script.google.com — `SHEET_ID` | **Unverified from here** — confirm it's a real Sheet ID, not still `'YOUR_GOOGLE_SHEET_ID'`, in the script you pasted into script.google.com |
-| Cohort date | Apps Script `COHORT_DATE`, `regsuccess/index.html`, `index.html` (urgency banner + Kickstart step heading) | `August 21st 2026` |
+| Cohort date | Apps Script `COHORT_DATE`, `regsuccess/index.html`, `index.html` (urgency banner + Kickstart step heading) | `September 13th 2026` |
 | Cohort duration | FAQ section | 1 week, 3 live sessions |
 | Missed-session policy | FAQ section | Sessions are recorded; replay link posted in the WhatsApp community |
 | Countdown key | `index.html` JS — `KEY` | `'aiblueprint_admission_deadline'` |
@@ -120,4 +120,4 @@ The Web App URL stays the same — no change needed in `index.html`.
 - Session 7 (Certification) was built then fully removed by decision on 2026-08-07 — **certification is not part of this free cohort.** All "certificate included" mentions were scrubbed from Info Strip, Curriculum, and Kickstart.
 - [ ] Who-For, Benefits, Tools — the only sessions from the original PDU/IdealnovateLearn structure not yet added
 - [ ] Sheet ID and deployed Script URL — still placeholders, pending actual Google Sheet + Apps Script deployment
-- Real cohort date (August 21st 2026), WhatsApp community link, and X handle (`x.com/joinidealnovate`) are set across `index.html`, `regsuccess/index.html`, and `google-apps-script.gs`
+- Real cohort date (September 13th 2026), WhatsApp community link, and X handle (`x.com/joinidealnovate`) are set across `index.html`, `regsuccess/index.html`, and `google-apps-script.gs`
