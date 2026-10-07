@@ -16,7 +16,7 @@
 
 // ── CONFIG ───────────────────────────────────────────────────────────────────
 const SHEET_NAME     = 'dcconreg1';                 // Tab name in your Google Sheet
-const SHEET_ID       = 'YOUR_GOOGLE_SHEET_ID';      // From the Sheet URL: /d/<THIS_PART>/edit
+const SHEET_ID       = '1eD8vgsqVvFBFQbHhOwmEbcWfb_TJmZROEtSTaxZJU7I';      // From the Sheet URL: /d/<THIS_PART>/edit
 const FROM_NAME      = 'Digital Clinic Conference (DCCON) by Idealnovate';
 const REPLY_TO       = 'dcc@idealnovate.com';
 const WHATSAPP_URL   = 'https://whatsapp.com/channel/0029Vb8wUVVHVvTU7guI0O35';

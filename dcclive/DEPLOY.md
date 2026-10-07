@@ -7,7 +7,7 @@
 **Seats:** Free, registration compulsory, 500 spots
 **Tagline:** Diagnose · Execute · Monetize (same as `dcc/`)
 **Tech:** Static HTML/CSS/JS, Google Apps Script backend (same stack as `dcc/` and `aiblueprint/`)
-**Status:** Page, success page, Apps Script and calendar file built (2026-10-07); defaults replaced with confirmed details the same day. **Not yet connected:** `SHEET_ID` and `SCRIPT_URL` are placeholders. Until they're set, the form shows "Registration isn't connected yet" instead of submitting.
+**Status:** Page, success page, Apps Script and calendar file built (2026-10-07); defaults replaced with confirmed details the same day. **Connected (2026-10-07):** Apps Script deployed and `SCRIPT_URL` wired into `index.html`.
 
 ---
 
@@ -89,8 +89,8 @@ Several values are hardcoded in more than one file. Grep the whole `dcclive/` fo
 
 | What | Where | Value |
 |---|---|---|
-| Apps Script endpoint | `index.html` — `SCRIPT_URL` | **Not set** — placeholder |
-| Sheet ID / tab | `google-apps-script.gs` — `SHEET_ID`, `SHEET_NAME` | **Not set** / `dcconreg1` |
+| Apps Script endpoint | `index.html` — `SCRIPT_URL` | Set (2026-10-07) — `script.google.com/macros/s/AKfycbx2HKWM…XsFNfug/exec` |
+| Sheet ID / tab | `google-apps-script.gs` — `SHEET_ID`, `SHEET_NAME` | Set (2026-10-07) — `1eD8vgsqVvFBFQbHhOwmEbcWfb_TJmZROEtSTaxZJU7I` / `dcconreg1` |
 | Event date + time | Hero facts, monitor bar, time-zone strip, modal kicker, What to Expect CTA, FAQ 02 + 05, `regsuccess/index.html`, Apps Script `EVENT_DATE`/`EVENT_TIME` + email time-zone line, `dccon.ics` | Sat 17 Oct 2026, 12:00 PM – 3:30 PM WAT |
 | Start/end (UTC) | `index.html` `EVENT_START`/`EVENT_END` (countdown), Apps Script `EVENT_START_UTC`/`EVENT_END_UTC`, `regsuccess/` Google + Outlook links, `dccon.ics` | 11:00–14:30 UTC (3.5 hours) |
 | Venue / platform | Hero facts, monitor bar, live-now message, FAQ 03, success page, Apps Script `EVENT_VENUE`, calendar entries | YouTube Live via Google Meet |
@@ -149,4 +149,5 @@ A failed email never blocks registration. The Sheet row is written first, and er
 
 ## Open Items
 
-- [ ] **Sheet + Script URL.** Steps 1–3 above. Nothing else is outstanding.
+- [x] **Sheet + Script URL.** Deployed and wired in (2026-10-07).
+- [ ] **End-to-end test.** Submit one real registration on the live page. Confirm the Sheet row, the welcome email with `DCCON-2026.ics`, and the redirect to `regsuccess/`.
