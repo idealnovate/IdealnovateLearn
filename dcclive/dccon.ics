@@ -1,0 +1,29 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Idealnovate Africa//DCCON 2026//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:dccon-2026-1017@idealnovate.com
+DTSTAMP:20261007T000000Z
+DTSTART:20261017T110000Z
+DTEND:20261017T143000Z
+SUMMARY:Digital Clinic Conference (DCCON)
+DESCRIPTION:Diagnose - Execute - Monetize. Free conference by Idealnovate
+  Africa x PDU Africa\, streamed live on YouTube via Google Meet. The link
+  is sent by email and posted in the DCC WhatsApp channel from Monday 12 O
+ ctober: https://whatsapp.com/channel/0029Vb8wUVVHVvTU7guI0O35
+LOCATION:YouTube Live (via Google Meet)
+URL:https://idealnovate.com/dcclive/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DCCON starts tomorrow at 12:00 PM WAT
+TRIGGER:-P1D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:DCCON starts in 1 hour
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

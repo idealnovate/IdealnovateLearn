@@ -1,0 +1,2088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Clinic Conference (DCCON) — Reserve Your Seat</title>
+  <meta name="description" content="The Digital Clinic Conference (DCCON) by Idealnovate Africa × PDU Africa — a free, live-streamed clinic for skilled people whose careers have stalled. Saturday, 17 October 2026, 12:00 PM WAT." />
+  <link rel="icon" type="image/jpeg" href="../Pictures/dccicon.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — Digital Clinic Conference (DCCON)
+       Inherits the DCC Connect identity (navy + teal/mint, Unbounded
+       + Plus Jakarta Sans, zero radius). Two additions, both scoped:
+       IBM Plex Mono for broadcast data (timecodes, on-air labels,
+       time zones), and --cash, the gold from the "Skills to Cash"
+       lockup on the DCCON photos, used only on the word "Monetize".
+       ============================================================ */
+    :root {
+      --ink:          #0F172A;
+      --ink-deep:     #060C1A;
+      --ink-soft:     #334155;
+      --muted:        #64748B;
+      --clinic:       #14B8A6;
+      --clinic-deep:  #0F766E;
+      --mint:         #8FF0E0;
+      --cash:         #F2B441;
+      --paper:        #F1F5F9;
+      --paper-white:  #FFFFFF;
+      --border:       #DCE3EA;
+
+      --font-display: 'Unbounded', sans-serif;
+      --font-body:    'Plus Jakarta Sans', sans-serif;
+      --font-mono:    'IBM Plex Mono', ui-monospace, monospace;
+
+      --shadow-sm: 0 4px 16px rgba(15,23,42,0.06);
+      --shadow-md: 0 14px 40px rgba(15,118,110,0.16);
+      --shadow-lg: 0 24px 64px rgba(15,23,42,0.16);
+
+      --ease: cubic-bezier(0.4,0,0.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+    body {
+      font-family: var(--font-body);
+      background: var(--paper);
+      color: var(--ink-soft);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      max-width: 100%;
+      width: 100%;
+      position: relative;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    :focus-visible { outline: 3px solid var(--clinic); outline-offset: 3px; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    @media (max-width: 640px) { .container { padding: 0 20px; } }
+
+    h1, h2, h3, h4 { font-family: var(--font-display); color: var(--ink); line-height: 1.22; }
+
+    .mono { font-family: var(--font-mono); }
+    .cash { color: var(--cash); }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 100%;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--clinic-deep);
+      background: var(--mint);
+      padding: 8px 16px 8px 12px;
+    }
+    .eyebrow-label { min-width: 0; overflow-wrap: break-word; }
+    .eyebrow .dot {
+      width: 7px; height: 7px;
+      background: var(--clinic);
+      animation: pulse-dot 1.6s ease-in-out infinite;
+    }
+    .eyebrow.on-dark { background: rgba(143,240,224,0.14); color: var(--mint); }
+    .eyebrow.on-dark .dot { background: var(--mint); }
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%      { transform: scale(1.5); opacity: 0.5; }
+    }
+
+    .section-head { max-width: 680px; margin: 0 auto 60px; text-align: center; }
+    .section-head .eyebrow { margin-bottom: 20px; }
+    .section-head h2 {
+      font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+    .section-head p { font-size: 1.02rem; color: var(--muted); }
+    .section-head.on-dark h2 { color: #fff; }
+    .section-head.on-dark p { color: rgba(241,245,249,0.72); }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 15px 30px;
+      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s var(--ease), border-color 0.25s var(--ease);
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--clinic), var(--clinic-deep));
+      color: #fff;
+      box-shadow: var(--shadow-md);
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 48px rgba(15,118,110,0.28); }
+    .btn-block { width: 100%; }
+
+    .section-cta { margin-top: 64px; text-align: center; }
+    .section-cta p {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--ink);
+      margin-bottom: 22px;
+    }
+    @media (max-width: 640px) {
+      .section-cta { margin-top: 48px; }
+      .section-cta .btn { width: 100%; }
+    }
+
+    /* ============================================================
+       NAVBAR — transparent over the hero, frosted on scroll
+       ============================================================ */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      padding: 22px 0;
+      transition: background 0.3s var(--ease), padding 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+    .navbar.scrolled {
+      background: rgba(241,245,249,0.92);
+      backdrop-filter: blur(14px);
+      padding: 14px 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .nav-logo { flex-shrink: 0; min-width: 0; }
+    .nav-logo img { height: 40px; width: auto; max-width: 100%; }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.82rem;
+      color: #fff;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.3s var(--ease);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; left: 0; bottom: 0;
+      width: 0; height: 2px;
+      background: var(--mint);
+      transition: width 0.25s var(--ease);
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .navbar.scrolled .nav-links a { color: var(--ink); }
+    .navbar.scrolled .nav-links a::after { background: var(--clinic); }
+
+    .nav-cta { display: flex; align-items: center; gap: 18px; flex-shrink: 0; }
+    .nav-toggle {
+      display: none;
+      width: 40px; height: 40px;
+      align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .navbar.scrolled .nav-toggle { color: var(--ink); }
+
+    @media (max-width: 1020px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+    }
+    @media (max-width: 860px) {
+      .nav-cta .btn-primary { padding: 12px 20px; font-size: 0.85rem; }
+    }
+    @media (max-width: 400px) {
+      .nav-logo img { height: 30px; }
+      .nav-cta .btn-primary { padding: 10px 14px; font-size: 0.76rem; }
+    }
+
+    /* ---------- Mobile drawer — slides left to right ---------- */
+    .drawer-overlay {
+      position: fixed; inset: 0;
+      background: rgba(15,23,42,0.6);
+      z-index: 1500;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
+    }
+    .drawer-overlay.active { opacity: 1; visibility: visible; }
+    .mobile-drawer {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: min(320px, 82vw);
+      background: var(--ink);
+      z-index: 1600;
+      padding: 30px 28px;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(-100%);
+      transition: transform 0.35s var(--ease);
+      overflow-y: auto;
+    }
+    .mobile-drawer.active { transform: translateX(0); }
+    .drawer-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 48px; }
+    .drawer-head img { height: 30px; width: auto; }
+    .drawer-close {
+      width: 36px; height: 36px;
+      border: 1.5px solid rgba(241,245,249,0.3);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .drawer-links { display: flex; flex-direction: column; margin-bottom: auto; }
+    .drawer-links a {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(241,245,249,0.12);
+    }
+    .mobile-drawer .btn { margin-top: 30px; width: 100%; }
+
+    /* ============================================================
+       HERO — "The Broadcast Monitor". Copy on the left; on the
+       right, a real DCCON photo framed as a live-stream monitor:
+       on-air bar, viewfinder corners, a TV lower-third, and a
+       timecode countdown to showtime. Below, a time-zone strip
+       for the cities in the registration form.
+       ============================================================ */
+    .hero {
+      position: relative;
+      padding: 150px 0 0;
+      background:
+        radial-gradient(circle at 82% 30%, rgba(20,184,166,0.20), transparent 50%),
+        radial-gradient(circle at 5% 90%, rgba(15,118,110,0.22), transparent 45%),
+        var(--ink);
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.02fr;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-copy .eyebrow { margin-bottom: 26px; }
+    .hero-copy h1 {
+      font-size: clamp(2.2rem, 5vw, 3.7rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.08;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+    .hero-copy h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--mint), var(--clinic));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-code {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      color: var(--mint);
+      border: 1px solid rgba(143,240,224,0.35);
+      padding: 5px 10px;
+      margin-bottom: 26px;
+    }
+    .hero-sub {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .hero-sub .sep { color: var(--mint); margin: 0 10px; }
+    .hero-lede {
+      font-size: 1.05rem;
+      color: rgba(241,245,249,0.78);
+      max-width: 520px;
+      margin-bottom: 32px;
+    }
+
+    .hero-facts {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      justify-content: start;
+      border: 1px solid rgba(241,245,249,0.16);
+      margin-bottom: 32px;
+      max-width: 100%;
+    }
+    .hero-fact { padding: 14px 20px; min-width: 0; }
+    .hero-fact + .hero-fact { border-left: 1px solid rgba(241,245,249,0.16); }
+    .hero-fact .label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mint);
+      margin-bottom: 4px;
+    }
+    .hero-fact strong {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.86rem;
+      color: #fff;
+      line-height: 1.4;
+    }
+
+    .hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .hero-note { font-size: 0.85rem; color: rgba(241,245,249,0.75); display: flex; align-items: center; gap: 8px; max-width: 100%; }
+    .hero-note i { color: var(--mint); flex-shrink: 0; }
+    .hero-local {
+      margin-top: 18px;
+      font-size: 0.82rem;
+      color: rgba(241,245,249,0.6);
+    }
+    .hero-local strong { color: rgba(241,245,249,0.9); font-weight: 600; }
+
+    /* ---------- Signature: the broadcast monitor ---------- */
+    .monitor {
+      position: relative;
+      background: var(--ink-deep);
+      border: 1px solid rgba(143,240,224,0.22);
+      box-shadow: 0 40px 90px rgba(0,0,0,0.45);
+    }
+    .monitor-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 16px;
+      border-bottom: 1px solid rgba(143,240,224,0.16);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(241,245,249,0.7);
+    }
+    .on-air { display: inline-flex; align-items: center; gap: 8px; color: var(--mint); }
+    .on-air .rec {
+      width: 8px; height: 8px;
+      background: var(--mint);
+      animation: pulse-dot 1.6s ease-in-out infinite;
+    }
+    .monitor-screen {
+      position: relative;
+      aspect-ratio: 5 / 4;
+      overflow: hidden;
+    }
+    .monitor-screen img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+    }
+    .monitor-screen::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(6,12,26,0.10) 0%, rgba(6,12,26,0) 40%, rgba(6,12,26,0.55) 100%);
+      pointer-events: none;
+    }
+    .vf { position: absolute; width: 22px; height: 22px; border-color: var(--mint); border-style: solid; z-index: 2; }
+    .vf.tl { top: 14px; left: 14px; border-width: 2px 0 0 2px; }
+    .vf.tr { top: 14px; right: 14px; border-width: 2px 2px 0 0; }
+    .vf.bl { bottom: 14px; left: 14px; border-width: 0 0 2px 2px; }
+    .vf.br { bottom: 14px; right: 14px; border-width: 0 2px 2px 0; }
+
+    .lower-third {
+      position: absolute;
+      left: 0; bottom: 34px;
+      z-index: 3;
+      max-width: calc(100% - 40px);
+    }
+    .lower-third .lt-top {
+      display: block;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(0.78rem, 1.5vw, 0.98rem);
+      letter-spacing: 0.02em;
+      padding: 10px 18px 10px 24px;
+      border-left: 5px solid var(--clinic);
+    }
+    .lower-third .lt-bottom {
+      display: inline-block;
+      background: var(--clinic-deep);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 7px 18px 7px 24px;
+      border-left: 5px solid var(--clinic);
+    }
+    .lower-third .lt-bottom .cash { color: var(--cash); }
+
+    .monitor-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px;
+      border-top: 1px solid rgba(143,240,224,0.16);
+      flex-wrap: wrap;
+    }
+    .countdown-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(241,245,249,0.6);
+    }
+    .countdown { display: flex; gap: 6px; }
+    .cd-cell {
+      min-width: 58px;
+      text-align: center;
+      background: rgba(143,240,224,0.07);
+      border: 1px solid rgba(143,240,224,0.18);
+      padding: 7px 6px 5px;
+    }
+    .cd-cell strong {
+      display: block;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 1.35rem;
+      line-height: 1.1;
+      color: #fff;
+      font-variant-numeric: tabular-nums;
+    }
+    .cd-cell span {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(241,245,249,0.5);
+    }
+    .countdown-done {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--mint);
+    }
+
+    /* ---------- Time-zone strip ---------- */
+    .tz-strip {
+      position: relative;
+      z-index: 1;
+      margin-top: 90px;
+      border-top: 1px solid rgba(241,245,249,0.12);
+      background: rgba(6,12,26,0.55);
+    }
+    .tz-inner {
+      display: flex;
+      align-items: stretch;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tz-inner::-webkit-scrollbar { display: none; }
+    .tz-title, .tz-item {
+      flex: 1 0 auto;
+      padding: 18px 20px;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+    }
+    .tz-title {
+      flex: 0 0 auto;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mint);
+      display: flex;
+      align-items: center;
+      padding-left: 0;
+    }
+    .tz-item + .tz-item, .tz-title + .tz-item { border-left: 1px solid rgba(241,245,249,0.1); }
+    .tz-item .city {
+      display: block;
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(241,245,249,0.5);
+    }
+    .tz-item .time {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    .tz-item.home .time { color: var(--mint); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .eyebrow .dot, .on-air .rec { animation: none !important; }
+      html { scroll-behavior: auto; }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+      .hero-copy { max-width: 640px; }
+      .monitor { max-width: 620px; }
+    }
+    @media (max-width: 640px) {
+      .hero { padding-top: 128px; }
+      .hero-facts { grid-template-columns: 1fr; width: 100%; }
+      .hero-fact + .hero-fact { border-left: none; border-top: 1px solid rgba(241,245,249,0.16); }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .btn { width: 100%; }
+      .monitor-bar .bar-right { display: none; }
+      .monitor-foot { justify-content: center; }
+      .cd-cell { min-width: 52px; }
+      .cd-cell strong { font-size: 1.15rem; }
+      .lower-third { bottom: 26px; }
+      .tz-strip { margin-top: 64px; }
+    }
+
+    /* ============================================================
+       WHY ATTEND — the prescription. It's a Digital *Clinic*: the
+       three outcomes are written up as an Rx slip beside a photo
+       from the last clinic.
+       ============================================================ */
+    .why { padding: 120px 0; background: var(--paper-white); }
+    .why .container {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .why-photo { position: relative; }
+    .why-photo::before {
+      content: '';
+      position: absolute;
+      top: 22px; left: -22px;
+      right: 22px; bottom: -22px;
+      background: var(--mint);
+      z-index: 0;
+    }
+    .why-photo img { position: relative; z-index: 1; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+    .photo-tag {
+      position: absolute;
+      z-index: 2;
+      top: -16px;
+      left: 24px;
+      background: var(--clinic);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 8px 14px;
+      transform: rotate(-3deg);
+      box-shadow: var(--shadow-md);
+    }
+
+    .why-copy .eyebrow { margin-bottom: 20px; }
+    .why-copy h2 {
+      font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 30px;
+    }
+
+    .rx {
+      border: 2px solid var(--ink);
+      background: var(--paper-white);
+      box-shadow: 10px 10px 0 var(--ink);
+    }
+    .rx-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 24px;
+      border-bottom: 2px solid var(--ink);
+      flex-wrap: wrap;
+    }
+    .rx-symbol {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 2.6rem;
+      line-height: 0.9;
+      color: var(--clinic-deep);
+    }
+    .rx-symbol .rx-x { font-size: 0.5em; font-weight: 800; margin-left: 1px; }
+    .rx-meta {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: right;
+      line-height: 1.7;
+    }
+    .rx-meta b { color: var(--ink); font-weight: 600; }
+    .rx-intro {
+      padding: 18px 24px 6px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--ink);
+    }
+    .rx-list { padding: 6px 24px 10px; }
+    .rx-item {
+      display: flex;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+    .rx-item:last-child { border-bottom: none; }
+    .rx-check {
+      width: 26px; height: 26px;
+      flex-shrink: 0;
+      border: 2px solid var(--clinic);
+      color: var(--clinic-deep);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem;
+      margin-top: 2px;
+    }
+    .rx-item h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: 5px; }
+    .rx-item p { font-size: 0.94rem; color: var(--ink-soft); line-height: 1.65; }
+    .rx-sign {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 14px 24px;
+      border-top: 2px solid var(--ink);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .why-copy .btn { margin-top: 44px; }
+
+    @media (max-width: 940px) {
+      .why .container { grid-template-columns: 1fr; gap: 64px; }
+      .why-photo { max-width: 460px; margin: 0 auto; width: calc(100% - 22px); margin-left: 22px; }
+    }
+    @media (max-width: 640px) {
+      .why { padding: 84px 0; }
+      .rx { box-shadow: 6px 6px 0 var(--ink); }
+      .rx-head, .rx-intro, .rx-list, .rx-sign { padding-left: 18px; padding-right: 18px; }
+    .rx-meta { text-align: left; }
+      .why-copy .btn { width: 100%; }
+    }
+
+    /* ============================================================
+       SPONSORS — dark stage. Organizer cards stamped like DCC's,
+       a wide photo band from the last clinic, then the sponsor
+       brief and the "Become a Sponsor" CTA.
+       ============================================================ */
+    .sponsors {
+      position: relative;
+      padding: 120px 0;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(20,184,166,0.14), transparent 55%),
+        var(--ink);
+      overflow: hidden;
+    }
+    .partners-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+    }
+    .partner-card {
+      position: relative;
+      background: var(--paper-white);
+      border: 3px solid var(--clinic);
+      padding: 60px 32px 38px;
+      text-align: center;
+    }
+    .partner-tag {
+      position: absolute;
+      top: -17px;
+      left: 26px;
+      background: var(--clinic);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 8px 14px;
+      transform: rotate(-3deg);
+      box-shadow: var(--shadow-md);
+    }
+    .partner-card img { max-width: 230px; width: 100%; margin: 0 auto 22px; }
+    .partner-role { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.6; }
+    .partner-role strong { color: var(--ink); font-weight: 700; }
+
+    .photo-band {
+      position: relative;
+      margin: 96px 0 0;
+    }
+    .photo-band img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: center 35%; }
+    .photo-band figcaption {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 14px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(241,245,249,0.55);
+    }
+    .photo-band figcaption span:last-child { color: var(--mint); }
+
+    .sponsor-brief {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 72px;
+      margin-top: 96px;
+      align-items: start;
+    }
+    .sponsor-intro .eyebrow { margin-bottom: 22px; }
+    .sponsor-intro h2 {
+      color: #fff;
+      font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+    .sponsor-intro p { color: rgba(241,245,249,0.72); font-size: 1rem; margin-bottom: 30px; }
+
+    .sponsor-list { border-top: 1px solid rgba(241,245,249,0.14); }
+    .sponsor-item {
+      display: flex;
+      gap: 22px;
+      align-items: flex-start;
+      padding: 26px 0;
+      border-bottom: 1px solid rgba(241,245,249,0.14);
+    }
+    .sponsor-icon {
+      width: 46px; height: 46px;
+      flex-shrink: 0;
+      border: 1.5px solid rgba(143,240,224,0.4);
+      color: var(--mint);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .sponsor-item h3 { color: #fff; font-size: 1.04rem; font-weight: 700; margin-bottom: 6px; }
+    .sponsor-item p { color: rgba(241,245,249,0.7); font-size: 0.93rem; line-height: 1.7; }
+
+    @media (max-width: 900px) {
+      .sponsor-brief { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 720px) {
+      .sponsors { padding: 84px 0; }
+      .partners-grid { grid-template-columns: 1fr; max-width: 340px; gap: 60px; }
+      .photo-band { margin-top: 72px; }
+      .photo-band img { aspect-ratio: 4 / 3; }
+      .sponsor-brief { margin-top: 72px; }
+      .sponsor-intro .btn { width: 100%; }
+    }
+
+    /* ============================================================
+       WHO IT'S FOR — symptoms. Each persona is a short chart label
+       (mono) over the symptom in their own words.
+       ============================================================ */
+    .who { padding: 120px 0; background: var(--paper); }
+    .who .container {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .who-copy .eyebrow { margin-bottom: 20px; }
+    .who-copy h2 {
+      font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+    }
+    .who-copy > p { font-size: 1.02rem; color: var(--muted); margin-bottom: 36px; }
+
+    .symptom-list { border-top: 2px solid var(--ink); }
+    .symptom {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 24px;
+      align-items: baseline;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.25s var(--ease), padding 0.25s var(--ease);
+    }
+    .symptom:hover { background: var(--paper-white); padding-left: 14px; padding-right: 14px; }
+    .symptom .who-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clinic-deep);
+    }
+    .symptom p {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.04rem;
+      color: var(--ink);
+      line-height: 1.45;
+    }
+
+    .who-photo { position: sticky; top: 120px; }
+    .who-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 30%; border: 3px solid var(--ink); }
+    .who-photo-note {
+      background: var(--ink);
+      color: rgba(241,245,249,0.85);
+      padding: 20px 22px;
+      font-size: 0.94rem;
+      line-height: 1.6;
+    }
+    .who-photo-note strong { color: var(--mint); font-family: var(--font-display); font-weight: 700; }
+
+    @media (max-width: 940px) {
+      .who .container { grid-template-columns: 1fr; gap: 56px; }
+      .who-photo { position: static; max-width: 420px; }
+    }
+    @media (max-width: 640px) {
+      .who { padding: 84px 0; }
+      .symptom { grid-template-columns: 1fr; gap: 6px; }
+      .symptom:hover { padding-left: 0; padding-right: 0; background: none; }
+    }
+
+    /* ============================================================
+       WHAT TO EXPECT — the programme, set as a broadcast rundown:
+       one row per segment, tagged by theme.
+       ============================================================ */
+    .expect { padding: 120px 0; background: var(--paper-white); }
+
+    .rundown { border-top: 2px solid var(--ink); }
+    .rundown-row {
+      display: grid;
+      grid-template-columns: 170px 1fr 1.1fr;
+      gap: 32px;
+      align-items: start;
+      padding: 34px 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .rundown-row::before {
+      content: '';
+      position: absolute;
+      left: 0; top: -1px;
+      width: 0; height: 3px;
+      background: var(--clinic);
+      transition: width 0.4s var(--ease);
+    }
+    .rundown-row:hover::before { width: 100%; }
+    .seg-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--clinic-deep);
+      padding-top: 6px;
+    }
+    .seg-tag i {
+      width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--mint);
+      color: var(--clinic-deep);
+      font-size: 0.85rem;
+    }
+    .rundown-row h3 {
+      font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+    .rundown-row p { font-size: 0.98rem; color: var(--ink-soft); line-height: 1.75; padding-top: 4px; }
+
+    .expect-photos {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 24px;
+      margin-top: 64px;
+    }
+    .expect-photos figure { position: relative; }
+    .expect-photos img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+    .expect-photos figure:last-child img { object-position: center 20%; }
+    .expect-photos figcaption {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .rundown-row { grid-template-columns: 1fr; gap: 12px; }
+    }
+    @media (max-width: 640px) {
+      .expect { padding: 84px 0; }
+      .expect-photos { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       FAQ — dark index-accordion, same as DCC
+       ============================================================ */
+    .faq {
+      position: relative;
+      padding: 120px 0;
+      background:
+        radial-gradient(circle at 90% 90%, rgba(20,184,166,0.14), transparent 55%),
+        var(--ink);
+      overflow: hidden;
+    }
+    .faq-list { max-width: 840px; margin: 0 auto; }
+    .faq-item { border: 2px solid rgba(241,245,249,0.14); border-top-width: 0; }
+    .faq-item:first-child { border-top-width: 2px; }
+    .faq-q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      padding: 24px 28px;
+      text-align: left;
+      color: #fff;
+      transition: background 0.25s var(--ease);
+    }
+    .faq-q .faq-num {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--mint);
+      flex-shrink: 0;
+      width: 30px;
+    }
+    .faq-q .faq-q-text { flex: 1; font-family: var(--font-display); font-weight: 700; font-size: 1rem; }
+    .faq-q .faq-toggle {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      border: 1.5px solid rgba(241,245,249,0.35);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .faq-toggle::before, .faq-toggle::after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      transition: transform 0.25s var(--ease);
+    }
+    .faq-toggle::before { width: 12px; height: 2px; }
+    .faq-toggle::after { width: 2px; height: 12px; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s var(--ease); }
+    .faq-a-inner { padding: 0 28px 28px 80px; }
+    .faq-a-inner p { color: rgba(241,245,249,0.78); font-size: 0.96rem; line-height: 1.8; }
+    .faq-a-inner p + p { margin-top: 10px; }
+    .faq-a-inner a { color: var(--mint); text-decoration: underline; }
+    .tz-table {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1px;
+      background: rgba(241,245,249,0.14);
+      border: 1px solid rgba(241,245,249,0.14);
+      margin-top: 12px;
+    }
+    .tz-table div { background: var(--ink); padding: 10px 14px; font-family: var(--font-mono); font-size: 0.82rem; color: rgba(241,245,249,0.8); }
+    .tz-table b { display: block; color: #fff; font-weight: 600; }
+
+    .faq-item.open .faq-q { background: var(--clinic-deep); }
+    .faq-item.open .faq-toggle::after { transform: scaleY(0); }
+    .faq-item.open .faq-num { color: #fff; }
+
+    .faq .section-cta p { color: #fff; }
+
+    @media (max-width: 640px) {
+      .faq { padding: 84px 0; }
+      .faq-q { padding: 20px 18px; gap: 14px; }
+      .faq-q .faq-q-text { font-size: 0.93rem; }
+      .faq-a-inner { padding: 0 18px 24px 18px; }
+    }
+
+    /* ============================================================
+       FOOTER — same structure as DCC
+       ============================================================ */
+    .footer { background: var(--ink-deep); padding: 72px 0 0; }
+    .footer .container {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 1fr;
+      gap: 48px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(241,245,249,0.12);
+    }
+    .footer-brand img { height: 34px; width: auto; margin-bottom: 18px; }
+    .footer-brand p {
+      color: rgba(241,245,249,0.68);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      max-width: 340px;
+      margin-bottom: 22px;
+    }
+    .footer-social { display: flex; gap: 10px; flex-wrap: wrap; }
+    .footer-social a {
+      width: 38px; height: 38px;
+      border: 1.5px solid rgba(241,245,249,0.25);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 0.9rem;
+      transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+    }
+    .footer-social a:hover { background: var(--clinic); border-color: var(--clinic); }
+    .footer-col h4 {
+      font-family: var(--font-display);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 13px; }
+    .footer-col a { color: rgba(241,245,249,0.68); font-size: 0.92rem; transition: color 0.2s var(--ease); }
+    .footer-col a:hover { color: var(--mint); }
+    .footer-col .contact-line { display: flex; align-items: flex-start; gap: 10px; color: rgba(241,245,249,0.68); font-size: 0.92rem; }
+    .footer-col .contact-line i { color: var(--mint); margin-top: 3px; flex-shrink: 0; }
+    .footer-bottom { padding: 26px 0; text-align: center; color: rgba(241,245,249,0.5); font-size: 0.82rem; }
+    .footer-bottom a { color: rgba(241,245,249,0.5); text-decoration: underline; }
+    .footer-bottom a:hover { color: #fff; }
+
+    @media (max-width: 860px) {
+      .footer .container { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 540px) {
+      .footer .container { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       MODAL — Reserve My Seat
+       ============================================================ */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(15,23,42,0.6);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 2000;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+      background: var(--paper-white);
+      max-width: 560px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+      animation: modal-in 0.35s var(--ease);
+    }
+    @keyframes modal-in {
+      from { transform: translateY(24px) scale(0.97); opacity: 0; }
+      to   { transform: none; opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) { .modal-box { animation: none; } }
+    .modal-head {
+      padding: 28px 32px 20px;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0;
+      background: var(--paper-white);
+      z-index: 2;
+    }
+    .modal-head .modal-kicker {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--clinic-deep);
+      margin-bottom: 8px;
+    }
+    .modal-head h3 { font-size: 1.35rem; margin-bottom: 6px; padding-right: 40px; }
+    .modal-head p { font-size: 0.88rem; color: var(--muted); }
+    .modal-close {
+      position: absolute; top: 22px; right: 24px;
+      width: 34px; height: 34px;
+      background: var(--paper);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ink); font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: var(--mint); }
+    .modal-body { padding: 26px 32px 32px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group > label, .form-group > .group-label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 7px;
+      line-height: 1.45;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1.5px solid var(--border);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--ink);
+      background: var(--paper);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--clinic);
+      box-shadow: 0 0 0 4px rgba(20,184,166,0.14);
+      outline: none;
+    }
+    .form-group.error input,
+    .form-group.error select { border-color: #DC2626; }
+    .error-msg { display: none; font-size: 0.76rem; color: #DC2626; margin-top: 5px; }
+    .form-group.error .error-msg { display: block; }
+
+    .pill-group { display: flex; gap: 10px; flex-wrap: wrap; }
+    .pill-option { flex: 1; min-width: 90px; position: relative; }
+    .pill-option input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .pill-option label {
+      display: block;
+      text-align: center;
+      padding: 12px 10px;
+      border: 1.5px solid var(--border);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .pill-option input:checked + label { border-color: var(--clinic); background: var(--mint); color: var(--clinic-deep); }
+    .pill-option input:focus-visible + label { outline: 3px solid var(--clinic); outline-offset: 2px; }
+
+    .modal-notice {
+      display: flex;
+      gap: 12px;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      font-size: 0.83rem;
+      color: var(--ink-soft);
+    }
+    .modal-notice i { color: #128C7E; font-size: 1.1rem; margin-top: 2px; flex-shrink: 0; }
+    .modal-notice span { min-width: 0; overflow-wrap: break-word; }
+    .modal-notice a { color: var(--clinic-deep); font-weight: 600; text-decoration: underline; }
+    .modal-notice.security i { color: var(--ink); }
+
+    .form-status {
+      display: none;
+      text-align: center;
+      padding: 12px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .form-status.show { display: block; }
+    .form-status.fail { background: #FEE2E2; color: #B91C1C; }
+
+    @media (max-width: 520px) {
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .modal-overlay { padding: 12px; }
+      .modal-head { padding: 24px 20px 18px; }
+      .modal-body { padding: 22px 20px 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
+  <nav class="navbar" id="navbar" aria-label="Main">
+    <div class="container">
+      <a href="#top" class="nav-logo"><img src="../Pictures/dccwhitelogo.png" alt="Digital Clinic Circle" id="navLogoImg" /></a>
+      <ul class="nav-links">
+        <li><a href="#why-attend">Why Attend</a></li>
+        <li><a href="#sponsors">Sponsors</a></li>
+        <li><a href="#who">Who It's For</a></li>
+        <li><a href="#expect">What to Expect</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-cta">
+        <button class="btn btn-primary" type="button" onclick="openModal()">Reserve My Seat</button>
+        <button class="nav-toggle" type="button" aria-label="Open menu" onclick="openDrawer()"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       MOBILE DRAWER — slides left to right
+       ============================================================ -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Menu">
+    <div class="drawer-head">
+      <img src="../Pictures/dccwhitelogo.png" alt="Digital Clinic Circle" />
+      <button class="drawer-close" type="button" aria-label="Close menu" onclick="closeDrawer()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-links">
+      <a href="#why-attend" onclick="closeDrawer()">Why Attend</a>
+      <a href="#sponsors" onclick="closeDrawer()">Sponsors</a>
+      <a href="#who" onclick="closeDrawer()">Who It's For</a>
+      <a href="#expect" onclick="closeDrawer()">What to Expect</a>
+      <a href="#faq" onclick="closeDrawer()">FAQ</a>
+    </div>
+    <button class="btn btn-primary" type="button" onclick="closeDrawer(); openModal();">Reserve My Seat</button>
+  </aside>
+
+  <!-- ============================================================
+       HERO — the broadcast monitor
+       ============================================================ -->
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div class="hero-copy" data-aos="fade-up">
+        <span class="eyebrow on-dark"><span class="dot"></span> <span class="eyebrow-label">Idealnovate × PDU · Live &amp; Virtual</span></span>
+        <h1>Digital Clinic <em>Conference</em></h1>
+        <span class="hero-code">DCCON · 2026</span>
+        <p class="hero-sub">Diagnose<span class="sep">·</span>Execute<span class="sep">·</span><span class="cash">Monetize</span></p>
+        <p class="hero-lede">A free, live-streamed clinic for skilled people whose careers have stalled. Find out what's really holding your income back, and leave with a plan to fix it.</p>
+
+        <div class="hero-facts">
+          <div class="hero-fact"><span class="label">Date</span><strong>Sat, 17 Oct 2026</strong></div>
+          <div class="hero-fact"><span class="label">Time</span><strong>12:00–3:30 PM WAT (GMT+1)</strong></div>
+          <div class="hero-fact"><span class="label">Venue</span><strong>YouTube Live via Google Meet</strong></div>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" type="button" onclick="openModal()">Reserve My Seat</button>
+          <span class="hero-note"><i class="fa-solid fa-circle-check"></i> <span>Free · Registration required · Only 500 spots</span></span>
+        </div>
+        <p class="hero-local" id="heroLocal" hidden></p>
+      </div>
+
+      <div class="monitor" data-aos="fade-up" data-aos-delay="150">
+        <div class="monitor-bar">
+          <span class="on-air"><span class="rec"></span> On air 17.10.26</span>
+          <span class="bar-right">12:00 WAT · YouTube Live</span>
+        </div>
+        <div class="monitor-screen">
+          <img src="../Pictures/dccon7-web.jpg" alt="A speaker addresses a full room at the last Digital Clinic" width="1400" height="1400" />
+          <span class="vf tl"></span><span class="vf tr"></span><span class="vf bl"></span><span class="vf br"></span>
+          <div class="lower-third">
+            <span class="lt-top">Digital Clinic Conference</span>
+            <span class="lt-bottom">Live · Diagnose · Execute · <span class="cash">Monetize</span></span>
+          </div>
+        </div>
+        <div class="monitor-foot" id="countdownWrap">
+          <span class="countdown-label" id="countdownLabel">Live in</span>
+          <div class="countdown" id="countdown" aria-live="off">
+            <div class="cd-cell"><strong id="cdD">--</strong><span>Days</span></div>
+            <div class="cd-cell"><strong id="cdH">--</strong><span>Hrs</span></div>
+            <div class="cd-cell"><strong id="cdM">--</strong><span>Min</span></div>
+            <div class="cd-cell"><strong id="cdS">--</strong><span>Sec</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tz-strip" aria-label="Start time in other cities">
+      <div class="container tz-inner">
+        <span class="tz-title">Showtime in</span>
+        <div class="tz-item home"><span class="city">Lagos</span><span class="time">12:00</span></div>
+        <div class="tz-item"><span class="city">Accra</span><span class="time">11:00</span></div>
+        <div class="tz-item"><span class="city">London</span><span class="time">12:00</span></div>
+        <div class="tz-item"><span class="city">Johannesburg</span><span class="time">13:00</span></div>
+        <div class="tz-item"><span class="city">Nairobi</span><span class="time">14:00</span></div>
+        <div class="tz-item"><span class="city">Dar es Salaam</span><span class="time">14:00</span></div>
+        <div class="tz-item"><span class="city">New York</span><span class="time">07:00</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       WHY ATTEND — the prescription
+       ============================================================ -->
+  <section class="why" id="why-attend">
+    <div class="container">
+      <div class="why-photo" data-aos="fade-right">
+        <span class="photo-tag">From the last clinic</span>
+        <img src="../Pictures/dccon8-web.jpg" alt="A facilitator talks with attendees at a Digital Clinic session" width="1100" height="1100" loading="lazy" />
+      </div>
+
+      <div class="why-copy" data-aos="fade-up">
+        <span class="eyebrow"><span class="dot"></span> <span class="eyebrow-label">Why Attend</span></span>
+        <h2>Why you should attend the Digital Clinic Conference</h2>
+
+        <div class="rx">
+          <div class="rx-head">
+            <span class="rx-symbol" aria-hidden="true">R<span class="rx-x">x</span></span>
+            <span class="rx-meta"><b>DCCON 2026</b><br>Patient: you</span>
+          </div>
+          <p class="rx-intro">You will leave with:</p>
+          <div class="rx-list">
+            <div class="rx-item">
+              <span class="rx-check"><i class="fa-solid fa-check"></i></span>
+              <div>
+                <h3>A roadmap out of the stall</h3>
+                <p>A clear roadmap to move a stalled career into paid, sustainable work.</p>
+              </div>
+            </div>
+            <div class="rx-item">
+              <span class="rx-check"><i class="fa-solid fa-check"></i></span>
+              <div>
+                <h3>Positioning that gets you found</h3>
+                <p>A practical way to position yourself so the right opportunities can find you.</p>
+              </div>
+            </div>
+            <div class="rx-item">
+              <span class="rx-check"><i class="fa-solid fa-check"></i></span>
+              <div>
+                <h3>One rule for your energy</h3>
+                <p>One simple rule that protects your energy while you build wealth.</p>
+              </div>
+            </div>
+          </div>
+          <div class="rx-sign"><span>Dispensed live · 17.10.26</span><span>Refills: none needed</span></div>
+        </div>
+
+        <button class="btn btn-primary" type="button" onclick="openModal()">Reserve My Seat</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SPONSORS — organizers, last clinic, sponsor brief
+       ============================================================ -->
+  <section class="sponsors" id="sponsors">
+    <div class="container">
+      <div class="section-head on-dark" data-aos="fade-up">
+        <span class="eyebrow on-dark"><span class="dot"></span> <span class="eyebrow-label">Organizers &amp; Sponsors</span></span>
+        <h2>Brought to you by Idealnovate Africa × PDU Africa</h2>
+        <p>Two Africa-built training brands, one mission: turning skills into careers.</p>
+      </div>
+
+      <div class="partners-grid">
+        <div class="partner-card" data-aos="fade-up">
+          <span class="partner-tag">Headline Organizer</span>
+          <img src="../Pictures/Idealnovate Logo Dark.png" alt="Idealnovate Africa" loading="lazy" />
+          <p class="partner-role"><strong>Idealnovate Africa</strong>: community and bootcamp partner behind DCC's tech and data training pipeline.</p>
+        </div>
+        <div class="partner-card" data-aos="fade-up" data-aos-delay="150">
+          <span class="partner-tag">Partner &amp; Sponsor</span>
+          <img src="../Pictures/PDU Logo Dark.png" alt="PDU Africa (Product Design University)" loading="lazy" />
+          <p class="partner-role"><strong>PDU Africa</strong>: product design education partner behind DCC's UI/UX training pipeline.</p>
+        </div>
+      </div>
+
+      <figure class="photo-band" data-aos="fade-up">
+        <img src="../Pictures/dccon5-web.jpg" alt="Attendees, facilitators and hosts pose together at the last Digital Clinic in Lagos" width="1800" height="896" loading="lazy" />
+        <figcaption><span>The last Digital Clinic filled a room in Lagos</span><span>This one streams to everyone</span></figcaption>
+      </figure>
+
+      <div class="sponsor-brief">
+        <div class="sponsor-intro" data-aos="fade-up">
+          <span class="eyebrow on-dark"><span class="dot"></span> <span class="eyebrow-label">For Sponsors</span></span>
+          <h2>Back a movement, not an ad slot</h2>
+          <p>DCCON exists to move skilled Africans from effort to income. Sponsors put their name on that outcome, in front of 500 registered professionals, freelancers and builders tuning in from across Africa and beyond.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScZTRfu3XlcDGv5dlUqtCV2faOwgHZMSlJ9SYaFIaOpYsL9HA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Become a Sponsor</a>
+        </div>
+
+        <div class="sponsor-list" data-aos="fade-up">
+          <div class="sponsor-item">
+            <span class="sponsor-icon"><i class="fa-solid fa-earth-africa"></i></span>
+            <div>
+              <h3>Pan-African reach in one session</h3>
+              <p>Reach registered talent from Nigeria, Ghana, Kenya, South Africa, the UK and the USA in a single broadcast, without the cost of a multi-city tour.</p>
+            </div>
+          </div>
+          <div class="sponsor-item">
+            <span class="sponsor-icon"><i class="fa-solid fa-user-check"></i></span>
+            <div>
+              <h3>A hiring pipeline of pre-vetted talent</h3>
+              <p>Get first access to trained, community-vetted designers, analysts and digital professionals ready for gigs, internships and full-time roles.</p>
+            </div>
+          </div>
+          <div class="sponsor-item">
+            <span class="sponsor-icon"><i class="fa-solid fa-tower-broadcast"></i></span>
+            <div>
+              <h3>Your brand on the stream and the replay</h3>
+              <p>Be seen during the live broadcast and again throughout the 7-day replay, when attendees come back to rewatch the key principles.</p>
+            </div>
+          </div>
+          <div class="sponsor-item">
+            <span class="sponsor-icon"><i class="fa-solid fa-bullseye"></i></span>
+            <div>
+              <h3>Your offer in front of people ready to act</h3>
+              <p>DCCON attendees are actively investing in their growth. Put your tools, courses or services in front of an audience that is already looking for them.</p>
+            </div>
+          </div>
+          <div class="sponsor-item">
+            <span class="sponsor-icon"><i class="fa-solid fa-hand-holding-heart"></i></span>
+            <div>
+              <h3>An impact story your brand can own</h3>
+              <p>Be publicly credited with helping close Africa's skill-to-income gap, and stay visible across DCC's community channels long after the stream ends.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHO IT'S FOR — symptoms
+       ============================================================ -->
+  <section class="who" id="who">
+    <div class="container">
+      <div class="who-copy" data-aos="fade-up">
+        <span class="eyebrow"><span class="dot"></span> <span class="eyebrow-label">Who It's For</span></span>
+        <h2>Who the Digital Clinic Conference is for</h2>
+        <p>If any of these sound like you, this clinic was built for your case.</p>
+
+        <div class="symptom-list">
+          <div class="symptom">
+            <span class="who-label">Skilled professionals</span>
+            <p>You're good at what you do, and you still start from zero every month.</p>
+          </div>
+          <div class="symptom">
+            <span class="who-label">Certificate holders</span>
+            <p>You've finished the training, but you can't show progress.</p>
+          </div>
+          <div class="symptom">
+            <span class="who-label">Freelancers</span>
+            <p>You deliver at a high level, and you still price like a beginner.</p>
+          </div>
+          <div class="symptom">
+            <span class="who-label">Employed talent</span>
+            <p>You feel underpaid, unseen, or one step from stuck.</p>
+          </div>
+          <div class="symptom">
+            <span class="who-label">Beginners</span>
+            <p>You have the ability, but no clear path from skill to income.</p>
+          </div>
+        </div>
+
+        <div class="section-cta" style="text-align:left;">
+          <button class="btn btn-primary" type="button" onclick="openModal()">Reserve My Seat</button>
+        </div>
+      </div>
+
+      <div class="who-photo" data-aos="fade-up" data-aos-delay="150">
+        <img src="../Pictures/dccon2-web.jpg" alt="A smiling attendee poses with an Idealnovate photo frame" width="1100" height="1100" loading="lazy" />
+        <p class="who-photo-note"><strong>No prerequisites.</strong> You can join even if you're completely new to Idealnovate or PDU. Bring the problem; the clinic does the rest.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHAT TO EXPECT — the rundown
+       ============================================================ -->
+  <section class="expect" id="expect">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up">
+        <span class="eyebrow"><span class="dot"></span> <span class="eyebrow-label">What to Expect</span></span>
+        <h2>What you will work on at the Digital Clinic Conference</h2>
+        <p>Three themes: the state of tech, how wealth gets built, and how to keep going without burning out. Bring your questions; you can ask them live.</p>
+      </div>
+
+      <div class="rundown" data-aos="fade-up">
+        <div class="rundown-row">
+          <span class="seg-tag"><i class="fa-solid fa-stethoscope"></i> Diagnosis</span>
+          <h3>The state of tech today</h3>
+          <p>Diagnosing the state of tech today, and why blind hustle no longer builds a career.</p>
+        </div>
+        <div class="rundown-row">
+          <span class="seg-tag"><i class="fa-solid fa-sack-dollar"></i> Wealth</span>
+          <h3>How to build real wealth in tech</h3>
+          <p>Spot the work, present yourself with clarity, and move from unpaid effort to profit.</p>
+        </div>
+        <div class="rundown-row">
+          <span class="seg-tag"><i class="fa-solid fa-heart-pulse"></i> Wellness</span>
+          <h3>Wellness as a career system</h3>
+          <p>Rest, boundaries, and how to build without burning out.</p>
+        </div>
+      </div>
+
+      <div class="expect-photos">
+        <figure data-aos="fade-up">
+          <img src="../Pictures/dccon3-web.jpg" alt="Attendees work together on a hands-on group activity" width="1100" height="1100" loading="lazy" />
+          <figcaption>Hands-on, not lecture-only</figcaption>
+        </figure>
+        <figure data-aos="fade-up" data-aos-delay="120">
+          <img src="../Pictures/dccon4-web.jpg" alt="A panel speaker answers a question at the last Digital Clinic" width="900" height="968" loading="lazy" />
+          <figcaption>Straight answers from people doing the work</figcaption>
+        </figure>
+      </div>
+
+      <div class="section-cta" data-aos="fade-up">
+        <p>We go live at 12:00 PM WAT on 17 October. Only 500 spots.</p>
+        <button class="btn btn-primary" type="button" onclick="openModal()">Reserve My Seat</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ
+       ============================================================ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-head on-dark" data-aos="fade-up">
+        <span class="eyebrow on-dark"><span class="dot"></span> <span class="eyebrow-label">FAQ</span></span>
+        <h2>Questions? Answered.</h2>
+        <p>Everything you need to know before you join the stream.</p>
+      </div>
+
+      <div class="faq-list" data-aos="fade-up">
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-num">01</span>
+            <span class="faq-q-text">Is DCCON free to attend?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>Yes, DCCON is free. Registration is compulsory, though, and there are only 500 spots. Reserve yours with the form before they're gone.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-num">02</span>
+            <span class="faq-q-text">When is DCCON, and how long does it run?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>Saturday, 17 October 2026, from 12:00 PM to 3:30 PM WAT (GMT+1, Nigerian time). That's three and a half hours, live.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-num">03</span>
+            <span class="faq-q-text">Where is the venue?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>DCCON is fully virtual. It's streamed live on YouTube through Google Meet, so you can join from anywhere. There's no physical venue to travel to.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-num">04</span>
+            <span class="faq-q-text">How do I get the link to join?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>The live-stream link will be sent to the email you register with and posted in the <a href="https://whatsapp.com/channel/0029Vb8wUVVHVvTU7guI0O35" target="_blank" rel="noopener noreferrer">DCC WhatsApp channel</a>, from Monday, 12 October 2026. Register and join the channel so you don't miss it.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-num">05</span>
+            <span class="faq-q-text">I'm not in Nigeria. Can I join, and what time is it for me?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>Yes. DCCON is open to everyone, wherever you are. On 17 October it runs at these local times:</p>
+            <div class="tz-table">
+              <div><b>Nigeria</b>12:00 – 3:30 PM</div>
+              <div><b>Ghana</b>11:00 AM – 2:30 PM</div>
+              <div><b>UK</b>12:00 – 3:30 PM</div>
+              <div><b>South Africa</b>1:00 – 4:30 PM</div>
+              <div><b>Kenya</b>2:00 – 5:30 PM</div>
+              <div><b>USA (Eastern)</b>7:00 – 10:30 AM</div>
+              <div><b>USA (Central)</b>6:00 – 9:30 AM</div>
+              <div><b>USA (Pacific)</b>4:00 – 7:30 AM</div>
+            </div>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-num">06</span>
+            <span class="faq-q-text">What do I need to join?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>A good power supply, enough data to stream for three and a half hours, and a notebook to write down the key principles you'll put into practice.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-num">07</span>
+            <span class="faq-q-text">Can I ask questions during the conference?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>Yes. You can ask questions live during the stream.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-num">08</span>
+            <span class="faq-q-text">Will there be a replay?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>Yes. A replay recording will be available for 7 days after the event, so you can rewatch anything you missed.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-num">09</span>
+            <span class="faq-q-text">Will I get a certificate of attendance?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>No. DCCON doesn't issue certificates of attendance. What you leave with is the roadmap and the principles to apply.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-num">10</span>
+            <span class="faq-q-text">Do I need to be an Idealnovate or PDU student?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>No. You can join even if you're completely new to Idealnovate or PDU.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-num">11</span>
+            <span class="faq-q-text">What happens after I register?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>You'll get a confirmation email with buttons to add DCCON to your Google, Outlook or Apple calendar, so you get a reminder before it starts. You'll also be invited to join the DCC WhatsApp channel, where the link is posted. Your information is safe with us and is never shared with third parties.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="faq-num">12</span>
+            <span class="faq-q-text">Can my company sponsor DCCON?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            <p>Yes. Sponsors get pan-African reach, a pipeline of pre-vetted talent, and visibility on the live stream and the 7-day replay. See <a href="#sponsors">For Sponsors</a> above, then click "Become a Sponsor" to apply.</p>
+          </div></div>
+        </div>
+
+      </div>
+
+      <div class="section-cta" data-aos="fade-up">
+        <p>Seen enough? Your seat is one form away.</p>
+        <button class="btn btn-primary" type="button" onclick="openModal()">Reserve My Seat</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <img src="../Pictures/dccwhitelogo.png" alt="Digital Clinic Circle" />
+        <p>The Digital Clinic Conference: a free, live-streamed clinic to diagnose what is holding your career back, execute the fix, and monetize your skills. Organized by Idealnovate Africa in partnership with PDU Africa.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/idealnovate" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://x.com/joinidealnovate" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://linkedin.com/company/idealnovate" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://tiktok.com/@idealnovate" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.youtube.com/@idealnovate" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#why-attend">Why Attend</a></li>
+          <li><a href="#sponsors">Sponsors</a></li>
+          <li><a href="#who">Who It's For</a></li>
+          <li><a href="#expect">What to Expect</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact DCC</h4>
+        <ul>
+          <li class="contact-line"><i class="fa-solid fa-envelope"></i><a href="mailto:dcc@idealnovate.com">dcc@idealnovate.com</a></li>
+          <li class="contact-line"><i class="fa-solid fa-phone"></i><a href="tel:+2349059179421">+234 905 917 9421</a></li>
+          <li class="contact-line"><i class="fa-brands fa-whatsapp"></i><a href="https://whatsapp.com/channel/0029Vb8wUVVHVvTU7guI0O35" target="_blank" rel="noopener noreferrer">Join the WhatsApp Channel</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Digital Clinic Circle by Idealnovate Africa. All rights reserved. · <a href="../privacypolicy/index.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       REGISTRATION MODAL
+       ============================================================ -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <button class="modal-close" type="button" aria-label="Close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+        <span class="modal-kicker">DCCON · Sat 17 Oct · 12:00 PM WAT</span>
+        <h3 id="modalTitle">Reserve My Seat</h3>
+        <p>Registration is free but required to attend. Only 500 spots.</p>
+      </div>
+      <div class="modal-body">
+        <div class="form-status" id="formStatus" role="alert"></div>
+
+        <form id="dcconForm" novalidate>
+          <div class="form-row">
+            <div class="form-group" id="grp-firstName">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" autocomplete="given-name" required />
+              <span class="error-msg">Enter your first name</span>
+            </div>
+            <div class="form-group" id="grp-lastName">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" autocomplete="family-name" required />
+              <span class="error-msg">Enter your last name</span>
+            </div>
+          </div>
+
+          <div class="form-group" id="grp-email">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" autocomplete="email" required />
+            <span class="error-msg">Enter a valid email address, like name@example.com</span>
+          </div>
+
+          <div class="form-group" id="grp-phone">
+            <label for="phone">Phone Number (WhatsApp)</label>
+            <input type="tel" id="phone" autocomplete="tel" placeholder="+234 ..." required />
+            <span class="error-msg">Enter your WhatsApp number, including country code</span>
+          </div>
+
+          <div class="form-group" id="grp-gender">
+            <span class="group-label" id="genderLabel">Gender</span>
+            <div class="pill-group" role="radiogroup" aria-labelledby="genderLabel">
+              <div class="pill-option">
+                <input type="radio" name="gender" id="genderMale" value="Male" />
+                <label for="genderMale">Male</label>
+              </div>
+              <div class="pill-option">
+                <input type="radio" name="gender" id="genderFemale" value="Female" />
+                <label for="genderFemale">Female</label>
+              </div>
+            </div>
+            <span class="error-msg">Select Male or Female</span>
+          </div>
+
+          <div class="form-group" id="grp-location">
+            <label for="location">Location</label>
+            <select id="location" required>
+              <option value="" disabled selected>Select your country</option>
+              <option>Nigeria</option>
+              <option>Ghana</option>
+              <option>Kenya</option>
+              <option>South Africa</option>
+              <option>Tanzania</option>
+              <option>USA</option>
+              <option>UK</option>
+              <option>Others</option>
+            </select>
+            <span class="error-msg">Select your location</span>
+          </div>
+
+          <div class="form-group" id="grp-referral">
+            <label for="referral">How did you hear about this event?</label>
+            <select id="referral" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Facebook</option>
+              <option>Instagram</option>
+              <option>X (formerly Twitter)</option>
+              <option>WhatsApp</option>
+              <option>LinkedIn</option>
+              <option>TikTok</option>
+              <option>Telegram</option>
+              <option>Friend</option>
+            </select>
+            <span class="error-msg">Select an option</span>
+          </div>
+
+          <div class="form-group" id="grp-attend">
+            <span class="group-label" id="attendLabel">This will be a virtual event. Will you be there?</span>
+            <div class="pill-group" role="radiogroup" aria-labelledby="attendLabel">
+              <div class="pill-option">
+                <input type="radio" name="attend" id="attendYes" value="Yes" />
+                <label for="attendYes">Yes</label>
+              </div>
+              <div class="pill-option">
+                <input type="radio" name="attend" id="attendNo" value="No" />
+                <label for="attendNo">No</label>
+              </div>
+            </div>
+            <span class="error-msg">Select Yes or No</span>
+          </div>
+
+          <div class="modal-notice">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Once you register, join the <a href="https://whatsapp.com/channel/0029Vb8wUVVHVvTU7guI0O35" target="_blank" rel="noopener noreferrer">DCC WhatsApp Channel</a>. That's where the live-stream link and event updates are posted.</span>
+          </div>
+
+          <div class="modal-notice security">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Your information is safe with us and will never be shared with third parties.</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+            <span id="submitText">Reserve My Seat</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    if (typeof AOS !== 'undefined') {
+      AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic' });
+    }
+
+    // ---------- Event timing (12:00–15:30 WAT = 11:00–14:30 UTC) ----------
+    const EVENT_START = Date.UTC(2026, 9, 17, 11, 0, 0);
+    const EVENT_END   = Date.UTC(2026, 9, 17, 14, 30, 0);
+
+    // ---------- Navbar scroll state ----------
+    const navbar = document.getElementById('navbar');
+    const navLogoImg = document.getElementById('navLogoImg');
+    function updateNav() {
+      const scrolled = window.scrollY > 30;
+      navbar.classList.toggle('scrolled', scrolled);
+      navLogoImg.src = scrolled ? '../Pictures/dcclogo.png' : '../Pictures/dccwhitelogo.png';
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    // ---------- Countdown ----------
+    const pad = (n) => String(n).padStart(2, '0');
+    const cdWrap = document.getElementById('countdownWrap');
+    const cdLabel = document.getElementById('countdownLabel');
+    let cdTimer;
+    function tick() {
+      const now = Date.now();
+      if (now >= EVENT_START) {
+        clearInterval(cdTimer);
+        const live = now < EVENT_END;
+        cdWrap.innerHTML = '<span class="countdown-done">' +
+          (live ? '<i class="fa-solid fa-tower-broadcast"></i> We\'re live on YouTube now. Check your email or the WhatsApp channel for the link.'
+                : 'That\'s a wrap. Thanks for tuning in to DCCON 2026.') + '</span>';
+        return;
+      }
+      let s = Math.floor((EVENT_START - now) / 1000);
+      const d = Math.floor(s / 86400); s -= d * 86400;
+      const h = Math.floor(s / 3600);  s -= h * 3600;
+      const m = Math.floor(s / 60);    s -= m * 60;
+      document.getElementById('cdD').textContent = pad(d);
+      document.getElementById('cdH').textContent = pad(h);
+      document.getElementById('cdM').textContent = pad(m);
+      document.getElementById('cdS').textContent = pad(s);
+    }
+    tick();
+    cdTimer = setInterval(tick, 1000);
+
+    // ---------- Viewer's local start time ----------
+    try {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      if (tz && tz !== 'Africa/Lagos') {
+        const local = new Date(EVENT_START).toLocaleString(undefined, {
+          weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit', timeZoneName: 'short'
+        });
+        const el = document.getElementById('heroLocal');
+        el.innerHTML = 'Where you are, that\'s <strong>' + local + '</strong>.';
+        el.hidden = false;
+      }
+    } catch (e) { /* Intl unavailable — the time-zone strip still covers it */ }
+
+    // ---------- Mobile drawer ----------
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    function openDrawer() {
+      mobileDrawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+      mobileDrawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // ---------- FAQ accordion ----------
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      const q = item.querySelector('.faq-q');
+      const a = item.querySelector('.faq-a');
+      q.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach((openItem) => {
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+          openItem.querySelector('.faq-a').style.maxHeight = null;
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          q.setAttribute('aria-expanded', 'true');
+          a.style.maxHeight = a.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // ---------- Modal open/close ----------
+    const modalOverlay = document.getElementById('modalOverlay');
+    function openModal() {
+      modalOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => document.getElementById('firstName').focus(), 50);
+    }
+    function closeModal() {
+      modalOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      if (modalOverlay.classList.contains('active')) closeModal();
+      if (mobileDrawer.classList.contains('active')) closeDrawer();
+    });
+
+    // ---------- Form validation + submission ----------
+    const SCRIPT_URL = 'PASTE_WEB_APP_URL_HERE';
+
+    const form = document.getElementById('dcconForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitText = document.getElementById('submitText');
+    const formStatus = document.getElementById('formStatus');
+
+    function setError(id, show) {
+      document.getElementById('grp-' + id).classList.toggle('error', show);
+    }
+
+    function validate() {
+      let valid = true;
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName  = document.getElementById('lastName').value.trim();
+      const email     = document.getElementById('email').value.trim();
+      const phone     = document.getElementById('phone').value.trim();
+      const gender    = form.querySelector('input[name="gender"]:checked');
+      const location  = document.getElementById('location').value;
+      const referral  = document.getElementById('referral').value;
+      const attend    = form.querySelector('input[name="attend"]:checked');
+
+      setError('firstName', !firstName); if (!firstName) valid = false;
+      setError('lastName', !lastName); if (!lastName) valid = false;
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      setError('email', !emailOk); if (!emailOk) valid = false;
+      setError('phone', phone.length < 7); if (phone.length < 7) valid = false;
+      setError('gender', !gender); if (!gender) valid = false;
+      setError('location', !location); if (!location) valid = false;
+      setError('referral', !referral); if (!referral) valid = false;
+      setError('attend', !attend); if (!attend) valid = false;
+
+      if (!valid) {
+        const firstErr = form.querySelector('.form-group.error input, .form-group.error select');
+        if (firstErr) firstErr.focus();
+        return null;
+      }
+      return { firstName, lastName, email, phone, gender: gender.value, location, referral, attend: attend.value };
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      formStatus.className = 'form-status';
+      const data = validate();
+      if (!data) return;
+
+      if (SCRIPT_URL.indexOf('script.google.com') === -1) {
+        formStatus.classList.add('show', 'fail');
+        formStatus.textContent = 'Registration isn\'t connected yet. Add the Apps Script Web App URL to SCRIPT_URL (see DEPLOY.md).';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitText.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Reserving your seat...';
+
+      try {
+        const res = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(data)
+        });
+
+        const rawText = await res.text();
+        let result;
+        try {
+          result = JSON.parse(rawText);
+        } catch (parseErr) {
+          console.error('DCCON registration: response was not valid JSON. HTTP status:', res.status, 'Raw response:', rawText);
+          throw new Error('The registration service returned an unexpected response (not JSON). See console for the raw response.');
+        }
+
+        if (result.status === 'success') {
+          window.location.href = 'regsuccess/';
+        } else {
+          console.error('DCCON registration: server returned an error status.', result);
+          throw new Error(result.message || 'Submission failed');
+        }
+      } catch (err) {
+        console.error('DCCON registration failed:', err);
+        formStatus.classList.add('show', 'fail');
+        formStatus.textContent = 'Your seat wasn\'t reserved. Check your connection and try again. If it keeps failing, email dcc@idealnovate.com.';
+        submitBtn.disabled = false;
+        submitText.textContent = 'Reserve My Seat';
+      }
+    });
+  </script>
+</body>
+</html>
