@@ -150,4 +150,4 @@ A failed email never blocks registration. The Sheet row is written first, and er
 ## Open Items
 
 - [x] **Sheet + Script URL.** Deployed and wired in (2026-10-07).
-- [ ] **End-to-end test.** Submit one real registration on the live page. Confirm the Sheet row, the welcome email with `DCCON-2026.ics`, and the redirect to `regsuccess/`.
+- [x] **End-to-end test.** Real registration tested on the live page and confirmed working (2026-10-07).
