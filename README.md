@@ -1,6 +1,6 @@
 # Idealnovate Africa — Landing Pages
 
-This repo hosts **four separate lead-gen landing pages**, not just one. The root site below is the Data Analysis bootcamp; three more live in subfolders, each a fully independent static funnel with its own enrollment flow, backend script, and success page.
+This repo hosts **five separate lead-gen landing pages**, not just one. The root site below is the Data Analysis bootcamp; four more live in subfolders, each a fully independent static funnel with its own enrollment flow, backend script, and success page.
 
 | Site | Path | Sells |
 |---|---|---|
@@ -8,6 +8,7 @@ This repo hosts **four separate lead-gen landing pages**, not just one. The root
 | **Campus** | `campus/` | Dual-track hub — both UI/UX and Data Analysis, with a track-picker modal |
 | **AI Income Blueprint** | `aiblueprint/` | Free AI-skills course (website AI, automation, video ads, info products) |
 | **DCC Connect** | `dcc/` | Digital Clinic Circle — free community hangout event in Lagos |
+| **DCCON** | `dcclive/` | Digital Clinic Conference — free live-streamed virtual conference, 17 Oct 2026 |
 
 Each has its own `google-apps-script.gs` and `DEPLOY.md` (or, for this root site, the config below) — **Script URLs, Sheet IDs/names, and community links are NOT shared between them.** See each subfolder's `DEPLOY.md` for its specific setup.
 
@@ -23,16 +24,17 @@ IdealnovateLearn/
 ├── google-apps-script.gs    # Apps Script for form → Google Sheets + welcome email
 ├── success/
 │   └── index.html           # Post-enrollment success page
-├── Pictures/                # Shared image assets — used by ALL FOUR sites, not just this one
+├── Pictures/                # Shared image assets — used by ALL FIVE sites, not just this one
 ├── campus/                  # Dual-track landing page — see campus/DEPLOY.md
 ├── aiblueprint/              # AI Income Blueprint landing page — see aiblueprint/DEPLOY.md
 ├── dcc/                      # DCC Connect landing page — see dcc/DEPLOY.md
-└── privacypolicy/           # Shared Privacy Policy for main/campus/aiblueprint/dcc (NOT PDU — see below)
+├── dcclive/                  # DCCON (Digital Clinic Conference) landing page — see dcclive/DEPLOY.md
+└── privacypolicy/           # Shared Privacy Policy for main/campus/aiblueprint/dcc/dcclive (NOT PDU — see below)
 ```
 
 ### Privacy Policy
 
-`privacypolicy/index.html` is a single shared Privacy Policy page covering all four sites in this repo (main, campus, aiblueprint, dcc). It replaced a shared external Google Doc link that main/campus/aiblueprint's footers used to point to for "Privacy Policy" (they still point to that same Google Doc for "Terms of Service," which this page does not cover). DCC's footer previously had no legal links at all — one was added.
+`privacypolicy/index.html` is a single shared Privacy Policy page covering all five sites in this repo (main, campus, aiblueprint, dcc, dcclive). It replaced a shared external Google Doc link that main/campus/aiblueprint's footers used to point to for "Privacy Policy" (they still point to that same Google Doc for "Terms of Service," which this page does not cover). DCC's footer previously had no legal links at all — one was added.
 
 **PDU Africa is not covered by this page** — it's a separately operated site with its own Privacy Policy, linked from its own footer.
 
