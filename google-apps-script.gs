@@ -11,15 +11,18 @@
  * 4. Copy the Web App URL and paste it into index.html
  *    where it says: const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
  * 5. Each time you edit this script, click Deploy → Manage deployments → edit → new version
+ *
+ * CURRENT DEPLOYED URL (already wired into index.html):
+ * https://script.google.com/macros/s/AKfycbwcDfY6KqoKx6C_Aa7_olXT-fEkvM7R4ks7lBR6MawFGPjmz5J1xsOkOQCIOOgJcvsH/exec
  */
 
 // ── CONFIG ───────────────────────────────────────────────────────────────────
-const SHEET_NAME   = 'Data Enrollment 9';     // Tab name in your Google Sheet
-const SHEET_ID     = 'YOUR_GOOGLE_SHEET_ID'; // From the Sheet URL: /d/<THIS_PART>/edit
+const SHEET_NAME   = 'Data Enrollment 10';     // Tab name in your Google Sheet
+const SHEET_ID     = '1PHWiIAUNX9kR5r5VjuIbigwaX7jv6vbZ6WPdENlrZ1Q'; // From the Sheet URL: /d/<THIS_PART>/edit
 const FROM_NAME    = 'Idealnovate Africa';
 const REPLY_TO     = 'help@idealnovate.com';
-const COHORT_DATE  = 'August 22, 2026';
-const WHATSAPP_URL = 'https://chat.whatsapp.com/DzsjUm5Q08XLaN2Hoftbrw?s=cl&p=i&mlu=4';
+const COHORT_DATE  = 'November 1, 2026';
+const WHATSAPP_URL = 'https://chat.whatsapp.com/HDNo8or5Jk7Ix86hUIiBWc?s=cl&p=i&mlu=4&ilr=4';
 // ─────────────────────────────────────────────────────────────────────────────
 
 function doPost(e) {

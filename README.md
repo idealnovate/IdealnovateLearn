@@ -106,12 +106,12 @@ The enrollment form posts to a Google Apps Script Web App that writes each appli
 
 | Variable | Location | Current value |
 |----------|----------|--------------|
-| `SHEET_ID` | `google-apps-script.gs` | Your Google Sheet ID |
-| `SHEET_NAME` | `google-apps-script.gs` | `'Data Enrollment 9'` |
-| `SCRIPT_URL` | `index.html` JS block | Set (deployed 2026-08-12) |
+| `SHEET_ID` | `google-apps-script.gs` | `1PHWiIAUNX9kR5r5VjuIbigwaX7jv6vbZ6WPdENlrZ1Q` (set 2026-10-20) |
+| `SHEET_NAME` | `google-apps-script.gs` | `'Data Enrollment 10'` |
+| `SCRIPT_URL` | `index.html` JS block, `google-apps-script.gs` header comment | Set (redeployed 2026-10-20 — `…/AKfycbwcDfY6…cvsH/exec`) |
 | `REPLY_TO` / footer email | `google-apps-script.gs`, `index.html` footer | `help@idealnovate.com` |
-| Cohort date | `google-apps-script.gs` `COHORT_DATE`, hero float card, kickstart urgency banner + step heading | **August 22, 2026** — hardcoded in 4 places on `index.html` alone, not just the hero; grep the whole file when changing it |
-| WhatsApp community | `google-apps-script.gs` `WHATSAPP_URL`, modal notice, hero WhatsApp button, `success/index.html` | `chat.whatsapp.com/DzsjUm5Q08XLaN2Hoftbrw` |
+| Cohort date | `google-apps-script.gs` `COHORT_DATE`, hero float card, kickstart urgency banner + step heading, `success/index.html` | **November 1, 2026** — hardcoded in 3 places on `index.html` alone, not just the hero; grep the whole file when changing it |
+| WhatsApp community | `google-apps-script.gs` `WHATSAPP_URL`, modal notice, hero WhatsApp button, `success/index.html` | `chat.whatsapp.com/HDNo8or5Jk7Ix86hUIiBWc` (updated 2026-10-20) |
 
 ---
 
