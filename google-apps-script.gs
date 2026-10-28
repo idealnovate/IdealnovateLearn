@@ -22,7 +22,7 @@ const SHEET_ID     = '1PHWiIAUNX9kR5r5VjuIbigwaX7jv6vbZ6WPdENlrZ1Q'; // From the
 const FROM_NAME    = 'Idealnovate Africa';
 const REPLY_TO     = 'help@idealnovate.com';
 const COHORT_DATE  = 'November 1, 2026';
-const WHATSAPP_URL = 'https://chat.whatsapp.com/DV1h4Ep6AWxAAFloQcDxY6?s=cl&p=i&mlu=4&ilr=4';
+const WHATSAPP_URL = 'https://chat.whatsapp.com/ChZZI6DjJn4JQaPyLcFQan?s=cl&p=i&mlu=4&ilr=4&iam=2';
 // ─────────────────────────────────────────────────────────────────────────────
 
 function doPost(e) {
